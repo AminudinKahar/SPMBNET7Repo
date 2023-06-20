@@ -1,0 +1,194 @@
+﻿
+<script type="text/javascript">
+    var columnSearchVar;
+    $(document).ready(function () {
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            tablePP.columns.adjust();
+        });
+
+        var tablePP = $('.tablePP').DataTable({
+            "paging": false,
+            rowReorder: false,
+            columnDefs: [
+                { orderable: false, targets: '_all' }
+            ],
+            "scrollY": "40vh",
+            "scrollX": true,
+            "scrollCollapse": true,
+            "paging": false,
+            dom: 'lrt'
+        });
+
+        tablePP.columns.adjust();
+
+        $('#columnSearch').change(function () {
+            columnSearchVar = $(this).val();
+            // refresh table
+            tablePP.destroy();
+
+            tablePP = $('.tablePP').DataTable({
+                "paging": false,
+                rowReorder: false,
+                columnDefs: [
+                    { orderable: false, targets: '_all' }
+                ],
+                "scrollY": "40vh",
+                "scrollX": true,
+                "scrollCollapse": true,
+                "paging": false,
+                dom: 'lrt'
+            });
+
+            // refresh table end
+        });
+
+    });
+</script>
+
+@if (Model.SpPendahuluanPelbagai.Count > 0)
+{
+    <div class="card box-shadow">
+        <div class="card-header bg-transparent container-fluid">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class=" mb-0 text-info">Status Pendahuluan Pelbagai</h5>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table tablePP table-sm table-hover compact" width="100%">
+                    <caption>Rekod dipamerkan : @Model.SpPendahuluanPelbagai.Count</caption>
+                    <thead>
+                        <tr>
+                            <th hidden>Id</th>
+                            <th width="5%">Tarikh</th>
+                            <th width="10">No Permohonan</th>
+                            <th>
+                                Pemohon
+                            </th>
+                            <th>
+                                Tajuk
+                            </th>
+                            <th>
+                                Jumlah RM
+                            </th>
+                            <th width="5%">
+                                Tindakan
+                            </th>
+                            @*<th width="5%"></th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.SpPendahuluanPelbagai)
+                        {
+                            var tindakan = "KEWANGAN";
+                            var badgeType = "ac-warning";
+
+                            var namaPekerja = "";
+                            var noGaji = "";
+                            if (item.SuPekerja != null)
+                            {
+                                namaPekerja = item.SuPekerja.Nama;
+                                noGaji = item.SuPekerja.NoGaji;
+                            }
+                            @*if(item.NoSiri == null)
+                            {
+                                tindakan = "KEWANGAN";
+
+                            }
+                            else
+                            {
+                                tindakan = "LULUS";
+                                badgeType = "badge-secondary";
+                            }*@
+                            <tr class="text-uppercase ">
+                                <td hidden>@item.Id</td>
+                                <td width="5%" data-sort='YYYYMMDD'>
+                                    @item.TarMasuk.ToString("dd/MM/yyyy")
+                                </td>
+                                <td>
+                                    @item.NoPermohonan
+                                </td>
+                                <td class="text-uppercase">
+                                    @noGaji - @namaPekerja
+                                </td>
+                                <td class="text-uppercase">
+                                    @item.Aktiviti
+                                </td>
+                                <td class="text-end">
+                                    @Convert.ToDecimal(item.JumKeseluruhan).ToString("#,##0.00")
+                                </td>
+                                <td>
+                                    <div class="mt-sm-1 d-block" width="5%">
+                                        <span class="badge @badgeType rounded-pill text-white p-1 px-2">
+                                            @tindakan
+                                        </span>
+                                    </div>
+                                </td>
+                                @*<td class="action-button text-center">
+                                <div class="btn-group" role="group" aria-label="action">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn text-primary btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Ubah/Papar"><i class="fas fa-edit"></i></a>
+                                    <a asp-action="PrintPdf" asp-route-id="@item.Id" class="btn text-secondary btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Cetak" target="_blank"><i class="fas fa-print"></i></a>
+                                    @if (item.FlHapus == 0)
+                                    {
+                                        @if (item.FlPosting == 0)
+                                        {
+                                            @if (item.FlCetak != 0)
+                                            {
+
+                                                @if (item.FlStatusSokong != 0)
+                                                {
+                                                    <a data-toggle="modal" data-target="#modalPosting" class="btn text-success btn-sm bg-white" type="button" data-placement="top" title="Lulus" onclick="ModalClick(this)">
+                                                        <i class="fas fa-file-signature"></i>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a data-toggle="modal" data-target="#modalSokong" class="btn btn-sm bg-white text-purple" type="button" data-placement="top" title="Sokong" onclick="ModalClick(this)">
+                                                        <i class="fas fa-file-signature"></i>
+                                                    </a>
+                                                }
+
+                                            }
+
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn text-danger btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="fas fa-trash"></i></a>
+
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="UnPosting" asp-route-id="@item.Id" class="btn text-warning btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Baatal Lulus">
+                                                <i class="fas fa-file"></i>
+                                            </a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (User.IsInRole("Supervisor") || User.IsInRole("SuperAdmin"))
+                                        {
+                                            <a asp-action="Rollback" asp-route-id="@item.Id" class="btn text-warning btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Rollback">
+                                                <i class="fas fa-trash-restore"></i>
+                                            </a>
+
+                                        }
+                                    }
+                                    </div>
+                                </td>*@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+}
+else
+{
+
+}

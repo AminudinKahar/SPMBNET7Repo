@@ -1,0 +1,146 @@
+﻿
+@if (User.IsInRole("SuperAdmin"))
+{
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Menu Utama</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_SistemPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_JadualPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_DaftarPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_BelanjawanPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_LejarPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PenyesuaianBankPartialNavbar.cshtml" />
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Pengurusan</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PengurusanJadualPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PengurusanDaftarPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_ProfilPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PermohonanPartialNavbar.cshtml" />
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Transaksi</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~/Pages/Partials/Navbars/_01_Akaun/_InvoisPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/Navbars/_01_Akaun/_TerimaanPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/Navbars/_01_Akaun/_TanggunganPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/Navbars/_01_Akaun/_PelarasanPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/Navbars/_01_Akaun/_BaucerPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/Navbars/_01_Akaun/_TunaiRuncitPartialNavbar.cshtml" />
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Penyata</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~\Pages\Partials\NavBars\_01_Akaun\_PenyataKewanganPartialNavbar.cshtml" />
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Laporan</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~\Pages\Partials\NavBars\_01_Akaun\_LaporanPartialNavbar.cshtml" />
+        </ul>
+    </div>
+
+}
+else if (User.IsInRole("Admin"))
+{
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Menu Utama</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_SistemPartialNavbar.cshtml" />
+        </ul>
+    </div>
+
+}
+else if (User.IsInRole("Supervisor"))
+{
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Menu Utama</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_JadualPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_DaftarPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_BelanjawanPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_LejarPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PenyesuaianBankPartialNavbar.cshtml" />
+        </ul>
+    </div>
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Pengurusan</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PengurusanJadualPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PengurusanDaftarPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_ProfilPartialNavbar.cshtml" />
+            <partial name="~/Pages/Partials/NavBars/_01_Akaun/_PermohonanPartialNavbar.cshtml" />
+        </ul>
+    </div>
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Transaksi</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="_TerimaanPartialNavbar.cshtml" />
+            <partial name="_TanggunganPartialNavbar.cshtml" />
+            <partial name="_BaucerPartialNavbar.cshtml" />
+            <partial name="_TunaiRuncitPartialNavbar.cshtml" />
+        </ul>
+    </div>
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Penyata</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="_PenyataKewanganPartialNavbar.cshtml" />
+        </ul>
+    </div>
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Laporan</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="_LaporanPartialNavbar.cshtml" />
+        </ul>
+    </div>
+}
+else
+{
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Pengurusan</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="_PengurusanJadualPartialNavbar.cshtml" />
+            <partial name="_PengurusanDaftarPartialNavbar.cshtml" />
+            <partial name="_ProfilPartialNavbar.cshtml" />
+            <partial name="_PermohonanPartialNavbar.cshtml" />
+        </ul>
+    </div>
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Transaksi</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="_TerimaanPartialNavbar.cshtml" />
+            <partial name="_TanggunganPartialNavbar.cshtml" />
+            <partial name="_BaucerPartialNavbar.cshtml" />
+            <partial name="_TunaiRuncitPartialNavbar.cshtml" />
+        </ul>
+    </div>
+    <div class="form-group">
+        <p class="text-gray fw-bold text-uppercase px-3 small pb-2 mb-0">Laporan</p>
+
+        <ul class="nav flex-column l-bg-light mb-0">
+            <partial name="_LaporanPartialNavbar.cshtml" />
+        </ul>
+    </div>
+}

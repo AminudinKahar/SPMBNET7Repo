@@ -1,0 +1,25 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._01_Jadual.JBangsa
+
+
+@{
+    ViewData["Title"] = "Bangsa - Papar";
+}
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDetailsPartial.cshtml" />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Perihal)
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Perihal.ToUpper()
+            </dd>
+        </dl>
+
+        <hr />
+        <div class="form-group">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn ac-primary btn-sm">Ubah</a>
+            <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+        </div>
+    </div>
+</div>

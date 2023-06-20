@@ -1,0 +1,132 @@
+﻿@model IEnumerable<SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.ViewModels.SublejarPembekalViewModel>
+
+@{
+    ViewData["Title"] = "Cetakan Belanjawan Semasa";
+    Layout = "~/Views/Shared/_PrintLayout.cshtml";
+
+    CompanyDetails company = new CompanyDetails();
+
+    var bil = 0;
+
+    decimal JumBayaran = 0;
+    decimal JumHutang = 0;
+    decimal JumBaki = 0;
+
+}
+<style>
+
+    .topic tr {
+        line-height: 0.5rem;
+    }
+
+    .center {
+        padding: 70px 0;
+        border: 3px solid green;
+        text-align: center;
+    }
+
+    .notbold {
+        font-weight: normal
+    }
+
+    .max-lines {
+        display: block; /* or inline-block */
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 5.8em;
+    }
+
+    .breakhere {
+        page-break-after: always
+    }
+
+    thead {
+        display: table-header-group
+    }
+
+    tfoot {
+        display: table-row-group
+    }
+
+    tr {
+        page-break-inside: avoid
+    }
+</style>
+
+<div class="row flexrow mb-1 text-center">
+    <div class="col-12 text-uppercase">
+        <img class="image-container mb-2" src="~/img/@ViewData["CompanyLogoPrintPDF"]" alt="Logo syarikat" />
+        <h5 class="mb-1"><strong>@company.NamaSyarikat</strong></h5>
+        <p class="mb-0"> @company.AlamatSyarikat1 , @company.AlamatSyarikat2</p>
+        <p class="mb-0"> @company.AlamatSyarikat3</p>
+        <p class="mb-0">Tarikh Cetakan: @DateTime.Now.Date.ToString("dd/MM/yyyy") @DateTime.Now.ToString("t", CultureInfo.CreateSpecificCulture("en-us"))</p>
+    </div>
+
+</div>
+
+<br />
+<table class="table table-bordered table-sm topic">
+    <thead>
+        <tr class="bg-dark text-white">
+            <th colspan="11" class="text-center bg-dark text-white">
+                <strong>
+                    SUBLEJAR PENGHUTANG @ViewData["Penghutang"]
+                    <br />
+                    DARI TARIKH : @ViewData["TarDari"] SEHINGGA @ViewData["TarHingga"]
+                </strong>
+            </th>
+        </tr>
+        <tr style="line-height:0.8rem;" class="bg-secondary text-white">
+
+            <th width="2%">Bil</th>
+            <th width="5%">Tarikh</th>
+            <th width="30%">Rujukan</th>
+            <th width="5%">Bayaran RM</th>
+            <th width="5%">Hutang RM</th>
+            <th width="5%">Baki RM</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var tabletype = "";
+
+            bil++;
+            JumBayaran = JumBayaran + item.Bayaran;
+            JumHutang = JumHutang + item.Hutang;
+            JumBaki = JumBaki + item.Bayaran - item.Hutang;
+
+            <tr class="@tabletype" style="line-height:0.8rem; page-break-before:avoid;">
+                <td>@bil</td>
+                <td>
+                    @item.Tarikh.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.Rujukan
+                </td>
+                <td class="text-right">
+                    @Convert.ToDecimal(item.Bayaran).ToString("#,##0.00")
+                </td>
+                <td class="text-right">
+                    @Convert.ToDecimal(item.Hutang).ToString("#,##0.00")
+                </td>
+                <td class="text-right">
+                    @Convert.ToDecimal(item.Baki).ToString("#,##0.00")
+                </td>
+            </tr>
+        }
+        <tr class="table-warning">
+            <td colspan="3" class="font-weight-bold text-uppercase text-right">Jumlah RM</td>
+            <td class="font-weight-bold text-right">
+                @Convert.ToDecimal(JumBayaran).ToString("#,##0.00")
+            </td>
+            <td class="font-weight-bold text-right">
+                @Convert.ToDecimal(JumHutang).ToString("#,##0.00")
+            </td>
+            <td class="font-weight-bold text-right">
+                @Convert.ToDecimal(JumBaki).ToString("#,##0.00")
+            </td>
+        </tr>
+    </tbody>
+</table>

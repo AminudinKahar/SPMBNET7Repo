@@ -1,0 +1,153 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.AkTunaiRuncit
+
+@{
+    ViewData["Title"] = "Pem. Tunai Runcit - Papar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal baki = 0;
+}
+<partial name="_JSDetails" />
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDetailsPartial.cshtml" />
+        <div class="row g-3">
+            <div class="col-md-6 ps-md-3">
+                <div class="row g-3">
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label asp-for="JKWId" class="control-label"></label><span class="text-danger control-label">*</span>
+                            <select class="form-control form-control-sm" asp-for="JKWId" disabled id="ddlKW">
+                                @foreach (var s in ViewBag.JKW)
+                                {
+                                    <option value="@s.Id">@s.Kod - @s.Perihal </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="KaunterPanjar" class="control-label"></label>
+                            <input id="txtNoRujukan" asp-for="KaunterPanjar" class="form-control form-control-sm" readonly />
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="AkCartaId" class="control-label"></label><span class="text-danger control-label">*</span>
+                            <select class="form-control select2 form-control-sm" asp-for="AkCartaId" disabled id="ddlAkCarta">
+                                @foreach (var s in ViewBag.AkCarta)
+                                {
+                                    <option value="@s.Id">@s.Kod - @s.Perihal </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Catatan</label>
+                    <textarea class="form-control form-control-sm text-uppercase" rows="2" readonly>@Model.Catatan</textarea>
+                </div>
+
+                <div class="row g-3" hidden>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Baki</label>
+                            <input name="Baki" class="form-control form-control-sm" value="0.00" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Pada</label>
+                            <input name="TarikhBaki" class="form-control form-control-sm" type="date" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @*table Tunai Pemegang*@
+                <div class="card box-shadow mb-3">
+                    <div class="card-header">
+                        <h6>Pemegang Tunai</h6>
+                    </div>
+                    <div class="card-body">
+                        <table id="tblTunaiPemegang" class="table table-sm nowrap" cellpadding="0" cellspacing="0">
+                            <tbody id="tbodyTunaiPemegang">
+                                @foreach (var item in ViewBag.akTunaiPemegang)
+                                {
+                                    <tr id="@item.Id">
+                                        <td id="suPekerjaId" hidden>@item.SuPekerjaId</td>
+                                        <td class="text-uppercase">@item.SuPekerja.NoGaji - @item.SuPekerja.Nama</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                @*table Tunai Pemegang end*@
+            </div>
+        </div>
+        @*table Tunai Lejar*@
+        <div class="card box-shadow mb-3">
+            <div class="card-header">
+                <h6>Lejar Tunai Runcit</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tblTunaiLejar" class="table table-hover table-sm compact" width="100%">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th hidden></th>
+                                <th>Tarikh</th>
+                                <th>KW</th>
+                                <th>Akaun</th>
+                                <th>Rujukan</th>
+                                <th>Debit RM</th>
+                                <th>Kredit RM</th>
+                                <th>Baki RM</th>
+                                <th>No Rekup</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyTunaiLejar">
+
+                            @foreach (var item in ViewBag.akTunaiLejar)
+                            {
+                                baki = baki + item.Debit - item.Kredit;
+                                <tr id="@item.Id">
+                                    <td hidden>@item.Id</td>
+                                    <td width="5%" data-sort='YYYYMMDD'>@item.Tarikh.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.JKW.Kod</td>
+                                    <td>@item.AkCarta.Kod - @item.AkCarta.Perihal</td>
+                                    <td>@item.NoRujukan</td>
+                                    <td class="text-end">
+                                        @Convert.ToDecimal(item.Debit).ToString("#,##0.00")
+                                    </td>
+                                    <td class="text-end">
+                                        @Convert.ToDecimal(item.Kredit).ToString("#,##0.00")
+                                    </td>
+                                    <td class="text-end">
+                                        @Convert.ToDecimal(baki).ToString("#,##0.00")
+                                    </td>
+                                    <td>@item.Rekup</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        @*table Tunai Pemegang end*@
+
+        <hr />
+        <div class="form-group">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn ac-primary btn-sm">Ubah</a>
+            <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+        </div>
+    </div>
+</div>

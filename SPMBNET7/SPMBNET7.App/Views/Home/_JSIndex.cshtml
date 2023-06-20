@@ -1,0 +1,21 @@
+﻿<script type="text/javascript">
+    function LoadPushNotificationData() {
+        var option = '';
+        $("#push-notification-list").html("");
+    $.ajax({
+        url: '@Url.Action("JsonGetNotificationList", "Home")',
+        method: 'GET',
+        success: function (msg) {
+
+            $.each(msg.result, (k, v) => {
+
+                option += `<a class="btn dropdown-item nav-link" href="#" >Pengguna ${v.username} : ${v.message}</a>`
+            })
+
+        },
+        error: (error) => {
+            console.log(error)
+        }
+    });
+}
+</script>

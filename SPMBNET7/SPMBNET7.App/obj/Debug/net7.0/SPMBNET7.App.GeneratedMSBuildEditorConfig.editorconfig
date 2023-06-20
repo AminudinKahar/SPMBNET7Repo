@@ -1,0 +1,1453 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SPMBNET7.App
+build_property.RootNamespace = SPMBNET7.App
+build_property.ProjectDir = C:\Users\Amin Idwal\source\SPMBNET7\SPMBNET7.App\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\Amin Idwal\source\SPMBNET7\SPMBNET7.App
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Common/_SearchJadualIndexPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcQ29tbW9uXF9TZWFyY2hKYWR1YWxJbmRleFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Common/_TitleCreatePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcQ29tbW9uXF9UaXRsZUNyZWF0ZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Common/_TitleDeletePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcQ29tbW9uXF9UaXRsZURlbGV0ZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Common/_TitleDetailsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcQ29tbW9uXF9UaXRsZURldGFpbHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Common/_TitleEditPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcQ29tbW9uXF9UaXRsZUVkaXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Common/_TitleIndexPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcQ29tbW9uXF9UaXRsZUluZGV4UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_BaucerPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX0JhdWNlclBhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_BelanjawanPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX0JlbGFuamF3YW5QYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_DaftarPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX0RhZnRhclBhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_InvoisPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX0ludm9pc1BhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_JadualPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX0phZHVhbFBhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_LaporanPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX0xhcG9yYW5QYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_LejarPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX0xlamFyUGFydGlhbE5hdmJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_PelarasanPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1BlbGFyYXNhblBhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_PengurusanDaftarPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1Blbmd1cnVzYW5EYWZ0YXJQYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_PengurusanJadualPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1Blbmd1cnVzYW5KYWR1YWxQYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_PenyataKewanganPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1BlbnlhdGFLZXdhbmdhblBhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_PenyesuaianBankPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1Blbnllc3VhaWFuQmFua1BhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_PermohonanPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1Blcm1vaG9uYW5QYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_ProfilPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1Byb2ZpbFBhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_SistemPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1Npc3RlbVBhcnRpYWxOYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_TanggunganPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1RhbmdndW5nYW5QYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_TerimaanPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1RlcmltYWFuUGFydGlhbE5hdmJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_01_Akaun/_TunaiRuncitPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfMDFfQWthdW5cX1R1bmFpUnVuY2l0UGFydGlhbE5hdmJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_AkaunPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfQWthdW5QYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/NavBars/_LoginPartialNavbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcTmF2QmFyc1xfTG9naW5QYXJ0aWFsTmF2YmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Widgets/_GrafJumlahKutipanBayaranTahunIni.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcV2lkZ2V0c1xfR3JhZkp1bWxhaEt1dGlwYW5CYXlhcmFuVGFodW5JbmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Widgets/_StatusNotaMintaWidget.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcV2lkZ2V0c1xfU3RhdHVzTm90YU1pbnRhV2lkZ2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Widgets/_StatusPendahuluanPelbagaiWidget.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcV2lkZ2V0c1xfU3RhdHVzUGVuZGFodWx1YW5QZWxiYWdhaVdpZGdldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Widgets/_StatusPOWidget.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcV2lkZ2V0c1xfU3RhdHVzUE9XaWRnZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/Partials/Widgets/_StatusProfilWidget.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydGlhbHNcV2lkZ2V0c1xfU3RhdHVzUHJvZmlsV2lkZ2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBelanjawanSemasa/BelanjawanSemasaPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCZWxhbmphd2FuU2VtYXNhXEJlbGFuamF3YW5TZW1hc2FQcmludFBERi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBelanjawanSemasa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCZWxhbmphd2FuU2VtYXNhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBelanjawanSemasa/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCZWxhbmphd2FuU2VtYXNhXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBukuVot/BukuVotDetailsPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCdWt1Vm90XEJ1a3VWb3REZXRhaWxzUHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBukuVot/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCdWt1Vm90XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBukuVot/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCdWt1Vm90XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBukuVot/_JSDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCdWt1Vm90XF9KU0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbBukuVot/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJCdWt1Vm90XF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/WaranPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxXYXJhblByaW50UERGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/_JSDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxfSlNEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxfSlNFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AbWaran/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJXYXJhblxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/ForgotPasswordError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/ProfileSetting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlU2V0dGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Account/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkAkaun/LejarAkaunPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtBa2F1blxMZWphckFrYXVuUHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkAkaun/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtBa2F1blxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBank/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCYW5rXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBank/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCYW5rXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBank/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCYW5rXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBank/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCYW5rXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBank/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCYW5rXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBank/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCYW5rXF9KU0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBank/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCYW5rXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cX0pTRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkBelian/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtCZWxpYW5cX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/IndenAsalPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxJbmRlbkFzYWxQcmludFBkZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/IndenPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxJbmRlblByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/IndenSalinanPembekalPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxJbmRlblNhbGluYW5QZW1iZWthbFByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxfSlNFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInden/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbmRlblxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/InvoisPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcSW52b2lzUHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcX0pTRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkInvois/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtJbnZvaXNcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cX0pTRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaDebitKreditBelian/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhRGViaXRLcmVkaXRCZWxpYW5cX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/EditKewangan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcRWRpdEtld2FuZ2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/NotaMintaPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcTm90YU1pbnRhUHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/_JSDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcX0pTRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcX0pTRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkNotaMinta/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtOb3RhTWludGFcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/SublejarPembekalPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxTdWJsZWphclBlbWJla2FsUHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPembekal/_SublejarPembekalTab.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW1iZWthbFxfU3VibGVqYXJQZW1iZWthbFRhYi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/SublejarPenghutangPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXFN1YmxlamFyUGVuZ2h1dGFuZ1ByaW50UERGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXF9KU0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenghutang/_SublejarPenghutangTab.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW5naHV0YW5nXF9TdWJsZWphclBlbmdodXRhbmdUYWIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenyataPemungut/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW55YXRhUGVtdW5ndXRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenyataPemungut/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW55YXRhUGVtdW5ndXRcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenyataPemungut/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW55YXRhUGVtdW5ndXRcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenyataPemungut/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW55YXRhUGVtdW5ndXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenyataPemungut/PenyataPemungutPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW55YXRhUGVtdW5ndXRcUGVueWF0YVBlbXVuZ3V0UHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenyataPemungut/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW55YXRhUGVtdW5ndXRcX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPenyataPemungut/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQZW55YXRhUGVtdW5ndXRcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/POLarasPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXFBPTGFyYXNQcmludFBERi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXF9KU0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXF9KU0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPOLaras/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT0xhcmFzXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/POAsalPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xQT0FzYWxQcmludFBkZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/POPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xQT1ByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/POSalinanPembekalPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xQT1NhbGluYW5QZW1iZWthbFByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/_JSDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xfSlNEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xfSlNFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPO/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQT1xfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/CreateAm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxDcmVhdGVBbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/CreatePanjar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxDcmVhdGVQYW5qYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/CreatePekerja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxDcmVhdGVQZWtlcmphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/PVPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxQVlByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/PVSalinanAuditPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxQVlNhbGluYW5BdWRpdFByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/PVSalinanKewanganPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxQVlNhbGluYW5LZXdhbmdhblByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/PVSalinanPenerimaPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxQVlNhbGluYW5QZW5lcmltYVByaW50UGRmLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/_JSDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxfSlNEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxfSlNFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkPV/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtQVlxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/CreateAm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcQ3JlYXRlQW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/CreatePekerja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcQ3JlYXRlUGVrZXJqYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/TerimaanAsalPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcVGVyaW1hYW5Bc2FsUHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/TerimaanPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcVGVyaW1hYW5QcmludFBkZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/TerimaanSalinanPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcVGVyaW1hYW5TYWxpbmFuUHJpbnRQREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcX0pTRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTerima/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUZXJpbWFcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxIZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/TunaiRuncitPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxUdW5haVJ1bmNpdFByaW50UERGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/_JSDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxfSlNEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxfSlNFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkTunaiRuncit/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtUdW5haVJ1bmNpdFxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AppLog/AppLogPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwTG9nXEFwcExvZ1ByaW50UERGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AppLog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwTG9nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AppLog/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwTG9nXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Home/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Home/UnderMaintainance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVbmRlck1haW50YWluYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Home/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JAgama/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkFnYW1hXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JAgama/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkFnYW1hXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JAgama/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkFnYW1hXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JAgama/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkFnYW1hXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JAgama/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkFnYW1hXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JAgama/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkFnYW1hXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBahagian/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhaGFnaWFuXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBahagian/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhaGFnaWFuXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBahagian/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhaGFnaWFuXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBahagian/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhaGFnaWFuXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBahagian/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhaGFnaWFuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBahagian/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhaGFnaWFuXF9KU0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBahagian/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhaGFnaWFuXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBangsa/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmdzYVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBangsa/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmdzYVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBangsa/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmdzYVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBangsa/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmdzYVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBangsa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmdzYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBangsa/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmdzYVxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBank/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmtcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBank/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmtcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBank/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmtcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBank/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmtcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBank/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmtcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JBank/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkJhbmtcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JCaraBayar/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkNhcmFCYXlhclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JCaraBayar/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkNhcmFCYXlhclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JCaraBayar/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkNhcmFCYXlhclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JCaraBayar/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkNhcmFCYXlhclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JCaraBayar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkNhcmFCYXlhclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JCaraBayar/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSkNhcmFCYXlhclxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JKW/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSktXXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JKW/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSktXXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JKW/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSktXXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JKW/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSktXXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JKW/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSktXXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JKW/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSktXXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JNegeri/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSk5lZ2VyaVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JNegeri/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSk5lZ2VyaVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JNegeri/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSk5lZ2VyaVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JNegeri/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSk5lZ2VyaVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JNegeri/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSk5lZ2VyaVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JNegeri/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSk5lZ2VyaVxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPelulus/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbHVsdXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPelulus/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbHVsdXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPelulus/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbHVsdXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPelulus/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbHVsdXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPelulus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbHVsdXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPelulus/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbHVsdXNcX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPelulus/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbHVsdXNcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPenyemak/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbnllbWFrXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPenyemak/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbnllbWFrXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPenyemak/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbnllbWFrXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPenyemak/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbnllbWFrXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPenyemak/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbnllbWFrXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPenyemak/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbnllbWFrXF9KU0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPenyemak/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBlbnllbWFrXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPTJ/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBUSlxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPTJ/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBUSlxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPTJ/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBUSlxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPTJ/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBUSlxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPTJ/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBUSlxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JPTJ/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlBUSlxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JSukan/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlN1a2FuXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JSukan/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlN1a2FuXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JSukan/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlN1a2FuXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JSukan/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlN1a2FuXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JSukan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlN1a2FuXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JSukan/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlN1a2FuXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JTahapAktiviti/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlRhaGFwQWt0aXZpdGlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JTahapAktiviti/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlRhaGFwQWt0aXZpdGlcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JTahapAktiviti/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlRhaGFwQWt0aXZpdGlcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JTahapAktiviti/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlRhaGFwQWt0aXZpdGlcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JTahapAktiviti/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlRhaGFwQWt0aXZpdGlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/JTahapAktiviti/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSlRhaGFwQWt0aXZpdGlcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Shared/Account/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY291bnRcX0xvZ2luTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Shared/_Favicons.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9GYXZpY29ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Shared/_Notifications.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Shared/_PrintLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QcmludExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SiAppInfo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lBcHBJbmZvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SiAppInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lBcHBJbmZvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/PendahuluanPelbagaiPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXFBlbmRhaHVsdWFuUGVsYmFnYWlQcmludFBERi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXF9KU0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXF9KU0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SpPendahuluanPelbagai/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BQZW5kYWh1bHVhblBlbGJhZ2FpXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxfSlNFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuAtlet/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VBdGxldFxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcX0pTRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuJurulatih/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VKdXJ1bGF0aWhcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXF9KU0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXF9KU0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuPekerja/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQZWtlcmphXF9KU0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/SuProfilAtletPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxTdVByb2ZpbEF0bGV0UHJpbnRQZGYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxfSlNDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxfSlNFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilAtlet/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxBdGxldFxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/SuProfilJurulatihPrintPdf.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcU3VQcm9maWxKdXJ1bGF0aWhQcmludFBkZi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/_JSCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcX0pTQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/_JSEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcX0pTRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/SuProfilJurulatih/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VQcm9maWxKdXJ1bGF0aWhcX0pTSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/User/ManageUserClaims.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNYW5hZ2VVc2VyQ2xhaW1zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/User/_JSIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfSlNJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkAkaun/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtBa2F1blxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-sps6pskb44
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/AkCarta/ListCartaPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWtDYXJ0YVxMaXN0Q2FydGFQcmludFBERi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-lnz6k2ev3b
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Home/PermohonanCapaianPrintPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQZXJtb2hvbmFuQ2FwYWlhblByaW50UERGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-jraxh43soc
+
+[C:/Users/Amin Idwal/source/SPMBNET7/SPMBNET7.App/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ugvtb3csht

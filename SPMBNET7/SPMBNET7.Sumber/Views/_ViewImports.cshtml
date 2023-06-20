@@ -1,0 +1,22 @@
+﻿@using SPMBNET7.Sumber
+@using SPMBNET7.Sumber.Data
+@using SPMBNET7.Infrastructure.Math
+@using SPMBNET7.Infrastructure.Services
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.EntityFrameworkCore;
+@using System.Globalization;
+@using System.Threading.Tasks
+@using SPMBNET7.CoreBusiness.Models.Modules._00_Sistem;
+@using SPMBNET7.CoreBusiness.Models.Modules._01_Jadual;
+@using SPMBNET7.CoreBusiness.Models.Modules._02_Akaun;
+@using SPMBNET7.CoreBusiness.Models.Modules._03_Sumber;
+@using SPMBNET7.CoreBusiness.Models.Modules._91_Permohonan;
+@using SPMBNET7.CoreBusiness.Models.Administrations;
+
+@namespace SPMBNET7.Sumber.Views
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject ApplicationDbContext _context
+@inject IHttpContextAccessor _http

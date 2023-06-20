@@ -1,0 +1,8 @@
+.debit[b-sps6pskb44], .kredit[b-sps6pskb44], .total[b-sps6pskb44], .thdebit[b-sps6pskb44], .thkredit[b-sps6pskb44], .thtotal[b-sps6pskb44] {
+    text-align: right;
+}
+
+.bil[b-sps6pskb44], .thbil[b-sps6pskb44] {
+    text-align: center;
+}
+

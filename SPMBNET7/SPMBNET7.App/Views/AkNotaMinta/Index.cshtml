@@ -1,0 +1,331 @@
+﻿@model IEnumerable<SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.ViewModels.AkNotaMintaViewModel>
+
+
+@{
+    ViewData["Title"] = "Nota Minta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+<partial name="_JSIndex" />
+
+<div class="card box-shadow">
+    <div class="loading">
+        <img class="loading-image" src="~/img/loading.gif" alt="Loading..." />
+    </div>
+    <div class="card card-body border main-page" hidden>
+        <partial name="~/Pages/Partials/Common/_TitleIndexPartial.cshtml" />
+
+        @*div carian*@
+        <div class="card mb-2">
+            <div class="card-body ps-3 pb-2 ">
+                <label class="form-control-plaintext" for="searchselect">Carian : </label>
+
+                <div class="form-actions no-color mb-2">
+                    <form asp-action="Index" method="get">
+                        <div class="row g-3">
+                            <div class="col-sm-3 mb-2">
+                                <select class="form-select form-control-sm"
+                                        name="searchColumn"
+                                        asp-items="@ViewBag.SearchColumn" id="searchColumn"></select>
+                            </div>
+                            <div class="col-sm-9 mb-2">
+                                <div class="row g-3">
+                                    <div class="col-10">
+                                        <div class="row g-3">
+                                            <div class="col-12" id="myInputString">
+                                                <input class="form-control form-control-sm" type="text" name="searchString" id="myInput" value="@ViewBag.SearchData1" />
+                                            </div>
+                                            <div class="col-6" id="myInputDate1">
+                                                <input class="form-control form-control-sm mb-2" type="date" name="searchDate1" id="inputTarikh1" value="@ViewBag.SearchData1" />
+                                            </div>
+                                            <div class="col-6" id="myInputDate2">
+                                                <input class="form-control form-control-sm" type="date" name="searchDate2" id="inputTarikh2" value="@ViewBag.SearchData2" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="submit" class="btn text-info btn-sm" data-toggle="tooltip" data-placement="top" title="Cari"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @*div carian end*@
+
+        @*div table*@
+
+        @if (Model != null && Model.Count() > 0)
+        {
+            <div class="table-responsive">
+                <table class="table table-hover table-sm compact" width="100%">
+                    <caption>Rekod dipamerkan : @Model.Count()</caption>
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>
+                                Bil
+                            </th>
+                            <th hidden>Id</th>
+                            <th width="5%">
+                                No Rujukan
+                            </th>
+                            <th width="5%">
+                                No Siri
+                            </th>
+                            <th>
+                                Pemohon
+                            </th>
+                            <th width="10%">
+                                @Html.DisplayNameFor(model => model.Tarikh)
+                            </th>
+                            <th width="5%">
+                                @Html.DisplayNameFor(model => model.Jumlah)
+                            </th>
+                            <th>
+                                Nama / Nama Syarikat
+                            </th>
+                            <th>
+                                Tajuk
+                            </th>
+                            <th>
+                                Cetak
+                            </th>
+                            <th class="action-button"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var namaUser = _context.applicationUsers.FirstOrDefault(x => x.Email == item.UserId);
+                            var pekerja = _context.SuPekerja.FirstOrDefault(x => x.Id == namaUser!.SuPekerjaId);
+                            var nama = "";
+                            if (pekerja == null)
+                            {
+                                nama = "SuperAdmin";
+                            }
+                            else
+                            {
+                                nama = pekerja.Nama;
+                            }
+
+                            var tabletype = item.FlHapus == 1 ? "table-danger" : null;
+                            <tr class="@tabletype">
+                                <td>
+                                </td>
+                                <td hidden> @item.Id</td>
+                                <td>
+                                    @item.NoRujukan.Substring(3)
+                                </td>
+                                <td>
+                                    @item.NoSiri
+                                </td>
+                                <td class="text-uppercase">
+                                    @nama
+                                </td>
+                                <td>
+                                    @item.Tarikh.ToString("dd/MM/yyyy")
+                                </td>
+                                <td class="text-right">
+                                    @Convert.ToDecimal(item.Jumlah).ToString("#,##0.00")
+                                </td>
+                                <td class="text-uppercase">
+                                    @item.NamaSykt
+                                </td>
+                                <td class="text-uppercase">
+                                    @item.Tajuk
+                                </td>
+                                <td>
+                                    @if (item.FlCetak == 0)
+                                    {
+                                        <label class="mb-0">BELUM</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="mb-0">SUDAH</label>
+                                    }
+                                </td>
+                                <td class="action-button text-center">
+                                    <div class="btn-group" role="group" aria-label="action">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn text-primary btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Ubah/Papar"><i class="fas fa-edit"></i></a>
+                                        <a asp-action="PrintPdf" asp-route-id="@item.Id" asp-route-syscode="SPPB" class="btn text-secondary btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Cetak" target="_blank"><i class="fas fa-print"></i></a>
+                                        @if (item.FlHapus == 0)
+                                        {
+                                            @if (item.FlPosting == 0)
+                                            {
+                                                @if (item.Jumlah != 0)
+                                                {
+                                                    @if (item.Jumlah == item.JumlahPerihal && item.FlCetak != 0)
+                                                    {
+
+                                                        @if (item.FlStatusSemak != 0)
+                                                        {
+                                                            <button data-toggle="modal" data-target="#modalPosting" class="btn text-success btn-sm bg-white" type="button" data-placement="top" title="Lulus" onclick="ModalClick(this)">
+                                                                <i class="fas fa-file-signature"></i>
+                                                            </button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button data-toggle="modal" data-target="#modalSemak" class="btn btn-sm bg-white text-purple" type="button" data-placement="top" title="Semak" onclick="ModalClick(this)">
+                                                                <i class="fas fa-file-signature"></i>
+                                                            </button>
+                                                        }
+                                                    }
+                                                }
+
+                                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn text-danger btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="fas fa-trash"></i></a>
+
+                                            }
+                                            else
+                                            {
+                                                <a asp-action="UnPosting" asp-route-id="@item.Id" asp-route-syscode="SPPB" class="btn text-warning btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Batal Lulus">
+                                                    <i class="fas fa-file"></i>
+                                                </a>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (User.IsInRole("Supervisor") || User.IsInRole("SuperAdmin"))
+                                            {
+                                                <a asp-action="Rollback" asp-route-id="@item.Id" asp-route-syscode="SPPB" class="btn text-info btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Rollback">
+                                                    <i class="fas fa-trash-restore"></i>
+                                                </a>
+
+                                            }
+                                        }
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        @*div table end*@
+    </div>
+</div>
+
+
+<!-- Modal Semak -->
+<div class="modal fade bd-example-modal-lg" id="modalSemak" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="color:#a54ea8;">
+                <h5 class="modal-title">Semak Nota Minta</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form asp-action="Semak" asp-controller="AkNotaMinta" class="needs-validation">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="modal-body">
+                    <input hidden name="syscode" value="SPPB" />
+                    <input hidden name="id" class="moId" />
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-form-label">No Nota Minta</label>
+                                <input type="text" class="form-control form-control-sm moNoRujukan" name="noRujukan" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Jumlah RM</label>
+                                <input type="text" class="form-control form-control-sm moJumlah" name="jumlah" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label name="penyemakId" class="col-form-label">Penyemak</label>
+                                <select class="form-control form-control-sm text-uppercase" name="penyemakId" id="ddlPenyemak">
+                                    @foreach (var s in ViewBag.JPenyemak)
+                                    {
+                                        <option value="@s.Id">@s.SuPekerja.Nama </option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-form-label">Tarikh Disemak</label>
+                                <input type="datetime-local" class="form-control form-control-sm moTarikhSemak" name="tarikhSemak">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn ac-danger btn-sm" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn ac-success btn-sm">Semak</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Semak End -->
+<!-- Modal Posting -->
+<div class="modal fade bd-example-modal-lg" id="modalPosting" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="color:#a54ea8;">
+                <h5 class="modal-title">Kelulusan Nota Minta</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form asp-action="Posting" asp-controller="AkNotaMinta" class="needs-validation">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="modal-body">
+                    <input hidden name="syscode" value="SPPB"/>
+                    <input hidden name="id" class="moId" />
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-form-label">No Nota Minta</label>
+                                <input type="text" class="form-control form-control-sm moNoRujukan" name="noRujukan" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-form-label">Jumlah RM</label>
+                                <input type="text" class="form-control form-control-sm moJumlah" name="jumlah" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label name="pelulusId" class="col-form-label">Pelulus</label>
+                                <select class="form-control form-control-sm text-uppercase" name="pelulusId" id="ddlPelulus">
+                                    @foreach (var s in ViewBag.JPelulus)
+                                    {
+                                        <option value="@s.Id">@s.SuPekerja.Nama </option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-form-label">Tarikh Diluluskan</label>
+                                <input type="datetime-local" class="form-control form-control-sm moTarikhLulus" name="tarikhLulus">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn ac-danger btn-sm" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn ac-success btn-sm">Lulus</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Posting End -->

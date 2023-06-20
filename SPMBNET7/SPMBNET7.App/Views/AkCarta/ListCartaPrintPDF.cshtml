@@ -1,0 +1,105 @@
+﻿@model IEnumerable<SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.AkCarta>
+
+@{
+    ViewData["Title"] = "Cetakan Senarai Carta Akaun";
+    Layout = "~/Views/Shared/_PrintLayout.cshtml";
+
+    var bil = 0;
+}
+
+<div class="row flexrow mb-1 text-center">
+    <div class="col-12 text-uppercase">
+        <img class="image-container mb-2" src="~/img/@ViewData["CompanyLogoPrintPDF"]" alt="Logo syarikat" />
+        <h5 class="mb-1"><strong>@ViewData["NamaSyarikat"]</strong></h5>
+        <p class="mb-0"> @ViewData["AlamatSyarikat1"], @ViewData["AlamatSyarikat2"]</p>
+        <p class="mb-0"> @ViewData["AlamatSyarikat3"]</p>
+        <p class="mb-0">Tarikh Cetakan: @DateTime.Now.Date.ToString("dd/MM/yyyy") @DateTime.Now.ToString("t", CultureInfo.CreateSpecificCulture("en-us"))</p>
+    </div>
+
+</div>
+<br />
+    <table class="table table-bordered table-sm topic">
+        <thead>
+            <tr class="bg-dark text-white">
+                <th colspan="11" class="text-center bg-dark text-white" style="line-height: 1.8rem;"><strong>CETAKAN LOG PENGGUNA</strong></th>
+            </tr>
+            <tr style="line-height:0.8rem;" class="bg-secondary text-white">
+
+                <th>Bil</th>
+                <th class="kod">
+                    @Html.DisplayNameFor(model => model.Kod)
+                </th>
+                <th class="perihal">
+                    @Html.DisplayNameFor(model => model.Perihal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JJenis)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.JParas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DebitKredit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UmumDetail)
+                </th>
+                <th align="right">
+                    @Html.DisplayNameFor(model => model.Baki)
+                </th>
+                <th>
+                    Catatan
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var tabletype = item.JParas!.Kod == "1" ? "table-purple" :
+                item.JParas.Kod == "2" ? "table-warning" :
+                item.JParas.Kod == "3" ? "table-info" : null;
+                bil++;
+                <tr class="@tabletype" style="line-height:0.8rem; page-break-before:avoid;">
+                    <td>
+                        @bil
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kod)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Perihal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JJenis!.Nama)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JParas.Kod)
+                    </td>
+                    
+                        @if (item.DebitKredit.ToString() == "D")
+                        {
+                            <td>DEBIT</td>
+                        }
+                        else if (item.DebitKredit.ToString() == "K")
+                        {
+                            <td>KREDIT</td>
+                        }
+
+                        @if (item.UmumDetail.ToString() == "U")
+                        {
+                            <td>UMUM</td>
+                        }
+                        else if (item.UmumDetail.ToString() == "D")
+                        {
+                            <td>DETAIL</td>
+                        }
+                    <td align="right">
+                        @Html.DisplayFor(modelItem => item.Baki)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Catatan1)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

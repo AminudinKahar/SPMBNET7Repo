@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SPMBNET7.CoreBusiness.Models.Modules._01_Jadual.JTahapAktiviti>
+
+
+@{
+    ViewData["Title"] = "Tahap Aktiviti";
+}
+
+<div class="card box-shadow">
+    <div class="loading">
+        <img class="loading-image" src="~/img/loading.gif" alt="Loading..." />
+    </div>
+    <div class="card card-body border main-page" hidden>
+        <partial name="~/Pages/Partials/Common/_TitleIndexPartial.cshtml" />
+
+        <partial name="~/Pages/Partials/Common/_SearchJadualIndexPartial.cshtml" />
+
+        @if (Model != null && Model.Count() > 0)
+        {
+            <div class="table-responsive">
+                <table class="table table-hover table-sm compact" width="100%">
+                    <caption>Rekod dipamerkan : @Model.Count()</caption>
+                    <thead class="table-light">
+                        <tr>
+                            <th width="5%">Bil</th>
+                            <th class="perihal">
+                                @Html.DisplayNameFor(model => model.Perihal)
+                            </th>
+                            <th width="5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>
+                                    @item.Perihal.ToUpper()
+                                </td>
+                                <td width="5%" class="text-center">
+                                    <div class="btn-group" role="group" aria-label="action">
+                                        <a asp-action="Details" asp-route-id="@item.Id"
+                                           class="btn text-primary btn-sm bg-white" type="button"
+                                           data-toggle="tooltip" data-placement="top"
+                                           title="Ubah/Papar"><i class="fas fa-edit"></i></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id"
+                                           class="btn text-danger btn-sm bg-white" type="button"
+                                           data-toggle="tooltip" data-placement="top"
+                                           title="Hapus"><i class="fas fa-trash"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+
+    </div>
+
+</div>

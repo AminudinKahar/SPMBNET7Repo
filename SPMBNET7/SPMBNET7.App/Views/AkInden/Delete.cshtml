@@ -1,0 +1,246 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.AkInden
+
+
+@{
+    ViewData["Title"] = "Inden Kerja - Hapus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDeletePartial.cshtml" />
+        <p class="text-danger">Anda pasti untuk menghapuskan maklumat berikut?</p>
+        <div class="row g-3">
+            <div class="col-lg-10">
+                <div class="row g-3">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label asp-for="Tahun" class="control-label"></label>
+                            <input class="form-control form-control-sm" value="@Model.Tahun" readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="JKWId" class="control-label"></label>
+                            <input class="form-control form-control-sm text-uppercase" value="@Model.JKW?.Kod - @Model.JKW?.Perihal " readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="JBahagianId" class="control-label"></label>
+                            <input class="form-control form-control-sm text-uppercase" value="@Model.JBahagian?.Kod - @Model.JBahagian?.Perihal " readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label asp-for="Tarikh" class="control-label"></label>
+                            <input class="form-control form-control-sm" value="@Model.Tarikh.ToString("dd/MM/yyyy")" readonly />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">No Inden</label>
+                            <input class="form-control form-control-sm" value="@Model.NoInden" readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AkNotaMintaId" class="control-label"></label>
+                            <select class="form-control form-control-sm select2" asp-for="AkNotaMintaId" id="ddlNotaMinta" disabled>
+                                <option value="" hidden>-- Pilih Nota Minta --</option>
+                                @foreach (var s in ViewBag.AkNotaMinta)
+                                {
+                                    <option value="@s.Id">@s.NoSiri - @s.NoRujukan </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">No Pembekal</label>
+                            <input class="form-control form-control-sm" value="@Model.AkPembekal?.KodSykt" readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="control-label">Nama Pembekal</label>
+                            <input class="form-control form-control-sm text-uppercase" value="@Model.AkPembekal?.NamaSykt" readonly />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Alamat</label>
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.AkPembekal?.Alamat1 " readonly />
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.AkPembekal?.Alamat2 " readonly />
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.AkPembekal?.Alamat3 " readonly />
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Poskod</label>
+                            <input class="form-control form-control-sm" value="@Model.AkPembekal?.Poskod " readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Bandar</label>
+                            <input class="form-control form-control-sm text-uppercase" value="@Model.AkPembekal?.Bandar " readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Tel</label>
+                            <input class="form-control form-control-sm" value="@Model.AkPembekal?.Telefon1 " readonly />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Emel</label>
+                            <input class="form-control form-control-sm" value="@Model.AkPembekal?.Emel " readonly />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="card mb-2">
+                    <div class="card-body p-1 ms-3">
+                        <div class="form-group col-sm">
+                            <label asp-for="FlPosting" class="control-label"></label>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlPosting" type="radio" id="FlPosting1" name="FlPosting" class="custom-control-input" value="0" checked>
+                                <label class="custom-control-label" for="FlPosting">Belum</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlPosting" type="radio" id="FlPosting2" name="FlPosting" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="FlPosting">Sudah</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body p-1 ms-3">
+                        <div class="form-group col-sm">
+                            <label asp-for="FlHapus" class="control-label"></label>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlHapus" type="radio" id="FlHapus1" name="FlHapus1" class="custom-control-input" value="0" checked>
+                                <label class="custom-control-label" for="FlHapus">Tidak</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlHapus" type="radio" id="FlHapus1" name="FlHapus" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="FlHapus">Ya</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*table Objek*@
+        <div class="card box-shadow mb-3">
+            <div class="card-header">
+                <h6>Objek</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+
+                    <table id="tblObjek" class="table table-sm" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:70%">Kod</th>
+                                <th style="width:30%">Amaun RM</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyObjek">
+                            @foreach (var item in ViewBag.akInden1)
+                            {
+                                <tr id="@item.Id">
+                                    <td id="akCartaId" hidden>@item.AkCartaId</td>
+                                    <td class="text-uppercase">@item.AkCarta.Kod - @item.AkCarta.Perihal</td>
+                                    <td class="text-end" id="td1Amaun">@Convert.ToDecimal(item.Amaun).ToString("#,##0.00")</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        @*table Objek end*@
+
+        @*table perihal*@
+        <div class="card box-shadow mb-3 mt-2">
+            <div class="card-header">
+                <h6>Perihal</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive-md">
+                    <table id="tblPerihal" class="table table-sm" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th >Bil</th>
+                                <th >No Stok</th>
+                                <th >Perihal</th>
+                                <th >Kuantiti</th>
+                                <th >Unit</th>
+                                <th >Harga RM/Unit</th>
+                                <th >Amaun RM</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyPerihal">
+                            @foreach (var item in ViewBag.akInden2)
+                            {
+                                <tr>
+                                    <td class="text-end">@item.Bil</td>
+                                    <td >@item.NoStok</td>
+                                    <td class="text-uppercase">@item.Perihal</td>
+                                    <td class="text-end">@item.Kuantiti</td>
+                                    <td class="text-uppercase">@item.Unit</td>
+                                    <td class="text-end">@Convert.ToDecimal(item.Harga).ToString("#,##0.00")</td>
+                                    <td class="text-end">@Convert.ToDecimal(item.Amaun).ToString("#,##0.00")</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+        @*table perihal end*@
+        <hr />
+        <div class="form-group">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input name="syscode" value="SPPB" hidden />
+                @if (Model.FlPosting == 1)
+                {
+                }
+                else
+                {
+                    <input type="submit" value="Hapus" class="btn btn-danger btn-sm" />
+                }
+
+                <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+            </form>
+
+        </div>
+    </div>
+</div>

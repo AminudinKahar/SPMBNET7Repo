@@ -1,0 +1,11 @@
+﻿<li class="nav-item">
+    <a class="nav-link collapsed text-truncate
+    @Html.ActiveClass("SuProfilAtlet")
+    @Html.ActiveClass("SuProfilJurulatih")" href="#submenuProfil" data-toggle="collapse" data-target="#submenuProfil"><img src="~/img/svg/profil.svg" class="fa fa-pull-left fa-0 icon-bar"><span>&nbsp; Profil</span></a>
+    <div class="collapse" id="submenuProfil" aria-expanded="false">
+        <ul class="flex-column ps-2 nav">
+            <li class="nav-item"><a class="nav-link border-bottom py-1 ms-3 @Html.ActiveSideBarClass("SuProfilAtlet")" asp-controller="SuProfilAtlet" asp-action="Index"><span>Skim Kecemerlangan Atlet</span></a></li>
+            <li class="nav-item"><a class="nav-link py-1 ms-3 @Html.ActiveSideBarClass("SuProfilJurulatih")" asp-controller="SuProfilJurulatih" asp-action="Index"><span>Elaun JSM</span></a></li>
+        </ul>
+    </div>
+</li>

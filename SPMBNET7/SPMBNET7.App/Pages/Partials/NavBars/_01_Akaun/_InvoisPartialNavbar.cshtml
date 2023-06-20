@@ -1,0 +1,15 @@
+﻿@{
+    @using SPMBNET7.Infrastructure.Services
+}
+
+<li class="nav-item">
+    <a class="nav-link collapsed text-truncate
+    @Html.ActiveClass("AkInvois")" href="#submenuInvois" data-toggle="collapse" data-target="#submenuInvois">
+        <img src="~/img/svg/invois.svg" class="fa fa-pull-left fa-0 icon-bar"><span>&nbsp; Invois</span>
+    </a>
+    <div class="collapse" id="submenuInvois" aria-expanded="false">
+        <ul class="flex-column ps-2 nav">
+            <li class="nav-item"><a class="nav-link py-1 ms-3 @Html.ActiveSideBarClass("AkInvois")" asp-controller="AkInvois" asp-action="Index"><span>Inbois Dikeluarkan</span></a></li>
+        </ul>
+    </div>
+</li>

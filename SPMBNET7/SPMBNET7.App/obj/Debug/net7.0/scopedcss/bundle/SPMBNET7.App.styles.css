@@ -1,0 +1,135 @@
+/* _content/SPMBNET7.App/Views/AkAkaun/Index.cshtml.rz.scp.css */
+.debit[b-sps6pskb44], .kredit[b-sps6pskb44], .total[b-sps6pskb44], .thdebit[b-sps6pskb44], .thkredit[b-sps6pskb44], .thtotal[b-sps6pskb44] {
+    text-align: right;
+}
+
+.bil[b-sps6pskb44], .thbil[b-sps6pskb44] {
+    text-align: center;
+}
+
+/* _content/SPMBNET7.App/Views/AkCarta/ListCartaPrintPDF.cshtml.rz.scp.css */
+.topic tr[b-lnz6k2ev3b] {
+    line-height: 0.5rem;
+}
+
+.center[b-lnz6k2ev3b] {
+    padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
+}
+
+.notbold[b-lnz6k2ev3b] {
+    font-weight: normal
+}
+
+.max-lines[b-lnz6k2ev3b] {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 5.8em;
+}
+
+.breakhere[b-lnz6k2ev3b] {
+    page-break-after: always
+}
+
+thead[b-lnz6k2ev3b] {
+    display: table-header-group
+}
+
+tfoot[b-lnz6k2ev3b] {
+    display: table-row-group
+}
+
+tr[b-lnz6k2ev3b] {
+    page-break-inside: avoid
+}
+/* _content/SPMBNET7.App/Views/Home/PermohonanCapaianPrintPDF.cshtml.rz.scp.css */
+
+.topic tr[b-jraxh43soc] {
+    line-height: 0.5rem;
+}
+
+.center[b-jraxh43soc] {
+    padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
+}
+
+.notbold[b-jraxh43soc] {
+    font-weight: normal
+}
+
+.max-lines[b-jraxh43soc] {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 5.8em;
+}
+
+.breakhere[b-jraxh43soc] {
+    page-break-after: always
+}
+
+thead[b-jraxh43soc] {
+    display: table-header-group
+}
+
+tfoot[b-jraxh43soc] {
+    display: table-row-group
+}
+
+tr[b-jraxh43soc] {
+    page-break-inside: avoid
+}
+/* _content/SPMBNET7.App/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-ugvtb3csht] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-ugvtb3csht] {
+  color: #0077cc;
+}
+
+.btn-primary[b-ugvtb3csht] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-ugvtb3csht], .nav-pills .show > .nav-link[b-ugvtb3csht] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-ugvtb3csht] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-ugvtb3csht] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-ugvtb3csht] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-ugvtb3csht] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-ugvtb3csht] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

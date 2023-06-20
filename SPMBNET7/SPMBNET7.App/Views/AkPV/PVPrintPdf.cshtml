@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Cetakan Baucer Pembayaran";
+    Layout = "~/Views/Shared/_PrintLayout.cshtml";
+}
+<style>
+
+    .topic tr {
+        line-height: 0.5rem;
+    }
+
+    .center {
+        padding: 70px 0;
+        border: 3px solid green;
+        text-align: center;
+    }
+
+    .notbold {
+        font-weight: normal
+    }
+
+    .breakhere {
+        page-break-after: always
+    }
+</style>
+<partial name="PVSalinanPenerimaPrintPdf" />
+<P CLASS="breakhere">
+<partial name="PVSalinanKewanganPrintPdf" />
+<P CLASS="breakhere">
+<partial name="PVSalinanAuditPrintPdf" />

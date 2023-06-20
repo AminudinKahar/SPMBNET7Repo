@@ -1,0 +1,107 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.AkCarta
+
+@{
+    ViewData["Title"] = "Carta Akaun - Papar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDetailsPartial.cshtml" />
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label asp-for="JKW" class="control-label"></label>
+                        <input class="form-control form-control-sm"
+                               value="@Html.DisplayFor(model => model.JKW!.Kod) - @Html.DisplayFor(model => model.JKW!.Perihal)" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="JJenis" class="control-label"></label>
+                        <input class="form-control form-control-sm"
+                               value="@Html.DisplayFor(model => model.JJenis!.Kod) - @Html.DisplayFor(model => model.JJenis!.Nama)" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="JParas" class="control-label"></label>
+                        <input class="form-control form-control-sm"
+                               value="PARAS @Html.DisplayFor(model => model.JParas!.Kod)" readonly />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label asp-for="Perihal" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.Perihal)" readonly />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label asp-for="Baki" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.Baki)" readonly />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md">
+                        <label class="control-label">Catatan</label>
+                        <textarea class="form-control form-control-sm" rows="2">@Html.DisplayFor(model => model.Catatan1)</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="card mb-2">
+                        <div class="card-body ps-3 pr-3 pt-2">
+
+                            <label class="control-label">Maklumat Tambahan : </label>
+                            <div class="custom-control custom-radio">
+                                <input type="checkbox" data-val="true" id="IsBajet" asp-for="IsBajet" disabled>
+                                <input name="IsBajet" hidden value="false">
+                                <label class="control-label">Kod akaun ini terlibat dengan peruntukan</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md" hidden>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.Catatan2)" readonly />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="card mb-2 p-2">
+                    <div class="card-body p-1">
+                        <div class="form-group col-sm ps-2">
+                            <label asp-for="DebitKredit" class="control-label"></label>
+                            <div class="custom-control custom-radio ">
+                                <input asp-for="DebitKredit" type="radio" id="DebitKredit1" name="DebitKredit" class="custom-control-input" value="D" disabled>
+                                <label class="custom-control-label" for="DebitKredit1">Debit</label>
+                            </div>
+                            <div class="custom-control custom-radio ">
+                                <input asp-for="DebitKredit" type="radio" id="DebitKredit2" name="DebitKredit" class="custom-control-input" value="K" disabled>
+                                <label class="custom-control-label" for="DebitKredit2">Kredit</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-2 p-2">
+                    <div class="card-body p-1">
+                        <div class="form-group col-sm ps-2">
+                            <label asp-for="UmumDetail" class="control-label"></label>
+                            <div class="custom-control custom-radio ">
+                                <input asp-for="UmumDetail" type="radio" id="UmumDetail1" name="UmumDetail" class="custom-control-input" value="U" disabled>
+                                <label class="custom-control-label" for="UmumDetail1">Umum</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="UmumDetail" type="radio" id="UmumDetail2" name="UmumDetail" class="custom-control-input" value="D" disabled>
+                                <label class="custom-control-label" for="UmumDetail2">Detail</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="form-group">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn ac-primary btn-sm">Ubah</a>
+            <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+        </div>
+    </div>
+</div>

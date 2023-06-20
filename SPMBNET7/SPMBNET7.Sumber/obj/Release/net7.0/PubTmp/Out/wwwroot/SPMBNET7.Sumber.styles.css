@@ -1,0 +1,88 @@
+/* _content/SPMBNET7.Sumber/Views/Home/PermohonanCapaianPrintPDF.cshtml.rz.scp.css */
+
+.topic tr[b-1zgzgdhyoi] {
+    line-height: 0.5rem;
+}
+
+.center[b-1zgzgdhyoi] {
+    padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
+}
+
+.notbold[b-1zgzgdhyoi] {
+    font-weight: normal
+}
+
+.max-lines[b-1zgzgdhyoi] {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 5.8em;
+}
+
+.breakhere[b-1zgzgdhyoi] {
+    page-break-after: always
+}
+
+thead[b-1zgzgdhyoi] {
+    display: table-header-group
+}
+
+tfoot[b-1zgzgdhyoi] {
+    display: table-row-group
+}
+
+tr[b-1zgzgdhyoi] {
+    page-break-inside: avoid
+}
+/* _content/SPMBNET7.Sumber/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-c68e2mwqyl] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-c68e2mwqyl] {
+  color: #0077cc;
+}
+
+.btn-primary[b-c68e2mwqyl] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-c68e2mwqyl], .nav-pills .show > .nav-link[b-c68e2mwqyl] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-c68e2mwqyl] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-c68e2mwqyl] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-c68e2mwqyl] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-c68e2mwqyl] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-c68e2mwqyl] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

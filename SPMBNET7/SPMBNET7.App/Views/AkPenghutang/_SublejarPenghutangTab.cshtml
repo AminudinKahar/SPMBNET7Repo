@@ -1,0 +1,178 @@
+﻿<script type="text/javascript">
+    var columnSearchVar;
+    $(document).ready(function () {
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            tableSub.columns.adjust();
+        });
+
+        var tableSub = $('.tableSub').DataTable({
+            "paging": false,
+            rowReorder: false,
+            columnDefs: [
+                { orderable: false, targets: '_all' }
+            ],
+            "scrollY": "40vh",
+            "scrollX": true,
+            "scrollCollapse": true,
+            "paging": false,
+            dom: 'lrtip',
+            "language": {
+                "info": "_TOTAL_ entri yang dipamerkan",
+                "infoEmpty": "Tiada data untuk dipamerkan",
+                "infoFiltered": " - ditapis daripada _MAX_ jumlah keseluruhan rekod"
+            }
+        });
+
+        tableSub.columns.adjust();
+
+        $('#columnSearch').change(function () {
+            columnSearchVar = $(this).val();
+            // refresh table
+            tableSub.destroy();
+
+            tableSub = $('.tableSub').DataTable({
+                "paging": false,
+                rowReorder: false,
+                columnDefs: [
+                    { orderable: false, targets: '_all' }
+                ],
+                "scrollY": "40vh",
+                "scrollX": true,
+                "scrollCollapse": true,
+                "paging": false,
+                dom: 'lrtip',
+                "language": {
+                    "info": "_TOTAL_ entri yang dipamerkan",
+                    "infoEmpty": "Tiada data untuk dipamerkan",
+                    "infoFiltered": " - ditapis daripada _MAX_ jumlah keseluruhan rekod"
+                }
+            });
+
+            // refresh table end
+        });
+
+    });
+
+    function printPDF() {
+        var pembekalId = $("#Id").val();
+        var searchFrom = $("#searchFrom").val();
+        var searchTo = $("#searchTo").val();
+        var URL = "@Url.Action("PrintSublejarPenghutangPdf", "akPenghutang")?id=" + pembekalId +
+            "&searchFrom=" + searchFrom + "&searchTo=" + searchTo;
+        $('<a href="' + URL + '" target="_blank"></a>')[0].click();
+    }
+</script>
+
+<div class="card mb-2">
+    <div class="card-body pl-3 pb-2 ">
+        <div class="form-actions no-color mb-2">
+            <form asp-action="Details" method="get" class="needs-validation" novalidate>
+                <div class="form-actions no-color ">
+                    <input type="hidden" name="id" value="@ViewData["PenghutangId"]" id="Id" />
+                    <div class="row g-3">
+                        <div class="col-md-2">
+                            <div class="input-group input-group-sm ">
+                                <label class="form-control-label">Tarikh:</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="input-group mb-2 input-group-sm ">
+                                <span class="input-group-text">Dari</span>
+                                <input class="form-control form-control-sm" type="date" name="searchFrom" value="@ViewData["searchFrom"]" required id="searchFrom" />
+                                <label class="invalid-feedback">Sila isi ruangan ini.</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="input-group mb-2 input-group-sm ">
+                                <span class="input-group-text">Hingga</span>
+                                <input class="form-control form-control-sm" type="date" name="searchTo" value="@ViewData["searchTo"]" required id="searchTo" />
+                                <label class="invalid-feedback">Sila isi ruangan ini.</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                <button type="submit" class="btn text-info btn-sm" data-toggle="tooltip" data-placement="top" title="Cari"><i class="fas fa-search"></i></button>
+                                <a class="btn text-success btn-sm" onclick="printPDF()" href="" id="printButton" target="_blank"><i class="fas fa-print"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@if (Model.Sublejar.Count > 0)
+{
+
+    <div class="table-responsive">
+        <table class="table table-hover table-sm compact" width="100%">
+            <caption>Rekod dipamerkan : @Model.Sublejar.Count</caption>
+            <thead class="table-secondary">
+                <tr>
+                    <th hidden>Id</th>
+                    <th width="5%">Tarikh</th>
+                    <th width="40%">Rujukan</th>
+                    <th width="5%">
+                        Bayaran RM
+                    </th>
+                    <th width="5%">
+                        Hutang RM
+                    </th>
+                    <th width="5%">
+                        Baki RM
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Sublejar)
+                {
+
+                    <tr class="text-uppercase ">
+                        <td hidden>@item.Id</td>
+                        <td width="5%">
+                            @item.Tarikh.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.Rujukan
+                        </td>
+                        <td class="text-end">
+                            @Convert.ToDecimal(item.Bayaran).ToString("#,##0.00")
+                        </td>
+                        <td class="text-end">
+                            @Convert.ToDecimal(item.Hutang).ToString("#,##0.00")
+                        </td>
+                        <td class="text-end">
+                            @Convert.ToDecimal(item.Baki).ToString("#,##0.00")
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                <tr class="text-uppercase fw-bold text-end">
+                    <td colspan="2" >JUMLAH RM</td>
+                    <td>
+                        @Convert.ToDecimal(Model.JumBayaran).ToString("#,##0.00")
+                    </td>
+                    <td>
+                        @Convert.ToDecimal(Model.JumHutang).ToString("#,##0.00")
+                    </td>
+                    <td>
+                        @Convert.ToDecimal(Model.JumBayaran - Model.JumHutang).ToString("#,##0.00")
+                    </td>
+
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+}
+else
+{
+
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SPMBNET7.Sumber.props" />
+</Project>

@@ -1,0 +1,225 @@
+﻿@model SPMBNET7.App.Pages.PrintModels._02_Akaun.WaranPrintModel
+
+@{
+    ViewData["Title"] = "Cetakan Waran";
+    Layout = "~/Views/Shared/_PrintLayout.cshtml";
+    var bahagian = "";
+}
+<style>
+
+    .topic tr {
+        line-height: 0.5rem;
+    }
+
+    .center {
+        padding: 70px 0;
+        border: 3px solid green;
+        text-align: center;
+    }
+
+    .notbold {
+        font-weight: normal
+    }
+
+    .max-lines {
+        display: block; /* or inline-block */
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 5.8em;
+    }
+
+    .breakhere {
+        page-break-after: always
+    }
+
+    thead {
+        display: table-header-group
+    }
+
+    tfoot {
+        display: table-row-group
+    }
+
+    tr {
+        page-break-inside: avoid
+    }
+</style>
+<div class="row flexrow mb-1 ml-1">
+    <div class="col-2 image-container">
+        <img src="~/img/@ViewData["CompanyLogoPrintPDF"]" alt="Logo syarikat" />
+    </div>
+    <div class="col-8 text-uppercase">
+        <h5 class="mb-1"><strong>@Model.CompanyDetail.NamaSyarikat</strong></h5>
+        <p class="mb-0"> @Model.CompanyDetail.AlamatSyarikat1 , @Model.CompanyDetail.AlamatSyarikat2</p>
+        <p class="mb-0"> @Model.CompanyDetail.AlamatSyarikat3</p>
+        <p class="mb-0"> Tel: @Model.CompanyDetail.TelSyarikat   Faks: @Model.CompanyDetail.FaksSyarikat</p>
+        <p class="mb-0">Tarikh Cetakan: @DateTime.Now.Date.ToString("dd/MM/yyyy") @DateTime.Now.ToString("t", CultureInfo.CreateSpecificCulture("en-us"))</p>
+    </div>
+
+    <div class="col-2 text-right">
+        <h3 class="mb-0"><strong>WARAN</strong></h3>
+        @switch (Model.AbWaran.FlJenisWaran)
+        {
+            case 0:
+                <h5 class="mb-0 text-gray text-uppercase"><strong>Peruntukan Asal</strong></h5>
+                break;
+            case 1:
+                <h5 class="mb-0 text-gray text-uppercase"><strong>Peruntukan Tambah/ Tarik Balik</strong></h5>
+                break;
+            default:
+                <h5 class="mb-0 text-gray text-uppercase"><strong>Peruntukan Pindahan</strong></h5>
+                break;
+        }
+
+        @*<h6 class="mb-0">NO PO:</h6>
+            <h6 class="mb-0 ">@Model.AkPO.NoPO</h6>
+            <h6 class="mb-0">TARIKH PESANAN TEMPATAN: @Html.DisplayFor(x => x.AkPO.Tarikh, "{0:dd/MM/yyyy}")</h6>*@
+    </div>
+</div>
+<br />
+
+<div class="row flexrow mb-1">
+    <div class="col-8 text-center text-uppercase">
+        <h5 class="mb-1"><strong>Tahun Kewangan @Model.AbWaran.Tahun</strong></h5>
+    </div>
+</div>
+<div class="table-responsive-sm mb-0">
+    <table class="table table-bordered table-sm topic">
+        <tbody>
+            <tr>
+                <td class="text-center text-uppercase font-weight-bold" width="15%">No Rujukan</td>
+                <td class="text-center text-uppercase font-weight-bold" width="15%">Tarikh</td>
+                <td class="text-center text-uppercase font-weight-bold" width="25%">Kumpulan Wang </td>
+            </tr>
+            <tr>
+                <td class="text-center font-weight-bold" style="font-size:1.2rem;">@Model.AbWaran.NoRujukan.Substring(3)</td>
+                <td class="text-center font-weight-bold" width="15%">@Convert.ToDateTime(Model.AbWaran.Tarikh).ToString("dd/MM/yyyy")</td>
+                <td class="text-center text-uppercase">@Model.AbWaran.JKW?.Kod - @Model.AbWaran.JKW?.Perihal</td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<table class="table table-bordered table-sm topic">
+    <tbody class="text-left">
+        <tr>
+            <td class="font-weight-bold">Catatan</td>
+            <td width="90%">@Model.AbWaran.Catatan</td>
+        </tr>
+    </tbody>
+</table>
+
+@if (Model.AbWaran != null && Model.AbWaran.AbWaran1 != null && Model.AbWaran.AbWaran1.Count() > 0)
+{
+    <table class="table table-bordered table-sm topic">
+        <thead class="text-center">
+            <tr>
+                <th>TK</th>
+                <th>BHG.</th>
+                <th>KOD</th>
+                <th>OBJEK</th>
+                <th>AMAUN</th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.AbWaran.AbWaran1)
+        {
+            if (Model.AbWaran.JBahagianId != null)
+            {
+                bahagian = Model.AbWaran.JBahagian?.Kod;
+            }
+            else
+            {
+                bahagian = item.JBahagian?.Kod;
+            }
+
+            <tr>
+                <td class="text-center">@item.TK</td>
+                <td class="text-center">@bahagian</td>
+                <td class="text-center">@item.AkCarta?.Kod</td>
+                <td class="text-uppercase">@item.AkCarta?.Perihal</td>
+                <td align="right">@Convert.ToDecimal(item.Amaun).ToString("#,##0.00")</td>
+            </tr>
+            @*<tr class="bg-light">
+                    <td class="text-right">JUMLAH OBJEK (RM)</td>
+                    <td class="text-right">@Convert.ToDecimal(@Model.AkPO.Jumlah).ToString("#,##0.00")</td>
+                </tr>*@
+        }
+        <tr class="font-weight-bold">
+            <td class="text-right" colspan="4">Jumlah RM</td>
+            <td class="text-right">@Convert.ToDecimal(Model.AbWaran.Jumlah).ToString("#,##0.00")</td>
+        </tr>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+
+}
+
+
+<br />
+
+<div class="table-responsive-sm mb-0">
+    <table class="table table-bordered table-sm topic">
+        <thead class="text-center">
+            <tr class="bg-dark text-white font-weight-bold">
+
+                <td class="text-center"><h6 class="mb-0"><strong>UNTUK KEGUNAAN BAHAGIAN KEWANGAN</strong></h6></td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div class="table-responsive-sm">
+    <table class="table table-sm topic table-bordered">
+        <thead class="table-dark">
+
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center" width="33%">Disedia </td>
+                <td class="text-center" width="33%">Disemak </td>
+                <td class="text-center" width="33%">Diluluskan </td>
+            </tr>
+            <tr>
+                @if (string.IsNullOrEmpty(Model.TandatanganSedia))
+                {
+                    <td class="text-center" height="50px"></td>
+                }
+                else
+                {
+                    <td class="text-center" height="50px">
+                        <span>
+                            <img src="~/img/signature/@Model.TandatanganSedia" class="sign" alt="signature1" />
+                        </span>
+                    </td>
+                }
+
+                <td class="text-center" height="50px"></td>
+                <td class="text-center" height="50px"></td>
+
+            </tr>
+            <tr>
+                <td class="text-left">Nama:</td>
+                <td class="text-left">Nama:</td>
+                <td class="text-left">Nama:</td>
+
+            </tr>
+            <tr>
+                <td class="text-left">Jawatan:</td>
+                <td class="text-left">Jawatan:</td>
+                <td class="text-left">Jawatan:</td>
+
+            </tr>
+            <tr>
+                <td class="text-left">Tarikh: @DateTime.Now</td>
+                <td class="text-left">Tarikh:</td>
+                <td class="text-left">Tarikh:</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

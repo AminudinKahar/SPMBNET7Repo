@@ -1,0 +1,38 @@
+
+.topic tr[b-1zgzgdhyoi] {
+    line-height: 0.5rem;
+}
+
+.center[b-1zgzgdhyoi] {
+    padding: 70px 0;
+    border: 3px solid green;
+    text-align: center;
+}
+
+.notbold[b-1zgzgdhyoi] {
+    font-weight: normal
+}
+
+.max-lines[b-1zgzgdhyoi] {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 5.8em;
+}
+
+.breakhere[b-1zgzgdhyoi] {
+    page-break-after: always
+}
+
+thead[b-1zgzgdhyoi] {
+    display: table-header-group
+}
+
+tfoot[b-1zgzgdhyoi] {
+    display: table-row-group
+}
+
+tr[b-1zgzgdhyoi] {
+    page-break-inside: avoid
+}

@@ -1,0 +1,15 @@
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\bin\Release\net7.0\SPMBNET7.Infrastructure.deps.json
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\bin\Release\net7.0\SPMBNET7.Infrastructure.dll
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\bin\Release\net7.0\SPMBNET7.Infrastructure.pdb
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\bin\Release\net7.0\SPMBNET7.CoreBusiness.dll
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\bin\Release\net7.0\SPMBNET7.CoreBusiness.pdb
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.AssemblyInfo.cs
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.csproj.CopyComplete
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.dll
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\refint\SPMBNET7.Infrastructure.dll
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\SPMBNET7.Infrastructure.pdb
+C:\Users\Amin Idwal\source\repos\SPMBNET7\SPMBNET7.Infrastructure\obj\Release\net7.0\ref\SPMBNET7.Infrastructure.dll

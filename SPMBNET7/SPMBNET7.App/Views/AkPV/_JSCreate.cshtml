@@ -1,0 +1,2129 @@
+﻿<script type="text/javascript">
+
+    var ganda = false;
+
+        // on change kod pembekal
+    $("body").on('change', "#moGandaAnggota, #moGandaAtlet, #moGandaJurulatih", function () {
+
+        var kodPenerima = "0";
+        var kategoriPenerima = $('input[name="FlKategoriPenerima"]:checked').val();
+        var url = '';
+
+        switch (kategoriPenerima) {
+            case "1":
+                kodPenerima = $("#moGandaAnggota").val();
+                url = '@Url.Action("JsonGetPekerja", "AkPV")'
+                break;
+            case "2":
+                kodPenerima = $("#moGandaAtlet").val();
+                url = '@Url.Action("JsonGetAtlet", "AkPV")'
+                break;
+            case "3":
+                kodPenerima = $("#moGandaJurulatih").val();
+                url = '@Url.Action("JsonGetJurulatih", "AkPV")'
+                break;
+        }
+
+        if (kodPenerima != null) {
+            JsonModalKodPenerima(kodPenerima, kategoriPenerima, url);
+        } else {
+            //enable field
+            $("#moGandaNoKP").prop('readonly', false);
+            $("#moGandaNama").prop('readonly', false);
+            $("#moGandaNoAkaun").prop('readonly', false);
+
+            //empty field
+            $("#moGandaNoKP").val('');
+            $("#moGandaNama").val('');
+            $("#moGandaCaraBayar").val(0).change();
+            $("#moGandaBank").val(0).change();
+            $("#moGandaNoAkaun").val('');
+            $("#moGandaNoCekEFT").val('');
+            $("moGandaTarCekEFT").val('');
+            $("moGandaAmaun").val('');
+
+        }
+
+    });
+
+    function JsonModalKodPenerima(kodPenerima, kategoriPenerima, url) {
+        if (kodPenerima != '0') {
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: { data: kodPenerima },
+                dataType: "json",
+                success: function (msg) {
+                    if (msg.record != null) {
+
+                        $("#moGandaNoKP").val(msg.record.noKp);
+                        $("#moGandaNama").val(msg.record.nama);
+                        $("#moGandaNoAkaun").val(msg.record.noAkaun ?? msg.record.noAkaunBank);
+                        $("#moGandaCaraBayar").val(msg.record.jCaraBayarId).change();
+                        $("#moGandaBank").val(msg.record.jBankId).change();
+                    }
+
+                }
+            });
+        }
+    }
+    //on change Kod Pembekal end
+
+    // on change no Rujukan
+    $("body").on('change', "#ddlKW , #Tarikh", function () {
+        var kodkw = $("#ddlKW").val();
+        var date = $('#Tarikh').val().split("-");
+        var year = date[0];
+        var month = date[1];
+        if (kodkw != 0) {
+            JsonKod(kodkw, year,month);
+        }
+
+    });
+
+    function JsonKod(id, year, month) {
+        $.ajax({
+            type: "POST",
+            //url: "/AkPV/JsonGetKod",
+            url: '@Url.Action("JsonGetKod", "AkPV")',
+            data: { data: id, year: year, month: month },
+            dataType: "json",
+            success: function (msg) {
+                $("#txtNoRujukan").val(msg.record);
+            },
+            error: function (req, status, error) {
+                alert(error);
+            }
+        });
+    }
+    // on change no Rujukan end
+
+     // on change kod Panjar
+    $("body").on('change', "#ddlTunaiRuncit", function () {
+        var kodKaunter = $("#ddlTunaiRuncit").val();
+
+        $("table tbody#tbodyObjek").empty();
+        // radio button panjar is checked
+        if ($("#4").prop("checked")) {
+            if (kodKaunter != 0) {
+                $.ajax({
+                    type: "POST",
+                    //url: "/AkPV/JsonGetKod",
+                    url: '@Url.Action("JsonGetPanjar", "AkPV")',
+                    data: { data: kodKaunter },
+                    dataType: "json",
+                    success: function (msg) {
+                        $.ajax({
+                            type: "POST",
+                            //url: "/AkPV/JsonGetKod",
+                            url: '@Url.Action("JsonGetNoRekup", "AkPV")',
+                            data: { data: kodKaunter },
+                            dataType: "json",
+                            success: function (r) {
+                                $("#txtPerihal").val("WANG PANJAR");
+                                $("#txtNoRekup").val(r.record);
+
+                                if (r.objek === undefined) {
+                                } else {
+                                    displayObjekListFromRekup(r.objek);
+                                }
+
+                                $("#ddlKW").val(msg?.record?.jkwId).change();
+                                $("#ddlJBank").val(msg?.record?.jBankId).change();
+                                if (msg.record.akTunaiPemegang.length > 0) {
+                                    for (var i = 0; i < msg.record.akTunaiPemegang.length; i++) {
+                                        var item1 = msg.record.akTunaiPemegang[i];
+
+                                        $("#Nama").val(item1.suPekerja.nama);
+                                        $("#txtNoKP").val(item1.suPekerja.noKp);
+                                        $("#txtNoAkaunBank").val(item1.suPekerja.noAkaunBank);
+                                        $("#txtTelefon").val(item1.suPekerja.telefonBimbit);
+                                        $("#txtEmel").val(item1.suPekerja.emel);
+                                        $("#txtAlamat1").val(item1.suPekerja.alamat1);
+                                        $("#txtAlamat2").val(item1.suPekerja.alamat2);
+                                        $("#txtAlamat3").val(item1.suPekerja.alamat3);
+                                    }
+                                }
+
+
+                                //$("#txtNoRekup").prop('disabled', false);
+                            },
+                            error: function (req, status, error) {
+                                alert(error);
+                            }
+                        });
+
+                    },
+                    error: function (req, status, error) {
+                        alert(error);
+                    }
+                });
+            }
+            else {
+                $("#txtPerihal").val("");
+                $("#Nama").val("");
+                $("#txtNoKP").val("");
+                $("#txtNoAkaunBank").val("");
+                $("#txtTelefon").val("");
+                $("#txtEmel").val("");
+                $("#txtNoRekup").val("");
+
+                $("#txtNoRekup").prop('readonly', true);
+
+            }
+        } else if ($("#5").prop("checked")) {
+            if (kodKaunter != 0) {
+
+                $.ajax({
+                    type: "POST",
+                    //url: "/AkPV/JsonGetKod",
+                    url: '@Url.Action("JsonGetPanjar", "AkPV")',
+                    data: { data: kodKaunter },
+                    dataType: "json",
+                    success: function (msg) {
+                        $("#txtPerihal").val("TAMBAH HAD WANG PANJAR");
+                        $("#txtNoRekup").val("");
+
+
+                        $("#ddlKW").val(msg?.record?.jkwId).change();
+                        if (msg.record.akTunaiPemegang.length > 0) {
+                            for (var i = 0; i < msg.record.akTunaiPemegang.length; i++) {
+                                var item1 = msg.record.akTunaiPemegang[i];
+
+                                $("#Nama").val(item1.suPekerja.nama);
+                                $("#txtNoKP").val(item1.suPekerja.noKp);
+                                $("#txtNoAkaunBank").val(item1.suPekerja.noAkaunBank);
+                                $("#txtTelefon").val(item1.suPekerja.telefonBimbit);
+                                $("#txtEmel").val(item1.suPekerja.emel);
+                                $("#txtAlamat1").val(item1.suPekerja.alamat1);
+                                $("#txtAlamat2").val(item1.suPekerja.alamat2);
+                                $("#txtAlamat3").val(item1.suPekerja.alamat3);
+
+                            }
+                        }
+
+                    },
+                    error: function (req, status, error) {
+                        alert(error);
+                    }
+                });
+            } else {
+                $("#txtPerihal").val("");
+                $("#Nama").val("");
+                $("#txtNoKP").val("");
+                $("#txtNoAkaunBank").val("");
+                $("#txtTelefon").val("");
+                $("#txtEmel").val("");
+                $("#txtNoRekup").val("");
+
+                $("#txtNoRekup").prop('readonly', true);
+
+            }
+        }
+    });
+
+    function displayObjekListFromRekup(data) {
+
+        var jumlah = $("#jumlahObjek");
+        var sum = 0;
+
+        var str = "<tr><td id='akCartaId' hidden>" + data.akCartaId +
+            "</td><td class='text-uppercase'>" + data.akCarta.kod + " - " + data.akCarta.perihal +
+            "</td><td class='text-end'>" + (data.amaun).toFixed(2) +
+            "</td><td>" +
+            "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-bs-toggle='modal' data-bs-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+            "</td><td hidden>" +
+            "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)' ><i class='fas fa-trash' ></i></button>" +
+            "</td><tr>";
+        $("table tbody#tbodyObjek").append(str);
+        sum += data.amaun;
+
+        $("#txtKodAkaun option[value=" + data.akCartaId + "]").prop('disabled', true);
+
+        jumlah.val(sum.toFixed(2));
+    }
+
+    // on change kod Panjar end
+
+    //empty cart
+    function EmptyCart() {
+        $.ajax({
+            type: "POST",
+            //url: "/AkPV/JsonEmptyCart",
+            url: '@Url.Action("JsonEmptyCart", "AkPV")',
+            dataType: "json",
+            success: function (msg) {
+                $("table tbody#tbodyObjek").empty();
+                $("table tbody#tbodyInbois").empty();
+                $("table tbody#tbodyGanda").empty();
+                $("#jumlahObjek").val("0.00");
+                $("#jumlahInbois").val("0.00");
+                $("#jumlahGanda").val("0.00");
+                $("#txtKodAkaun option").prop('disabled', false);
+                $("#txtKodAkaun option:selected").prop('disabled', true);
+            },
+            error: function (req, status, error) {
+                alert(error);
+            }
+        });
+    };
+    //empty cart end
+
+    // check if jumlahObjek is equal to jumlahInbois / jumlahGanda
+    function checkJumlah() {
+        var jumlahObjek = $("#jumlahObjek").val();
+        var jumlahInbois = $("#jumlahInbois").val();
+        var jumlahGanda = $("#jumlahGanda").val();
+
+        if (ganda == false) {
+            if (jumlahObjek == 0.00 && jumlahInbois == 0.00) {
+                $("#btnSave").show();
+            } else {
+                if (jumlahObjek == jumlahInbois) {
+                    $("#btnSave").show();
+                }
+                else {
+                    $("#btnSave").hide();
+                }
+            }
+        }
+        else {
+            if (jumlahObjek == 0.00 && jumlahGanda == 0.00) {
+                $("#btnSave").show();
+            } else {
+                if (jumlahObjek == jumlahGanda) {
+                    $("#btnSave").show();
+                }
+                else {
+                    $("#btnSave").hide();
+                }
+            }
+        }
+
+    }
+    // check end
+
+    // on change kod pembekal
+    $("body").on('change', "#ddlKodPembekal", function () {
+        var kodPembekal = $("#ddlKodPembekal").val();
+        var jenisBaucer = $("input[name='FlJenisBaucer']:checked").val();
+        var card = $("#cardInbois");
+        if (jenisBaucer != 0) {
+            if (kodPembekal != 0) {
+                card.removeAttr('hidden');
+                $("#txtAkBelian").empty();
+                JsonKodPembekal(kodPembekal, jenisBaucer);
+            } else {
+                //enable field
+                $("#txtNoKP").prop('readonly', false);
+                $("#Nama").prop('readonly', false);
+                $("#Nama").prop('required', true);
+                $("#txtAlamat1").prop('readonly', false);
+                $("#txtAlamat2").prop('readonly', false);
+                $("#txtAlamat3").prop('readonly', false);
+                $("#txtNoAkaunBank").prop('readonly', false);
+                $("#txtTelefon").prop('readonly', false);
+                $("#txtEmel").prop('readonly', false);
+                $("#ddlKodPekerja").prop('disabled', false);
+
+                //empty field
+                $("#txtNoKP").val('');
+                $("#Nama").val('');
+                $("#txtAlamat1").val('');
+                $("#txtAlamat2").val('');
+                $("#txtAlamat3").val('');
+                $("#txtNoAkaunBank").val('');
+                $("#txtTelefon").val('');
+                $("#txtEmel").val('');
+
+                $("#btnSave").show();
+                card.prop('hidden', true);
+                EmptyCart();
+            }
+
+        } else {
+            if (kodPembekal != 0) {
+                JsonKodPembekal(kodPembekal, jenisBaucer);
+            }
+            //enable field
+            $("#txtNoKP").prop('readonly', false);
+            $("#Nama").prop('readonly', false);
+            $("#Nama").prop('required', true);
+            $("#txtAlamat1").prop('readonly', false);
+            $("#txtAlamat2").prop('readonly', false);
+            $("#txtAlamat3").prop('readonly', false);
+            $("#txtNoAkaunBank").prop('readonly', false);
+            $("#txtTelefon").prop('readonly', false);
+            $("#txtEmel").prop('readonly', false);
+            $("#ddlKodPekerja").prop('disabled', false);
+
+            //empty field
+            $("#txtNoKP").val('');
+            $("#Nama").val('');
+            $("#txtAlamat1").val('');
+            $("#txtAlamat2").val('');
+            $("#txtAlamat3").val('');
+            $("#txtNoAkaunBank").val('');
+            $("#txtTelefon").val('');
+            $("#txtEmel").val('');
+
+            $("#btnSave").show();
+            card.prop('hidden', true);
+            EmptyCart();
+        }
+
+
+    });
+
+    function JsonKodPembekal(id, jenisBaucer) {
+        if (id != null) {
+            $.ajax({
+                type: "POST",
+                //url: "/AkPV/JsonGetPembekal",
+                url: '@Url.Action("JsonGetPembekal", "AkPV")',
+                data: { data: id},
+                dataType: "json",
+                success: function (msg) {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("JsonGetInboisPembekal", "AkPV")',
+                        data: { data: id, jenisBaucer: jenisBaucer },
+                        datatype: "json",
+                        success: function (r) {
+                            var jkw = 0;
+                            var jbahagian = 0;
+                            var jbank = 0;
+                            if (r.result == "OK") {
+                                if (jenisBaucer != 0) {
+                                    var select = new Option("-- Pilih Inbois --", 0, true, true);
+                                    $("#txtAkBelian").append(select);
+                                    if (r.record.length > 0) {
+                                        for (var i = 0; i < r.record.length; i++) {
+                                            var item1 = r.record[i];
+                                            var option = new Option(item1.noInbois.substring(9), item1.id, true, true);
+                                            $("#txtAkBelian").append(option);
+                                            jkw = item1.jkwId;
+                                            jbahagian = item1.jBahagianId;
+                                            jbank = item1.akPembekal.jBankId;
+
+                                        }
+                                    }
+                                    $("#ddlKW").val(jkw).change();
+                                    $("#ddlBahagian").val(jbahagian).change();
+                                    $("#ddlJBank").val(jbank).change();
+                                    $("#txtAkBelian").val(0).change();
+
+                                }
+                                //populate related fields
+                                $("#ddlJBank").val(msg.record.jBankId).change();
+                                $("#Nama").val(msg.record.namaSykt);
+                                $("#txtAlamat1").val(msg.record.alamat1);
+                                $("#txtAlamat2").val(msg.record.alamat2);
+                                $("#txtAlamat3").val(msg.record.alamat3);
+                                $("#txtNoAkaunBank").val(msg.record.akaunBank);
+                                $("#txtTelefon").val(msg.record.telefon1);
+                                $("#txtEmel").val(msg.record.emel);
+                                // disable fields
+                                $("#txtNoKP").prop('readonly', true);
+                                $("#Nama").prop('readonly', true);
+                                $("#txtAlamat1").prop('readonly', true);
+                                $("#txtAlamat2").prop('readonly', true);
+                                $("#txtAlamat3").prop('readonly', true);
+                                $("#txtNoAkaunBank").prop('readonly', true);
+                                $("#txtTelefon").prop('readonly', true);
+                                $("#txtEmel").prop('readonly', true);
+                                $("#ddlKodPekerja").prop('readonly', true);
+                                $("#ddlKodPekerja").val(0);
+                                $("#Nama").prop('required', false);
+                            }
+                            else {
+                                $("#ddlKodPembekal").val(0).change();
+                                toastr.error("Tiada inbois untuk pembekal ini", "Ralat");
+                                toastr.options.timeOut = 5000; // 5s
+                            }
+
+
+                        },
+                        error: function (error) {
+                            alert(error);
+                        }
+                    });
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    }
+    //on change Kod Pembekal end
+
+    // on change no permohonan
+    $("body").on('change', "#ddlPendahuluanPelbagai", function () {
+        var kod = $("#ddlPendahuluanPelbagai").val();
+        if (kod != 0) {
+            JsonKodPendahuluan(kod);
+        } else {
+            //enable field
+            $("#txtNoKP").prop('readonly', false);
+            $("#Nama").prop('readonly', false);
+            $("#Nama").prop('required', true);
+            $("#txtAlamat1").prop('readonly', false);
+            $("#txtAlamat2").prop('readonly', false);
+            $("#txtAlamat3").prop('readonly', false);
+            $("#txtNoAkaunBank").prop('readonly', false);
+            $("#txtTelefon").prop('readonly', false);
+            $("#txtEmel").prop('readonly', false);
+            $("#ddlKodPekerja").prop('disabled', false);
+
+            //empty field
+            $("#txtNoKP").val('');
+            $("#Nama").val('');
+            $("#txtAlamat1").val('');
+            $("#txtAlamat2").val('');
+            $("#txtAlamat3").val('');
+            $("#txtNoAkaunBank").val('');
+            $("#txtTelefon").val('');
+            $("#txtEmel").val('');
+
+            $("#btnSave").show();
+            EmptyCart();
+        }
+
+    });
+
+    function JsonKodPendahuluan(id) {
+        if (id != null) {
+            $.ajax({
+                type: "POST",
+                //url: "/AkPV/JsonGetPembekal",
+                url: '@Url.Action("JsonGetPendahuluan", "AkPV")',
+                data: { data: id, AkPVId: 0 },
+                dataType: "json",
+                success: function (msg) {
+                    if (msg.result == "OK") {
+                        $("#txtTahun").val(msg.record.tarMasuk.substring(0,4));
+                        $("#ddlKW").val(msg.record.jkwId).change();
+                        $("#ddlBahagian").val(msg.record.jBahagianId).change();
+                        $("#ddlKodPekerja").val(msg.record.suPekerjaId).change();
+
+                        if (msg.record.suPekerja.jCaraBayarId != null) {
+                            $("#ddlJCaraBayar").val(msg.record.suPekerja.jCaraBayarId).change();
+                        }
+
+
+                        //populate related fields
+                        if (msg.record.suPekerja.noKp != null) {
+                            $("#txtNoKP").val(msg.record.suPekerja.noKp);
+                        }
+
+                        $("#Nama").val(msg.record.suPekerja.nama);
+                        $("#txtAlamat1").val(msg.record.suPekerja.alamat1);
+                        $("#txtAlamat2").val(msg.record.suPekerja.alamat2);
+                        $("#txtAlamat3").val(msg.record.suPekerja.alamat3);
+                        $("#txtNoAkaunBank").val(msg.record.suPekerja.noAkaunBank);
+                        $("#txtTelefon").val(msg.record.suPekerja.telefonBimbit);
+                        $("#txtEmel").val(msg.record.suPekerja.emel);
+                        $("#ddlJBank").val(msg?.record?.suPekerja?.jBankId).change();
+                        $("#Nama").prop('required', false);
+
+                        $("table tbody#tbodyObjek").empty();
+                        var jumlah = $("#jumlahObjek");
+                        var sum = 0;
+                        var str = "<tr><td id='akCartaId' hidden>" + msg.record.akCartaId +
+                            "</td><td class='text-uppercase'>" + msg.record.akCarta.kod + " - " + msg.record.akCarta.perihal +
+                            "</td><td class='text-end'>" + (msg.record.jumLulus).toFixed(2) +
+                                "</td><td>" +
+                                "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-bs-toggle='modal' data-bs-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+                                "</td><td>" +
+                                "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash' ></i></button>" +
+                                "</td><tr>";
+                            $("table tbody#tbodyObjek").append(str);
+                        sum += msg.record.jumLulus;
+
+                        $("#txtKodAkaun option[value=" + msg.record.akCartaId + "]").prop('disabled', true);
+
+                        jumlah.val(sum.toFixed(2));
+                        //checkJumlah();
+
+                    }
+                    else {
+                        $("#ddlPendahuluanPelbagai").val(0).change();
+                        toastr.error("Peruntukan untuk kod akaun ini tidak mencukupi", "Ralat");
+                        toastr.options.timeOut = 5000; // 5s
+                    }
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    }
+    //on change no permohonan end
+
+    // on change no profil
+    $("body").on('change', "#ddlProfil", function () {
+        var kod = $("#ddlProfil").val();
+        if (kod != 0) {
+            JsonNoProfil(kod);
+        } else {
+            //enable field
+            $("#txtNoKP").prop('readonly', false);
+            $("#Nama").prop('readonly', false);
+            $("#Nama").prop('required', true);
+            $("#txtAlamat1").prop('readonly', false);
+            $("#txtAlamat2").prop('readonly', false);
+            $("#txtAlamat3").prop('readonly', false);
+            $("#txtNoAkaunBank").prop('readonly', false);
+            $("#txtTelefon").prop('readonly', false);
+            $("#txtEmel").prop('readonly', false);
+            $("#ddlKodPekerja").prop('disabled', false);
+
+            //empty field
+            $("#txtNoKP").val('');
+            $("#Nama").val('');
+            $("#txtAlamat1").val('');
+            $("#txtAlamat2").val('');
+            $("#txtAlamat3").val('');
+            $("#txtNoAkaunBank").val('');
+            $("#txtTelefon").val('');
+            $("#txtEmel").val('');
+
+            $("#btnSave").show();
+            EmptyCart();
+        }
+
+    });
+
+    function JsonNoProfil(id) {
+        if (id != null) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("JsonGetProfil", "AkPV")',
+                data: { data: id, AkPVId: 0 },
+                dataType: "json",
+                success: function (msg) {
+                    if (msg.result == "OK") {
+                        $("#txtTahun").val(msg.record.tarMasuk.substring(0,4));
+                        $("#ddlKW").val(msg.record.jkwId).change();
+                        $("#ddlBahagian").val(msg.record.jBahagianId).change();
+
+                        //enable field
+                        $("#txtNoKP").prop('readonly', false);
+                        $("#Nama").prop('readonly', false);
+                        $("#Nama").prop('required', true);
+                        $("#txtAlamat1").prop('readonly', false);
+                        $("#txtAlamat2").prop('readonly', false);
+                        $("#txtAlamat3").prop('readonly', false);
+                        $("#txtNoAkaunBank").prop('readonly', false);
+                        $("#txtTelefon").prop('readonly', false);
+                        $("#txtEmel").prop('readonly', false);
+                        $("#ddlKodPekerja").prop('disabled', false);
+
+                        //empty field
+                        $("#txtNoKP").val('');
+                        $("#Nama").val('');
+                        $("#txtAlamat1").val('');
+                        $("#txtAlamat2").val('');
+                        $("#txtAlamat3").val('');
+                        $("#txtNoAkaunBank").val('');
+                        $("#txtTelefon").val('');
+                        $("#txtEmel").val('');
+
+                        $("#btnSave").show();
+
+                        // objek
+                        $("table tbody#tbodyObjek").empty();
+                        var jumlah = $("#jumlahObjek");
+                        var sum = 0;
+                        var str = "<tr><td id='akCartaId' hidden>" + msg.record.akCartaId +
+                            "</td><td class='text-uppercase'>" + msg.record.akCarta.kod + " - " + msg.record.akCarta.perihal +
+                            "</td><td class='text-end'>" + (msg.record.jumlah).toFixed(2) +
+                                "</td><td>" +
+                                "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-bs-toggle='modal' data-bs-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+                                "</td><td>" +
+                                "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash' ></i></button>" +
+                                "</td><tr>";
+                            $("table tbody#tbodyObjek").append(str);
+                        sum += msg.record.jumlah;
+
+                        $("#txtKodAkaun option[value=" + msg.record.akCartaId + "]").prop('disabled', true);
+
+                        jumlah.val(sum.toFixed(2));
+
+                        // ganda
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("GetAllItemCartAkPVGanda", "AkPV")',
+                            dataType: "json",
+                            success: function (r) {
+
+                                //refresh updated table Ganda
+                                $("table tbody#tbodyGanda").empty();
+                                var sumGanda = 0;
+                                var jumlahGanda = $("#jumlahGanda");
+                                if (r.record.length > 0) {
+                                    for (var i = 0; i < r.record.length; i++) {
+                                        var item1 = r.record[i];
+                                        var tarSlip = "";
+                                        if (item1.tarCekAtauEFT == null) {
+                                        } else {
+                                            tarSlip = showDate(item1.tarCekAtauEFT);
+                                        }
+                                        var noSlip = "";
+                                        if (item1.noCekAtauEFT == null) {
+                                        } else {
+                                            noSlip = item1.noCekAtauEFT;
+                                        }
+                                        var penerimaId = "";
+                                        var kategoriPenerima = "";
+                                        switch (item1.flKategoriPenerima) {
+                                            case 1:
+                                                kategoriPenerima = "ANGGOTA";
+                                                penerimaId = item1.suPekerjaId;
+                                                break;
+                                            case 2:
+                                                kategoriPenerima = "ATLET";
+                                                penerimaId = item1.suAtletId;
+                                                break;
+                                            case 3:
+                                                kategoriPenerima = "JURULATIH";
+                                                penerimaId = item1.suJurulatihId;
+                                                break;
+                                            case 0:
+                                                kategoriPenerima = "LAIN";
+                                                penerimaId = "";
+                                                break;
+                                        }
+                                        var str = "<tr><td hidden>" + item1.indek +
+                                            "</td><td class='text-uppercase'>" + kategoriPenerima +
+                                            "</td><td hidden>" + penerimaId +
+                                            "</td><td >" + item1.noKp +
+                                            "</td><td class='text-uppercase'>" + item1.nama +
+                                            "</td><td class='text-uppercase'>" + item1.jCaraBayar.perihal +
+                                            "</td><td class='text-uppercase'>" + item1.jBank.kod +
+                                            "</td><td >" + item1.noAkaun +
+                                            "</td><td >" + noSlip +
+                                            "</td><td >" + tarSlip +
+                                            "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                            "</td><td>" +
+                                            "</td><td>" +
+                                            "<button class='btn ac-danger btn-sm' type='button' id='btnRemove3' onclick='Remove3(this)'><i class='fas fa-trash' ></i></button>" +
+                                            "</td><tr>";
+                                        $("table tbody#tbodyGanda").append(str);
+                                        sumGanda += item1.amaun;
+                                    }
+                                    bil++;
+                                }
+                                jumlahGanda.val(sum.toFixed(2));
+                            }
+                        });
+
+                    }
+                    else {
+                        $("#ddlProfil").val(0).change();
+                        toastr.error("Ralat", "Ralat");
+                        toastr.options.timeOut = 5000; // 5s
+                    }
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    }
+    //on change no permohonan end
+
+    // on change Cara Bayaran
+    $("body").on('change', "#ddlJCaraBayar", function () {
+        var value = $("#ddlJCaraBayar option:selected");
+        $("#txtNoCekAtauEFT").val("");
+        $("#txtTarCekAtauEFT").val("");
+
+        if (value.text().indexOf("C -") >= 0 || value.text().indexOf("JP -") >= 0) {
+            $("#txtNoCekAtauEFT").prop('disabled', false);
+            $("#txtTarCekAtauEFT").prop('disabled', false);
+            $("#ddlJBank").prop('disabled', false);
+
+        } else {
+            $("#txtNoCekAtauEFT").prop('disabled', true);
+            $("#txtTarCekAtauEFT").prop('disabled', true);
+            $("#ddlJBank").prop('disabled', true);
+        }
+        if (value.text().indexOf("E -") >= 0) {
+            $("#ddlJBank").prop('disabled', false);
+            $("#ddlJBank").prop('required', true);
+        }
+        else {
+            $("#ddlJBank").prop('required', false);
+        }
+    });
+    //on change Cara Bayaran end
+
+    // on change Modal Ganda Cara Bayaran
+    $("body").on('change', "#moGandaCaraBayar", function () {
+        var value = $("#moGandaCaraBayar option:selected");
+        $("#moGandaNoCekEFT").val("");
+        $("#moGandaTarCekEFT").val("");
+        if (value.text().indexOf("C -") >= 0 || value.text().indexOf("JP -") >= 0) {
+            $("#moGandaNoCekEFT").prop('disabled', false);
+            $("#moGandaTarCekEFT").prop('disabled', false);
+            $("#moGandaBank").prop('disabled', false);
+
+        } else {
+            if (value.text().indexOf("E -") >= 0) {
+                $("#moGandaBank").prop('disabled', false);
+            } else {
+                $("#moGandaBank").prop('disabled', true);
+            }
+
+            $("#moGandaNoCekEFT").prop('disabled', true);
+            $("#moGandaTarCekEFT").prop('disabled', true);
+
+        }
+    });
+    //on change Modal Ganda Cara Bayaran end
+
+    // on change kod Pekerja
+    $("body").on('change', "#ddlKodPekerja", function () {
+        var kodPekerja = $("#ddlKodPekerja").val();
+        if (kodPekerja != 0) {
+            JsonKodPekerja(kodPekerja);
+            $("#Nama").prop('required', false);
+        } else {
+            //enable field
+            $("#txtNoKP").prop('readonly', false);
+            $("#Nama").prop('readonly', false);
+            $("#txtAlamat1").prop('readonly', false);
+            $("#txtAlamat2").prop('readonly', false);
+            $("#txtAlamat3").prop('readonly', false);
+            $("#txtNoAkaunBank").prop('readonly', false);
+            $("#txtTelefon").prop('readonly', false);
+            $("#txtEmel").prop('readonly', false);
+            $("#ddlKodPembekal").prop('disabled', false);
+
+            //empty field
+            $("#txtNoKP").val('');
+            $("#Nama").val('');
+            $("#txtAlamat1").val('');
+            $("#txtAlamat2").val('');
+            $("#txtAlamat3").val('');
+            $("#txtNoAkaunBank").val('');
+            $("#txtTelefon").val('');
+            $("#txtEmel").val('');
+
+            $("#btnSave").show();
+            EmptyCart();
+        }
+    });
+
+    function JsonKodPekerja(id) {
+        if (id != null) {
+            $.ajax({
+                type: "POST",
+                //url: "/AkPV/JsonGetPekerja",
+                url: '@Url.Action("JsonGetPekerja", "AkPV")',
+                data: { data: id },
+                dataType: "json",
+                success: function (msg) {
+                    $("#Nama").val(msg.record.nama);
+                    $("#txtNoKP").val(msg.record.noKp);
+                    $("#txtAlamat1").val(msg.record.alamat1);
+                    $("#txtAlamat2").val(msg.record.alamat2);
+                    $("#txtAlamat3").val(msg.record.alamat3);
+               $("#txtNoAkaunBank").val(msg.record.noAkaunBank);
+                    $("#txtTelefon").val(msg.record.telefonBimbit);
+                    $("#txtEmel").val(msg.record.emel);
+                    $("#ddlKodPembekal").prop('disabled', true);
+                    $("#ddlKodPembekal").val(0);
+                    $("#ddlJBank").val(msg.record.jBankId).change();
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+    }
+    //on change Kod Pekerja end
+
+    // on change no Inbois pembekal
+    $("body").on('change', "#txtAkBelian", function () {
+        var noInbois = $("#txtAkBelian").val();
+
+        if (noInbois != 0) {
+            JsonNoInbois(noInbois);
+        }
+
+    });
+
+    function JsonNoInbois(id) {
+        if (id != null) {
+            $.ajax({
+                type: "POST",
+                //url: "/AkPV/JsonGetAkBelian",
+                url: '@Url.Action("JsonGetAkBelian", "AkPV")',
+                data: { data: id },
+                dataType: "json",
+                success: function (msg) {
+                    $("#txtTarInbois").val(msg.record.tarikh);
+                    $("#txtAmaunInbois").val(msg.record.jumlah.toFixed(2));
+                    if (msg.record.akPO == null && msg.record.akInden == null) {
+                        $("#txtNoPO").val("-");
+                        $("#txtTarPO").val("");
+                        $("#txtAmaunPO").val("0.00");
+                    } else {
+                        if (msg.record.akPO != null) {
+                            $("#txtNoPO").val(msg.record.akPO.noPO);
+                            $("#txtTarPO").val(msg.record.akPO.tarikh);
+                            $("#txtAmaunPO").val(msg.record.akPO.jumlah.toFixed(2));
+                        }
+                        else {
+                            $("#txtNoPO").val(msg.record.akInden.noInden);
+                            $("#txtTarPO").val(msg.record.akInden.tarikh);
+                            $("#txtAmaunPO").val(msg.record.akInden.jumlah.toFixed(2));
+                        }
+                        
+                    }
+
+
+
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+            });
+        }
+
+    }
+
+    //on change no Inbois pembekal end
+
+    //validation form
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    $(document).ready(function () {
+        $.validator.setDefaults({
+            errorElement: "span",
+            errorClass: "help-block",
+            //	validClass: 'stay',
+            highlight: function (element, errorClass) {
+                $(element).addClass(errorClass); //.removeClass(errorClass);
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).removeClass(errorClass); //.addClass(validClass);
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+            },
+
+            errorPlacement: function (error, element) {
+                if (element.parent('.input-group').length) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+
+            },
+
+        });
+
+        // on change radio jenis baucer
+        $('input[type=radio][name=FlJenisBaucer]').on('change', function () {
+            $("#ddlPendahuluanPelbagai").val(0).change();
+            $("#ddlSuProfil").val(0).change();
+            $("#ddlKodPembekal").val(0).change();
+            $("#ddlTunaiRuncit").val(0).change();
+            $("#txtPerihal").val("");
+
+            let radioOptionTrue = jQuery('input[type=radio][name=IsGanda][value=true]');
+            let radioOptionFalse = jQuery('input[type=radio][name=IsGanda][value=false]');
+
+            radioOptionTrue.prop("checked", false);
+            radioOptionFalse.prop("checked", true);
+
+            ToggleGanda('hide');
+
+            EmptyCart();
+            switch ($(this).val()) {
+                case "0":
+                    $("#divPembekal").removeAttr('hidden');
+                    $("#cardSuProfil").prop('hidden', true);
+                    break;
+                case "1":
+                    $("#divPembekal").removeAttr('hidden');
+                    $("#cardSuProfil").prop('hidden', true);
+                    break;
+                case "2":
+                    $("#cardPendahuluanPelbagai").prop('hidden', true);
+                    break;
+                case "3":
+                    $("#cardPendahuluanPelbagai").removeAttr('hidden');
+                    $("#cardSuProfil").prop('hidden', true);
+                    break;
+                case "4":
+                    break;
+                case "6":
+                    $("#divPembekal").prop('hidden', true);
+                    $("#cardSuProfil").removeAttr('hidden');
+
+
+                    radioOptionTrue.prop("checked", true);
+                    radioOptionFalse.prop("checked", false);
+                    ToggleGanda('show');
+
+                    break;
+            }
+        });
+        //on change radio jenis baucer end
+
+        // on change radio AKB
+        $('input[type=radio][name=IsAKB]').on('change', function () {
+            var tahun = new Date().getFullYear().toString();
+            var tahunAKB = (parseInt(tahun) - 1).toString();
+            EmptyCart();
+            $("#txtPerihal").val("");
+            switch ($(this).val()) {
+                case "false":
+                    $("#txtTahun").val(tahun);
+                    $("#txtTahun").prop('readonly',false);
+                    break;
+                case "true":
+                    $("#txtTahun").val(tahunAKB);
+                    $("#txtTahun").prop('readonly', false);
+                    //$("#txtTahun").prop('readonly',true);
+                    break;
+            }
+        });
+        //on change radio AKB end
+
+        // on change radio Ganda
+        $('input[type=radio][name=IsGanda]').on('change', function () {
+            //empty field
+            
+            $("#txtAlamat1").val('');
+            $("#txtAlamat2").val('');
+            $("#txtAlamat3").val('');
+            $("#txtNoAkaunBank").val('');
+            $("#txtTelefon").val('');
+            $("#txtEmel").val('');
+            $("#ddlKodPembekal").val(0).change();
+
+            EmptyCart();
+            switch ($(this).val()) {
+                case "false":
+                    ganda = false;
+                    ToggleGanda('hide');
+                    break;
+                case "true":
+                    ganda = true;
+                    ToggleGanda('show');
+                    break;
+            }
+
+            $("#ddlJBank").prop('disabled', false);
+            $("#txtNoCekAtauEFT").prop('disabled', false);
+            $("#txtTarCekAtauEFT").prop('disabled', false);
+        });
+        //on change radio Ganda end
+
+        // on change radio Kategori Penerima
+        $('input[type=radio][name=FlKategoriPenerima]').on('change', function () {
+            //empty field
+
+            $("#moGandaNoKP").val('');
+            $("#moGandaNama").val('');
+            $("#moGandaNoAkaun").val('');
+            $("#moGandaAmaun").val("0.00");
+
+            $("#moGandaCaraBayar").val(0).change();
+            $("#moGandaBank").val(0).change();
+
+
+            switch ($(this).val()) {
+                case "1":
+                    $("#moGandaAtlet").val(0).change();
+                    $("#moGandaJurulatih").val(0).change();
+
+                    $("#modalGandaAnggota").prop('hidden', false);
+                    $("#modalGandaAtlet").prop('hidden', true);
+                    $("#modalGandaJurulatih").prop('hidden', true);
+
+                    $("#moGandaNoKP").prop('readonly', true);
+                    $("#moGandaNama").prop('readonly', true);
+                    $("#moGandaNoAkaun").prop('readonly', true);
+                    break;
+                case "2":
+                    $("#moGandaAnggota").val(0).change();
+                    $("#moGandaJurulatih").val(0).change();
+
+                    $("#modalGandaAnggota").prop('hidden', true);
+                    $("#modalGandaAtlet").prop('hidden', false);
+                    $("#modalGandaJurulatih").prop('hidden', true);
+
+                    $("#moGandaNoKP").prop('readonly', true);
+                    $("#moGandaNama").prop('readonly', true);
+                    $("#moGandaNoAkaun").prop('readonly', true);
+                    break;
+                case "3":
+                    $("#moGandaAnggota").val(0).change();
+                    $("#moGandaAtlet").val(0).change();
+
+                    $("#modalGandaAnggota").prop('hidden', true);
+                    $("#modalGandaAtlet").prop('hidden', true);
+                    $("#modalGandaJurulatih").prop('hidden', false);
+
+                    $("#moGandaNoKP").prop('readonly', true);
+                    $("#moGandaNama").prop('readonly', true);
+                    $("#moGandaNoAkaun").prop('readonly', true);
+                    break;
+                case "0":
+                    $("#moGandaAnggota").val(0).change();
+                    $("#moGandaAtlet").val(0).change();
+                    $("#moGandaJurulatih").val(0).change();
+
+                    $("#modalGandaAnggota").prop('hidden', true);
+                    $("#modalGandaAtlet").prop('hidden', true);
+                    $("#modalGandaJurulatih").prop('hidden', true);
+
+                    $("#moGandaNoKP").prop('readonly', false);
+                    $("#moGandaNama").prop('readonly', false);
+                    $("#moGandaNoAkaun").prop('readonly', false);
+                    break;
+            }
+        });
+        //on change radio Ganda end
+
+    });
+    //validation form end
+
+    function ToggleGanda(cond) {
+        if (cond == 'hide') {
+            $("#txtNoKP").val('');
+            $("#Nama").val('');
+            $("#ddlJCaraBayar").val(0).change();
+            $("#ddlJBank").val(0).change();
+
+            $("#divPembekal").prop('hidden', false);
+            $("#cardGanda").prop('hidden', true);
+            $("#cardMaklumat").prop('hidden', false);
+        } else {
+            $("#txtNoKP").val('-');
+            $("#Nama").val('Baucer Berganda');
+            $("#ddlJCaraBayar").val(9999).change();
+            $("#ddlJBank").val(9999).change();
+
+            $("#divPembekal").prop('hidden', true);
+            $("#cardGanda").prop('hidden', false);
+            $("#cardMaklumat").prop('hidden', true);
+        }
+
+    }
+
+    //add tbl objek
+    $("body").on("click", "#btnAdd1", function () {
+        //Reference the Name and Country TextBoxes.
+        var txtKodAkaun = $("#txtKodAkaun");
+        if (txtKodAkaun.val() != null) {
+            GetCarta(txtKodAkaun.val());
+        }
+    });
+
+    var FlKategoriPenerima = 0;
+
+    function GetCarta(id) {
+        var Objek = {
+            Id: id
+        }
+        if (id != "") {
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                //url: "/AkPV/GetCarta",
+                url: '@Url.Action("GetCarta", "AkPV")',
+                data: Objek,
+                dataType: "json",
+                success: function (r) {
+                    //Reference the TextBoxes.
+                    var txtKodAkaun = $("#txtKodAkaun");
+                    var txtAmaunObjek = $("#txtAmaunObjek");
+                    var txtJumlah = $("#jumlahObjek");
+
+                    if ($('#ddlKodPembekal').val() != 0) {
+                        FlKategoriPenerima = 1;
+                    }
+
+                    if ($('#ddlKodPekerja').val() != 0) {
+                        FlKategoriPenerima = 2;
+                    }
+
+                    if ($('#ddlPanjar').val() != 0) {
+                        FlKategoriPenerima = 3;
+                    }
+
+                    var AkPV1 = {
+                        AkCartaId: txtKodAkaun.val(),
+                        Amaun: txtAmaunObjek.val()
+                    }
+
+                    var tahun = $("#txtTahun").val();
+                    var jKWId = $("#ddlKW").val();
+                    var jBahagianId = $("#ddlBahagian").val();
+                    var akBankId = $("#AkBankId").val();
+                    var IsAKB = $('input[type="radio"][name="IsAKB"]:checked').val();
+                    var myData = {};
+                    myData.AkPV1 = AkPV1;
+                    myData.tahun = tahun;
+                    myData.jKWId = jKWId;
+                    myData.jBahagianId = jBahagianId;
+                    myData.FlKategoriPenerima = FlKategoriPenerima;
+                    myData.IsAKB = IsAKB;
+                    myData.AkBankId = akBankId;
+
+                    $.ajax({
+                        type: "POST",
+                        //url: "/AkPV/SaveAkPV1",
+                        url: '@Url.Action("SaveAkPV1", "AkPV")',
+                        data: myData,
+                        dataType: "json",
+                        success: function (b) {
+                            if (b.result == "OK") {
+                                //Sum value to Total text field
+                                var sum = 0;
+                                sum = parseFloat(txtAmaunObjek.val()) + parseFloat(txtJumlah.val());
+                                txtJumlah.val(sum.toFixed(2));
+
+                                //Get the reference of the Table's TBODY element.
+                                var tBody = $("#tblObjek > TBODY")[0];
+                                //Add Row.
+                                var row = tBody.insertRow(-1);
+
+                                //Add akCartaId cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(r.record.id);
+                                cell.prop("hidden", !this.checked);
+
+                                //Add kod cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(r.record.kod + ' - ' + r.record.perihal);
+                                cell.addClass('text-uppercase');
+
+                                //Add amaun cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(parseFloat(txtAmaunObjek.val()).toFixed(2));
+                                cell.addClass('text-end');
+
+                                //Add Edit Button cell.
+                                cell = $(row.insertCell(-1));
+
+                                var btnUpdate1 = $("<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-bs-toggle='modal' data-bs-target='#modalObjek' onclick='Update1(this)'><i class='fas fa-edit'></i></button>");
+                                cell.append(btnUpdate1);
+
+                                //Add Button cell.
+                                cell = $(row.insertCell(-1));
+                                var btnRemove1 = $("<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash'></i></button>");
+                                cell.append(btnRemove1);
+
+                                $("#txtKodAkaun option[value=" + txtKodAkaun.val() + "]").prop('disabled', true);
+
+                                //Clear the TextBoxes.
+                                txtKodAkaun.val("").trigger('change');
+                                txtAmaunObjek.val("0.00");
+
+                                if ($('input[type="radio"][name="FlJenisBaucer"]:checked').val() != 0) {
+                                    if ($('#ddlKodPembekal').val() != 0 || ganda == true) {
+                                        checkJumlah();
+                                    }
+                                }
+
+                            }
+                            else {
+                                toastr.error(b.message, "Ralat");
+                                toastr.options.timeOut = 5000; // 5s
+                            }
+
+                        }
+                    });
+
+                }
+            });
+        }
+
+    }
+    //add tbl objek end
+
+    //remove tbl objek
+    function Remove1(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var name = $("TD", row).eq(0).html();
+        var namaAkaun = $("TD", row).eq(1).html();
+        var amaun = $("TD", row).eq(2).html();
+        var txtJumlah = $("#jumlahObjek");
+        if (confirm("Hapus kod Akaun : " + namaAkaun + " ?")) {
+            //Get the reference of the Table.
+            var table = $("#tblObjek")[0];
+
+            //Sum value to Total text field
+            var sum = 0;
+            sum = parseFloat(txtJumlah.val()) - parseFloat(amaun);
+            txtJumlah.val(sum.toFixed(2));
+
+            var AkPV1 = {
+                AkCartaId: name,
+            }
+            if (name != null) {
+                $.ajax({
+                    type: "POST",
+                    //url: "/AkPV/RemoveAkPV1",
+                    url: '@Url.Action("RemoveAkPV1", "AkPV")',
+                    data: AkPV1,
+                    dataType: "json",
+                    success: function (r) {
+                        //Delete the Table row using it's Index.
+                        table.deleteRow(row[0].rowIndex);
+                        if ($('#ddlKodPembekal').val() || ganda == true) {
+                            checkJumlah();
+                        } else {
+
+                        }
+                    }
+                });
+            }
+            $("#txtKodAkaun option[value=" + name + "]").prop('disabled', false);
+
+        }
+    };
+    //remove tbl objek end
+
+    //update tbl objek
+    function Update1(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var akCartaId = $("TD", row).eq(0).html();
+
+        var AkPV1 = {
+            AkCartaId: akCartaId
+        }
+        if (akCartaId != null) {
+            $.ajax({
+                type: "POST",
+                //url: "/AkPV/GetAnItemCartAkPV1",
+                url: '@Url.Action("GetAnItemCartAkPV1", "AkPV")',
+                data: AkPV1,
+                dataType: "json",
+                success: function (r) {
+                    //insert data in modal objek
+                    $("#moId1").val(r.record.akCartaId);
+                    $("#moKodAkaun").val(r.record.akCartaId);
+                    $("#moAmaun1").val(r.record.amaun.toFixed(2));
+
+                    //show modal objek
+                    $("#modalObjek").modal({ backdrop: 'static', keyboard: false });
+
+                }
+            });
+        }
+    };
+
+    function modalUpdate1() {
+        var id = $("#moId1").val();
+        var amaun = $("#moAmaun1").val();
+        var jumlah = $("#jumlahObjek");
+
+
+        if ($('#ddlKodPembekal').val() != 0) {
+            FlKategoriPenerima = 1;
+        }
+
+        if ($('#ddlKodPekerja').val() != 0) {
+            FlKategoriPenerima = 2;
+        }
+
+        if ($('#ddlPanjar').val() != 0) {
+            FlKategoriPenerima = 3;
+        }
+
+        var AkPV1 = {
+            akCartaId: id,
+            Amaun: amaun
+        }
+
+        var tahun = $("#txtTahun").val();
+        var jKWId = $("#ddlKW").val();
+        var jBahagianId = $("#ddlBahagian").val();
+        var akBankId = $("#AkBankId").val();
+        var IsAKB = $('input[type="radio"][name="IsAKB"]:checked').val();
+        var myData = {};
+        myData.AkPV1 = AkPV1;
+        myData.tahun = tahun;
+        myData.jKWId = jKWId;
+        myData.jBahagianId = jBahagianId;
+        myData.FlKategoriPenerima = FlKategoriPenerima;
+        myData.IsAKB = IsAKB;
+        myData.AkBankId = akBankId;
+
+        $.ajax({
+            type: "POST",
+            //url: "/AkPV/SaveCartAkPV1",
+            url: '@Url.Action("SaveCartAkPV1", "AkPV")',
+            data: myData,
+            dataType: "json",
+            success: function (b) {
+                //insert notification here
+
+                if (b.result == "OK") {
+                    $.ajax({
+                    type: "POST",
+                    //url: "/AkPV/GetAllItemCartAkPV1",
+                    url: '@Url.Action("GetAllItemCartAkPV1", "AkPV")',
+                    dataType: "json",
+                    success: function (r) {
+
+                        //refresh updated table objek
+                        $("table tbody#tbodyObjek").empty();
+                        var sum = 0;
+                        if (r.record.length > 0) {
+                            for (var i = 0; i < r.record.length; i++) {
+                                var item1 = r.record[i];
+                                var str = "<tr><td id='akCartaId' hidden>" + item1.akCartaId +
+                                    "</td><td class='text-uppercase'>" + item1.akCarta.kod + " - " + item1.akCarta.perihal +
+                                    "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                    "</td><td>" +
+                                    "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-bs-toggle='modal' data-bs-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+                                    "</td><td>" +
+                                    "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash' ></i></button>" +
+                                    "</td><tr>";
+                                $("table tbody#tbodyObjek").append(str);
+                                sum += item1.amaun;
+                            }
+                        }
+
+                        jumlah.val(sum.toFixed(2));
+                        if ($('#ddlKodPembekal').val() != 0 || ganda == true) {
+                            checkJumlah();
+                        }
+                    }
+                });
+                }
+                else {
+                    toastr.error("Bajet untuk kod akaun ini tidak mencukupi.", "Ralat");
+                    toastr.options.timeOut = 5000; // 2s
+                }
+
+            }
+        });
+    };
+    //update tbl objek end
+
+    //add tbl Inbois
+    $("body").on("click", "#btnAdd2", function () {
+        //Reference the Name and Country TextBoxes.
+        var ddlAkBelian = $("#txtAkBelian");
+        if (ddlAkBelian.val() != null) {
+            GetInbois(ddlAkBelian.val());
+        }
+
+    });
+
+    function GetInbois(id) {
+        var AkBelian = {
+            Id: id
+        }
+        if (id != "") {
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                //url: "/AkPV/GetAkBelian",
+                url: '@Url.Action("GetAkBelian", "AkPV")',
+                data: AkBelian,
+                dataType: "json",
+                success: function (r) {
+                    //Reference the TextBoxes.
+                    var ddlAkBelian = $("#txtAkBelian");
+                    var txtTarInbois = $("#txtTarInbois");
+                    var txtAmaunInbois = $("#txtAmaunInbois");
+                    var txtNoPO = $("#txtNoPO");
+                    var txtTarPO = $("#txtTarPO");
+                    var txtAmaunPO = $("#txtAmaunPO");
+                    var txtJumlah = $("#jumlahInbois");
+                    var jumlah = $("#jumlahObjek");
+
+                    var AkPV2 = {
+                        AkBelianId: ddlAkBelian.val(),
+                        Amaun: txtAmaunInbois.val()
+                    }
+                    var tahun = $("#txtTahun").val();
+                    var jKWId = $("#ddlKW").val();
+                    var jBahagianId = $("#ddlBahagian").val();
+                    var akBankId = $("#AkBankId").val();
+                    var myData = {};
+                    myData.AkPV2 = AkPV2;
+                    myData.tahun = tahun;
+                    myData.jKWId = jKWId;
+                    myData.jBahagianId = jBahagianId;
+                    myData.AkBankId = akBankId;
+
+                    $.ajax({
+                        type: "POST",
+                        //url: "/AkPV/SaveAkPV2",
+                        url: '@Url.Action("SaveAkPV2", "AkPV")',
+                        data: myData,
+                        dataType: "json",
+                        success: function (b) {
+                            if (b.result == "OK") {
+                                //Sum value to Total text field
+                                var sum = 0;
+                                sum = parseFloat(txtAmaunInbois.val()) + parseFloat(txtJumlah.val());
+                                txtJumlah.val(sum.toFixed(2));
+
+                                //Get the reference of the Table's TBODY element.
+                                var tBody = $("#tblInbois > TBODY")[0];
+                                //Add Row.
+                                var row = tBody.insertRow(-1);
+
+                                //Add AkBelianId cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(r.record.id);
+                                cell.prop("hidden", !this.checked);
+
+                                //Add No inbois cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(r.record.noInbois.substring(9));
+
+                                //Add TarInbois cell.
+                                var cell = $(row.insertCell(-1));
+                                if (txtTarInbois.val() == null || txtTarInbois.val() == '') {
+                                    cell.html('');
+                                } else {
+                                    cell.html(showDate(txtTarInbois.val()));
+                                }
+
+                                //Add amaun inbois cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(parseFloat(txtAmaunInbois.val()).toFixed(2));
+                                cell.addClass('text-end');
+
+                                //Add NoPO cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(txtNoPO.val());
+
+                                //Add TarPO cell.
+                                var cell = $(row.insertCell(-1));
+                                if (txtTarPO.val() == null || txtTarPO.val() == '') {
+                                    cell.html('');
+                                } else {
+
+                                    cell.html(showDate(txtTarPO.val()));
+                                }
+
+                                //Add amaun PO cell.
+                                var cell = $(row.insertCell(-1));
+                                cell.html(parseFloat(txtAmaunPO.val()).toFixed(2));
+                                cell.addClass('text-end');
+
+                                //Add Edit Button cell.
+                                cell = $(row.insertCell(-1));
+
+                                var btnUpdate2 = $("<button class='btn ac-primary btn-sm' type='button' id='btnUpdate2' data-bs-toggle='modal' data-bs-target='#modalInbois' onclick='Update2(this)'><i class='fas fa-edit'></i></button>");
+                                cell.append(btnUpdate2);
+
+                                //Add Button cell.
+                                cell = $(row.insertCell(-1));
+                                var btnRemove2 = $("<button class='btn ac-danger btn-sm' type='button' id='btnRemove2' onclick='Remove2(this)'><i class='fas fa-trash'></i></button>");
+                                cell.append(btnRemove2);
+
+                                //displayObjekList(r.record.akBelian1);
+
+                                $("#txtAkBelian option[value=" + ddlAkBelian.val() + "]").prop('disabled', true);
+
+                                //Clear the TextBoxes.
+                                ddlAkBelian.val("0").trigger('change');
+                                txtTarInbois.val("");
+                                txtAmaunInbois.val("0.00");
+                                txtNoPO.val("");
+                                txtTarPO.val("");
+                                txtAmaunPO.val("0.00");
+                                checkJumlah();
+
+                                $.ajax({
+                                    type: "POST",
+                                    //url: "/AkPV/GetAllItemCartAkPV1",
+                                    url: '@Url.Action("GetAllItemCartAkPV1", "AkPV")',
+                                    dataType: "json",
+                                    success: function (r) {
+
+                                        //refresh updated table objek
+                                        $("table tbody#tbodyObjek").empty();
+                                        var sum = 0;
+                                        if (r.record.length > 0) {
+                                            for (var i = 0; i < r.record.length; i++) {
+                                                var item1 = r.record[i];
+                                                var str = "<tr><td id='akCartaId' hidden>" + item1.akCartaId +
+                                                    "</td><td class='text-uppercase'>" + item1.akCarta.kod + " - " + item1.akCarta.perihal +
+                                                    "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                                    "</td><td>" +
+                                                    "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-bs-toggle='modal' data-bs-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+                                                    "</td><td>" +
+                                                    "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash' ></i></button>" +
+                                                    "</td><tr>";
+                                                $("table tbody#tbodyObjek").append(str);
+                                                sum += item1.amaun;
+                                            }
+                                        }
+
+                                        jumlah.val(sum.toFixed(2));
+                                        if ($('#ddlKodPembekal').val() != 0) {
+                                            checkJumlah();
+                                        }
+                                    }
+                                });
+                            }
+                            else {
+                                toastr.error("Bajet untuk kod akaun ini tidak mencukupi.", "Ralat");
+                                toastr.options.timeOut = 5000; // 5s
+                            }
+
+                        }
+                    });
+
+                }
+            });
+        }
+
+    }
+    //add tbl Inbois end
+
+    //remove tbl Inbois
+    function Remove2(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var name = $("TD", row).eq(0).html();
+        var amaun = $("TD", row).eq(3).html();
+        var txtJumlah = $("#jumlahInbois");
+
+        if (confirm("Hapus : " + name + " ?")) {
+            //Get the reference of the Table.
+            var table = $("#tblInbois")[0];
+
+            //Sum value to Total text field
+            var sum = 0;
+            sum = parseFloat(txtJumlah.val()) - parseFloat(amaun);
+            txtJumlah.val(sum.toFixed(2));
+
+            var AkPV2 = {
+                AkBelianId: name
+            }
+            if (name != null) {
+                $.ajax({
+                    type: "POST",
+                    //url: "/AkPV/RemoveAkPV2",
+                    url: '@Url.Action("RemoveAkPV2", "AkPV")',
+                    data: AkPV2,
+                    dataType: "json",
+                    success: function (r) {
+                        //Delete the Table row using it's Index.
+                        table.deleteRow(row[0].rowIndex);
+                        checkJumlah();
+                    }
+                });
+            }
+            $("#txtAkBelian option[value=" + name + "]").prop('disabled', false);
+        }
+    };
+    //remove tbl Inbois end
+
+    //update tbl Inbois
+    function Update2(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var akBelianId = $("TD", row).eq(0).html();
+        var AkPV2 = {
+            AkBelianId: akBelianId
+        }
+        $.ajax({
+            type: "POST",
+            //url: "/AkPV/GetAnItemCartAkPV2",
+            url: '@Url.Action("GetAnItemCartAkPV2", "AkPV")',
+            data: AkPV2,
+            dataType: "json",
+            success: function (r) {
+                //insert data in modal urusniaga
+                $("#moId2").val(r.record.akBelianId);
+                $("#moAkBelian").val(r.record.akBelianId);
+                $("#moAmaun2").val(r.record.amaun.toFixed(2));
+
+                //show modal objek
+                $("#modalInbois").modal({ backdrop: 'static', keyboard: false });
+
+            }
+        });
+    };
+
+    function modalUpdate2() {
+        var id = $("#moId2").val();
+        var amaun = $("#moAmaun2").val();
+        var akPVId = $("#Id").val();
+        var jumlah = $("#jumlahPerihal");
+
+        var AkPV2 = {
+            AkBelianId: id,
+            AkPVId: akPVId,
+            Amaun: amaun
+        }
+        $.ajax({
+            type: "POST",
+            //url: "/AkPV/SaveCartAkPV2",
+            url: '@Url.Action("SaveCartAkPV2", "AkPV")',
+            data: AkPV2,
+            dataType: "json",
+            success: function (r) {
+                //insert notification here
+
+                $.ajax({
+                    type: "POST",
+                    //url: "/AkPV/GetAllItemCartAkPV2",
+                    url: '@Url.Action("GetAllItemCartAkPV2", "AkPV")',
+                    dataType: "json",
+                    success: function (r) {
+
+                        //refresh updated table Urusniaga
+                        $("table tbody#tbodyInbois").empty();
+                        var sum = 0;
+                        if (r.record.length > 0) {
+                            for (var i = 0; i < r.record.length; i++) {
+                                var item1 = r.record[i];
+                                var noPOInden = "-";
+                                var tarPOInden = null;
+                                var jumlahPOInden = 0;
+                                if (r.type != null) {
+                                    if (r.type == "PO") {
+                                        noPOInden = item1.akBelian.akPO.noPO;
+                                        tarPOInden = showDate(item1.akBelian.akPO.tarikh);
+                                        jumlahPOInden = (item1.akBelian.akPO.jumlah).toFixed(2);
+                                    }
+
+                                    if (r.type == "Inden") {
+                                        noPOInden = item1.akBelian.akInden.noInden;
+                                        tarPOInden = showDate(item1.akBelian.akInden.tarikh);
+                                        jumlahPOInden = (item1.akBelian.akInden.jumlah).toFixed(2);
+                                    }
+                                }
+                                var str = "<tr><td id='akBelianId' hidden>" + item1.akBelianId +
+                                    "</td><td>" + item1.akBelian.noInbois.substring(9) +
+                                    "</td><td>" + showDate(item1.akBelian.tarikh) +
+                                    "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                    "</td><td>" + noPOInden +
+                                    "</td><td>" + tarPOInden +
+                                    "</td><td class='text-end'>" + jumlahPOInden +
+                                    "</td><td>" +
+                                    "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate2' data-bs-toggle='modal' data-bs-target='#modalInbois' onclick='Update2(this)'><i class='fa fa-edit' ></i></button>" +
+                                    "</td><td>" +
+                                    "<button class='btn ac-danger btn-sm' type='button' id='btnRemove2' onclick='Remove2(this)'><i class='fas fa-trash' ></i></button>" +
+                                    "</td><tr>";
+                                $("table tbody#tbodyInbois").append(str);
+                                sum += item1.amaun;
+                            }
+                        }
+                        jumlah.val(sum.toFixed(2));
+                        checkJumlah();
+                    }
+                });
+            }
+        });
+    };
+    //update tbl Inbois end
+
+    // add tbl Ganda
+    var bil = $('#tblGanda tr').length;
+    if (bil == 0) {
+        bil = 1;
+    }
+
+    $("body").on("click", "#btnAdd3", function () {
+        //Reference the Name and Country TextBoxes.
+        $("#modalAdd3").prop('hidden', false);
+        $("#modalUpdate3").prop('hidden', true);
+    });
+
+    function modalAdd3() {
+        var indek = bil;
+        //var moIndek = $("#moIndek").val();
+        //if (moIndek != "") {
+        //    indek = moIndek;
+        //}
+        var kategoriPenerima = $('input[name="FlKategoriPenerima"]:checked').val();
+        var pekerjaId = $("#moGandaAnggota").val();
+        var atletId = $("#moGandaAtlet").val();
+        var jurulatihId = $("#moGandaJurulatih").val();
+        var noKP = $("#moGandaNoKP").val();
+        var nama = $("#moGandaNama").val();
+        var caraBayarId = $("#moGandaCaraBayar").val();
+        var bankId = $("#moGandaBank").val();
+        var noAkaun = $("#moGandaNoAkaun").val();
+        var noCekEFT = $("#moGandaNoCekEFT").val();
+        var tarCekEFT = $("#moGandaTarCekEFT").val();
+        var amaun = $("#moGandaAmaun").val();
+        var jumlah = $("#jumlahGanda");
+
+        var AkPVGanda = {
+            Indek: indek,
+            FlKategoriPenerima: kategoriPenerima,
+            SuPekerjaId: pekerjaId,
+            SuAtletId: atletId,
+            SuJurulatihId: jurulatihId,
+            NoKp: noKP,
+            Nama: nama,
+            JCaraBayarId: caraBayarId,
+            JBankId: bankId,
+            NoAkaun: noAkaun,
+            NoCekAtauEFT: noCekEFT,
+            TarCekAtauEFT: tarCekEFT,
+            Amaun: amaun
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SaveCartAkPVGanda", "AkPV")',
+            data: AkPVGanda,
+            dataType: "json",
+            success: function (r) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetAllItemCartAkPVGanda", "AkPV")',
+                    dataType: "json",
+                    success: function (r) {
+
+                        //refresh updated table Ganda
+                        $("table tbody#tbodyGanda").empty();
+                        var sum = 0;
+                        if (r.record.length > 0) {
+                            for (var i = 0; i < r.record.length; i++) {
+                                var item1 = r.record[i];
+                                var tarSlip = "";
+                                if (item1.tarCekAtauEFT == null) {
+                                } else {
+                                    tarSlip = showDate(item1.tarCekAtauEFT);
+                                }
+                                var noSlip = "";
+                                if (item1.noCekAtauEFT == null) {
+                                } else {
+                                    noSlip = item1.noCekAtauEFT;
+                                }
+                                var penerimaId = "";
+                                var kategoriPenerima = "";
+                                switch (item1.flKategoriPenerima) {
+                                    case 1:
+                                        kategoriPenerima = "ANGGOTA";
+                                        penerimaId = item1.suPekerjaId;
+                                        break;
+                                    case 2:
+                                        kategoriPenerima = "ATLET";
+                                        penerimaId = item1.suAtletId;
+                                        break;
+                                    case 3:
+                                        kategoriPenerima = "JURULATIH";
+                                        penerimaId = item1.suJurulatihId;
+                                        break;
+                                    case 0:
+                                        kategoriPenerima = "LAIN";
+                                        penerimaId = "";
+                                        break;
+                                }
+                                var str = "<tr><td hidden>" + item1.indek +
+                                    "</td><td class='text-uppercase'>" + kategoriPenerima +
+                                    "</td><td hidden>" + penerimaId +
+                                    "</td><td >" + item1.noKp +
+                                    "</td><td class='text-uppercase'>" + item1.nama +
+                                    "</td><td class='text-uppercase'>" + item1.jCaraBayar.perihal +
+                                    "</td><td class='text-uppercase'>" + item1.jBank.kod +
+                                    "</td><td >" + item1.noAkaun +
+                                    "</td><td >" + noSlip +
+                                    "</td><td >" + tarSlip +
+                                    "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                    "</td><td>" +
+                                    "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate3' data-bs-toggle='modal' data-bs-target='#modalGanda' onclick='Update3(this)'><i class='fa fa-edit' ></i></button>" +
+                                    "</td><td>" +
+                                    "<button class='btn ac-danger btn-sm' type='button' id='btnRemove3' onclick='Remove3(this)'><i class='fas fa-trash' ></i></button>" +
+                                    "</td><tr>";
+                                $("table tbody#tbodyGanda").append(str);
+                                sum += item1.amaun;
+                            }
+                            bil++;
+                        }
+                        jumlah.val(sum.toFixed(2));
+                        checkJumlah();
+                        
+                    }
+                });
+            }
+        });
+
+        $("#modalGanda").modal('hide');
+    }
+    // add tbl Ganda end
+
+    // update tbl Ganda
+    function Update3(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var indek = $("TD", row).eq(0).html();
+
+        var AkPVGanda = {
+            Indek: indek
+        }
+        $.ajax({
+            type: "POST",
+            //url: "/AkBelian/GetAnItemCartAkBelian2",
+            url: '@Url.Action("GetAnItemCartAkPVGanda", "AkPV")',
+            data: AkPVGanda,
+            dataType: "json",
+            success: function (r) {
+                //insert data in modal perihal
+                $("#moIndek").val(r.record.indek);
+                switch (r.record.flKategoriPenerima) {
+                    case 1:
+                        $("#FlKategoriPenerima1").prop("checked", true);
+
+                        $("#moGandaAnggota").val(r.record.suPekerjaId).change();
+                        $("#moGandaAtlet").val(0).change();
+                        $("#moGandaJurulatih").val(0).change();
+
+                        $("#modalGandaAnggota").prop('hidden', false);
+                        $("#modalGandaAtlet").prop('hidden', true);
+                        $("#modalGandaJurulatih").prop('hidden', true);
+                        break;
+                    case 2:
+                        $("#FlKategoriPenerima2").prop("checked", true);
+
+                        $("#moGandaAnggota").val(0).change();
+                        $("#moGandaAtlet").val(r.record.suAtletId).change();
+                        $("#moGandaJurulatih").val(0).change();
+
+                        $("#modalGandaAnggota").prop('hidden', true);
+                        $("#modalGandaAtlet").prop('hidden', false);
+                        $("#modalGandaJurulatih").prop('hidden', true);
+                        break;
+                    case 3:
+                        $("#FlKategoriPenerima3").prop("checked", true);
+
+                        $("#moGandaAnggota").val(0).change();
+                        $("#moGandaAtlet").val(0).change();
+                        $("#moGandaJurulatih").val(r.record.suJurulatihId).change();
+
+                        $("#modalGandaAnggota").prop('hidden', true);
+                        $("#modalGandaAtlet").prop('hidden', true);
+                        $("#modalGandaJurulatih").prop('hidden', false);
+                        break;
+                    case 0:
+                        $("#FlKategoriPenerima0").prop("checked", true);
+
+                        $("#moGandaAnggota").val(0).change();
+                        $("#moGandaAtlet").val(0).change();
+                        $("#moGandaJurulatih").val(0).change();
+
+                        $("#modalGandaAnggota").prop('hidden', true);
+                        $("#modalGandaAtlet").prop('hidden', true);
+                        $("#modalGandaJurulatih").prop('hidden', true);
+                        break;
+                }
+                $("#moGandaNoKP").val(r.record.noKp);
+                $("#moGandaNama").val(r.record.nama);
+                $("#moGandaCaraBayar").val(r.record.jCaraBayarId).change();
+                $("#moGandaBank").val(r.record.jBankId).change();
+                $("#moGandaNoAkaun").val(r.record.noAkaun);
+                $("#moGandaNoCekEFT").val(r.record.noCekAtauEFT);
+                $("#moGandaTarCekEFT").val(r.record.tarCekAtauEFT);
+                $("#moGandaAmaun").val(r.record.amaun.toFixed(2));
+
+                //show modal perihal
+                $("#modalGanda").modal({ backdrop: 'static', keyboard: false });
+                $("#modalAdd3").prop('hidden', true);
+                $("#modalUpdate3").prop('hidden', false);
+            }
+        });
+    };
+
+    function modalUpdate3() {
+        var indek = $("#moIndek").val();
+        var kategoriPenerima = $('input[name="FlKategoriPenerima"]:checked').val();
+        var pekerjaId = $("#moGandaAnggota").val();
+        var atletId = $("#moGandaAtlet").val();
+        var jurulatihId = $("#moGandaJurulatih").val();
+        var noKP = $("#moGandaNoKP").val();
+        var nama = $("#moGandaNama").val();
+        var caraBayarId = $("#moGandaCaraBayar").val();
+        var bankId = $("#moGandaBank").val();
+        var noAkaun = $("#moGandaNoAkaun").val();
+        var noCekEFT = $("#moGandaNoCekEFT").val();
+        var tarCekEFT = $("#moGandaTarCekEFT").val();
+        var amaun = $("#moGandaAmaun").val();
+        var jumlah = $("#jumlahGanda");
+
+        var AkPVGanda = {
+            Indek: indek,
+            FlKategoriPenerima: kategoriPenerima,
+            SuPekerjaId: pekerjaId,
+            SuAtletId: atletId,
+            SuJurulatihId: jurulatihId,
+            NoKp: noKP,
+            Nama: nama,
+            JCaraBayarId: caraBayarId,
+            JBankId: bankId,
+            NoAkaun: noAkaun,
+            NoCekAtauEFT: noCekEFT,
+            TarCekAtauEFT: tarCekEFT,
+            Amaun: amaun
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SaveCartAkPVGanda", "AkPV")',
+            data: AkPVGanda,
+            dataType: "json",
+            success: function (r) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetAllItemCartAkPVGanda", "AkPV")',
+                    dataType: "json",
+                    success: function (r) {
+
+                        //refresh updated table Ganda
+                        $("table tbody#tbodyGanda").empty();
+                        var sum = 0;
+                        if (r.record.length > 0) {
+                            for (var i = 0; i < r.record.length; i++) {
+                                var item1 = r.record[i];
+                                var tarSlip = "";
+                                if (item1.tarCekAtauEFT == null) {
+                                } else {
+                                    tarSlip = showDate(item1.tarCekAtauEFT);
+                                }
+                                var noSlip = "";
+                                if (item1.noCekAtauEFT == null) {
+                                } else {
+                                    noSlip = item1.noCekAtauEFT;
+                                }
+                                var penerimaId = "";
+                                var kategoriPenerima = "";
+                                switch (item1.flKategoriPenerima) {
+                                    case 1:
+                                        kategoriPenerima = "ANGGOTA";
+                                        penerimaId = item1.suPekerjaId;
+                                        break;
+                                    case 2:
+                                        kategoriPenerima = "ATLET";
+                                        penerimaId = item1.suAtletId;
+                                        break;
+                                    case 3:
+                                        kategoriPenerima = "JURULATIH";
+                                        penerimaId = item1.suJurulatihId;
+                                        break;
+                                    case 0:
+                                        kategoriPenerima = "LAIN";
+                                        penerimaId = "";
+                                        break;
+                                }
+                                var str = "<tr><td hidden>" + item1.indek +
+                                    "</td><td class='text-uppercase'>" + kategoriPenerima +
+                                    "</td><td hidden>" + penerimaId +
+                                    "</td><td >" + item1.noKp +
+                                    "</td><td class='text-uppercase'>" + item1.nama +
+                                    "</td><td class='text-uppercase'>" + item1.jCaraBayar.perihal +
+                                    "</td><td class='text-uppercase'>" + item1.jBank.kod +
+                                    "</td><td >" + item1.noAkaun +
+                                    "</td><td >" + noSlip +
+                                    "</td><td >" + tarSlip +
+                                    "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                    "</td><td>" +
+                                    "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate3' data-bs-toggle='modal' data-bs-target='#modalGanda' onclick='Update3(this)'><i class='fa fa-edit' ></i></button>" +
+                                    "</td><td>" +
+                                    "<button class='btn ac-danger btn-sm' type='button' id='btnRemove3' onclick='Remove3(this)'><i class='fas fa-trash' ></i></button>" +
+                                    "</td><tr>";
+                                $("table tbody#tbodyGanda").append(str);
+                                sum += item1.amaun;
+                            }
+                            bil++;
+                        }
+                        jumlah.val(sum.toFixed(2));
+                        checkJumlah();
+                    }
+                });
+            }
+        });
+
+        $("#modalGanda").modal('hide');
+    }
+    // update tbl Ganda end
+
+    //remove tbl Ganda
+    function Remove3(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var indek = $("TD", row).eq(0).html();
+        var name = $("TD", row).eq(4).html();
+        var amaun = $("TD", row).eq(10).html();
+        var JumlahGanda = $("#jumlahGanda");
+        if (confirm("Hapus : " + name + " ?")) {
+            //Get the reference of the Table.
+            var table = $("#tblGanda")[0];
+
+            var sum = 0;
+            sum = parseFloat(JumlahGanda.val()) - parseFloat(amaun);
+            JumlahGanda.val(sum);
+
+            var AkPVGanda = {
+                Indek: indek,
+            }
+
+            if (name != null) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("RemoveAkPVGanda", "AkPV")',
+                    data: AkPVGanda,
+                    dataType: "json",
+                    success: function (r) {
+                        //Delete the Table row using it's Index.
+                        table.deleteRow(row[0].rowIndex);
+                    }
+                });
+            }
+        }
+    };
+    //remove tbl ganda end
+
+    function displayObjekList(data) {
+        $("table tbody#tbodyObjek").empty();
+        var jumlah = $("#jumlahObjek");
+        var sum = 0;
+        for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+
+            var str = "<tr><td id='akCartaId' hidden>" + item.akCartaId +
+                "</td><td class=;text-uppercase;>" + item.akCarta.kod + " - " + item.akCarta.perihal +
+                "</td><td class='text-end'>" + (item.amaun).toFixed(2) +
+                "</td><td>" +
+                "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-bs-toggle='modal' data-bs-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+                "</td><td>" +
+                "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash' ></i></button>" +
+                "</td><tr>";
+            $("table tbody#tbodyObjek").append(str);
+            sum += item.amaun;
+
+            $("#txtKodAkaun option[value=" + item.akCartaId + "]").prop('disabled', true);
+        }
+        jumlah.val(sum.toFixed(2));
+        checkJumlah();
+    }
+</script>

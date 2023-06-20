@@ -1,0 +1,29 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._01_Jadual.JBangsa
+
+
+@{
+    ViewData["Title"] = "Bangsa - Ubah";
+}
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleEditPartial.cshtml" />
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input name="syscode" value="SPPB" hidden />
+            <div class="form-group">
+                <label asp-for="Perihal" class="control-label"></label>
+                <input asp-for="Perihal" class="form-control form-control-sm text-uppercase" />
+                <span asp-validation-for="Perihal" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Simpan" class="btn ac-primary btn-sm" />
+                <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+            </div>
+        </form>
+    </div>
+
+</div>

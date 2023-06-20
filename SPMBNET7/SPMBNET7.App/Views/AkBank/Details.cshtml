@@ -1,0 +1,70 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.AkBank
+
+
+@{
+    ViewData["Title"] = "Akaun Bank - Papar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDetailsPartial.cshtml" />
+
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Kod)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Kod)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.NoAkaun)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.NoAkaun)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.JKWId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.JKW!.Kod)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.JBahagianId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.JBahagian!.Kod)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.AkCartaId)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.AkCarta!.Kod)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.JBank)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.JBank!.Nama)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.IsBajet)
+            </dt>
+            <dd class="col-sm-9">
+                @if (Model.IsBajet == true)
+                {
+                    <text>YA</text>
+                }
+                else
+                {
+                    <text>TIDAK</text>
+                }
+            </dd>
+        </dl>
+        <hr />
+        <div class="form-group">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn ac-primary btn-sm">Ubah</a>
+            <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+        </div>
+    </div>
+</div>

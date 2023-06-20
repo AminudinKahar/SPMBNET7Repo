@@ -1,0 +1,8 @@
+﻿.debit, .kredit, .total, .thdebit, .thkredit, .thtotal {
+    text-align: right;
+}
+
+.bil, .thbil {
+    text-align: center;
+}
+

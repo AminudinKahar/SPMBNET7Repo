@@ -1,0 +1,27 @@
+﻿@{
+    @using Microsoft.AspNetCore.Identity
+    @using SPMBNET7.Sumber.Data
+
+    @inject UserManager<IdentityUser> UserManager
+    @inject ApplicationDbContext _context
+
+    var user = UserManager.GetUserAsync(User);
+    if (user != null && !string.IsNullOrEmpty(user.Result?.Email))
+    {
+        var namaUser = _context.applicationUsers.FirstOrDefault(x => x.Email == user.Result.Email);
+    }
+
+
+}
+
+<div class="nav-item dropdown">
+    <button class="btn btn-block"><object data="~/img/svg/pengguna-pilihan.svg" class="fa fa-pull-left fa-0 svg-grey"></object></button>
+    <div class=" dropdown-content">
+        <a class="btn dropdown-item" asp-area="" asp-controller="Profile" asp-action="ChangePassword">Tukar Kata Laluan</a>
+        @*<a class="btn dropdown-item" asp-area="" asp-controller="Profile" asp-action="ProfileSetting">Tetapan Pengguna</a>*@
+        <form id="logOutForm" method="post" class="form-inline" asp-controller="Account" asp-action="LogOff">
+            <button type="submit" class="btn dropdown-item">Log Keluar</button>
+        </form>
+    </div>
+
+</div>

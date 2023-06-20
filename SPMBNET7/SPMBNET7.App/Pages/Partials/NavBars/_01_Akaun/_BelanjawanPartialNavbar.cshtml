@@ -1,0 +1,11 @@
+﻿<li class="nav-item">
+    <a class="nav-link collapsed text-truncate" href="#submenuBelanjawan
+       @Html.ActiveClass("AbWaran")
+       @Html.ActiveClass("AbBelanjawanSemasa")" data-toggle="collapse" data-target="#submenuBelanjawan"><img src="~/img/svg/belanjawan.svg" class="fa fa-pull-left fa-0 icon-bar"><span>&nbsp; Belanjawan</span></a>
+    <div class="collapse" id="submenuBelanjawan" aria-expanded="false">
+        <ul class="flex-column ps-2 nav">
+            <li class="nav-item"><a class="nav-link border-bottom py-1 ms-3 @Html.ActiveSideBarClass("AbWaran")" asp-area="" asp-controller="AbWaran" asp-action="Index"><span>Waran</span></a></li>
+            <li class="nav-item"><a class="nav-link py-1 ms-3 @Html.ActiveSideBarClass("AbBelanjawanSemasa")" asp-area="" asp-controller="AbBelanjawanSemasa" asp-action="Index"><span>Belanjawan Semasa</span></a></li>
+        </ul>
+    </div>
+</li>

@@ -1,0 +1,354 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._91_Permohonan.SpPendahuluanPelbagai
+@{
+    ViewData["Title"] = "Pend. Pelbagai - Papar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var namaPekerja = "";
+
+    if (Model.SuPekerja == null)
+    {
+        namaPekerja = "SuperAdmin";
+    }
+    else
+    {
+        namaPekerja = Model.SuPekerja.Nama;
+    }
+
+    var kodCarta = Model.AkCarta?.Kod ?? "";
+    var NamaCarta = Model.AkCarta?.Perihal ?? "";
+
+}
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDetailsPartial.cshtml" />
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="control-label">Jenis Permohonan</label>
+                </div>
+                <div class="row g-3 col-sm ml-2">
+                    <div class="custom-control custom-radio col-md-4 ">
+                        <input class="custom-control-input" asp-for="JenisPermohonan" type="radio" name="jenisPermohonan" id="1" value="1">
+                        <label class="custom-control-label" for="1">
+                            PEMBANGUNAN SUKAN DAN ATLET
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio col-md-4">
+                        <input class="custom-control-input" asp-for="JenisPermohonan" type="radio" name="jenisPermohonan" id="2" value="2">
+                        <label class="custom-control-label" for="2">
+                            PENTADBIRAN
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label name="Pemohon" class="control-label">Nama Pemohon</label>
+                    <input name="Pemohon" class="form-control form-control-sm" readonly value="@namaPekerja" />
+                </div>
+            </div>
+
+        </div>
+        <div class="row g-3">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="NoPermohonan" class="control-label">No Permohonan</label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm form-control-sm-custom" value="@Model.NoPermohonan" readonly />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="JKWId" class="control-label"></label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.JKW?.Kod - @Model.JKW?.Perihal " readonly />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="JBahagianId" class="control-label"></label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.JBahagian?.Kod - @Model.JBahagian?.Perihal " readonly />
+                </div>
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="JNegeriId" class="control-label">Negeri</label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.JNegeri?.Kod - @Model.JNegeri?.Perihal " readonly />
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="JSukanId" class="control-label">Sukan</label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.JSukan?.Perihal " readonly />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="JTahapAktivitiId" class="control-label">Tahap</label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm text-uppercase" value="@Model.JTahapAktiviti?.Perihal " readonly />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Aktiviti/Kejohanan</label><span class="text-danger control-label">*</span>
+            <textarea class="form-control form-control-sm text-uppercase" asp-for="Aktiviti" readonly rows="2"></textarea>
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Tarikh" class="control-label">Tarikh Aktiviti</label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm text-uppercase" asp-for="Tarikh" readonly />
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">Tempat</label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm text-uppercase" asp-for="Tempat" readonly />
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label asp-for="AkCartaId" class="control-label">Kod Objek/Vot</label>
+                    <input class="form-control form-control-sm text-uppercase" value="@kodCarta - @NamaCarta " readonly />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Jumlah</label><span class="text-danger control-label">*</span>
+                    <input class="form-control form-control-sm form-control-sm-custom" required id="txtJumlahKeseluruhan" asp-for="JumKeseluruhan" readonly />
+                </div>
+            </div>
+        </div>
+        @*table Peserta*@
+        <div class="card box-shadow mb-3">
+            <div class="card-header">
+                <h6>Bilangan Peserta</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive-md">
+                    <table id="tblPeserta" class="table table-sm" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Jantina</th>
+                                <th>Atlet</th>
+                                <th>Jurulatih</th>
+                                <th>Pegawai</th>
+                                <th>Teknikal</th>
+                                <th>Urusetia</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyPeserta">
+                            @foreach (var item in ViewBag.SpPendahuluanPelbagai1)
+                            {
+                                <tr id="@item.Id">
+                                    <td id="jJantinaId">@item.JJantina.Perihal</td>
+                                    <td class="text-end">@item.BilAtl</td>
+                                    <td class="text-end">@item.BilJul</td>
+                                    <td class="text-end">@item.BilPeg</td>
+                                    <td class="text-end">@item.BilTek</td>
+                                    <td class="text-end">@item.BilUru</td>
+                                    <td class="text-end" id="td1Amaun">@item.Jumlah</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="form-group">
+                    <label class="control-label">Jumlah Peserta</label>
+                    <input value="@ViewData["jumlahPeserta"]" class="form-control form-control-sm" id="jumlahPeserta" readonly />
+                </div>
+            </div>
+        </div>
+        @*table Peserta end*@
+        <br />
+        @*table Perihal*@
+        <div class="card box-shadow mb-3 mt-2">
+            <div class="card-header">
+                <h6>Perihal</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive-md">
+                    <table id="tblPerihal" class="table table-sm" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th width="30%">Perihal</th>
+                                <th>Kadar RM</th>
+                                <th>Bil</th>
+                                <th>Bulan / Hari</th>
+                                <th>Jumlah RM</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyPerihal">
+                            @foreach (var item in ViewBag.SpPendahuluanPelbagai2)
+                            {
+                                <tr id="@item.Id">
+                                    <td hidden>@item.Indek</td>
+                                    <td>@item.Baris</td>
+                                    <td class="text-uppercase">@item.Perihal</td>
+                                    <td class="text-end">@Convert.ToDecimal(item.Kadar).ToString("#,##0.00")</td>
+                                    <td class="text-end">@item.Bil</td>
+                                    <td class="text-end">@item.Bulan</td>
+                                    <td class="text-end">@Convert.ToDecimal(item.Jumlah).ToString("#,##0.00")</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="form-group">
+                    <label class="control-label">Jumlah Perihal RM</label>
+                    <input value="@ViewData["jumlahPerihal"]" class="form-control form-control-sm" id="jumlahPerihal" readonly />
+                </div>
+            </div>
+        </div>
+        @*table Perihal end*@
+
+        @*table akPV*@
+        @if (Model.AkPV != null)
+        {
+            @if (Model.AkPV.Count() != 0)
+            {
+                foreach (var pv in Model.AkPV)
+                {
+                    if (pv.FlPosting == 1)
+                    {
+                        <div class="card box-shadow mb-3">
+                            <div class="card-header bg-success text-white">
+                                <h6>Baucer Pembayaran</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+
+                                    <table id="tblAkPV2" class="table table-sm table-borderless" cellpadding="0" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:40%">Kod</th>
+                                                <th style="width:50%" >Amaun RM</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbodyObjek">
+                                            @foreach (var item in Model.AkPV)
+                                            {
+                                                <tr id="@item.Id">
+                                                    <td>@item.NoPV</td>
+                                                    <td class="text-end" id="td3Amaun">@Convert.ToDecimal(item.Jumlah).ToString("#,##0.00")</td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group" role="group" aria-label="action">
+                                                            <a asp-controller="AkPV" asp-action="Details" asp-route-id="@item.Id" class="btn text-primary btn-sm bg-white" type="button" data-toggle="tooltip" data-placement="top" title="Papar"><i class="fas fa-eye"></i></a>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+
+                                            }
+                                        </tbody>
+                                        <tfoot>
+
+                                        </tfoot>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="form-group pb-2">
+                                    <label class="control-label">Jumlah Baucer RM</label>
+                                    <input value="@ViewData["jumlahAkPV"]" class="form-control form-control-sm" id="jumlahObjek" readonly />
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                }
+
+            }
+        }
+        @*table akPV end*@
+
+
+        <hr />
+        <div class="form-group">
+            @if (Model.FlHapus == 0)
+            {
+                @if (Model.FlPosting == 1)
+                {
+                }
+                else
+                {
+                    @if (Model.FlStatusSokong == 1)
+                    {
+                        <button type="button" class="btn ac-primary btn-sm" data-toggle="modal" data-target="#modalUbah">
+                            Ubah
+                        </button>
+                    }
+                    else
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn ac-primary btn-sm">Ubah</a>
+                    }
+                }
+            }
+            <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<!-- Modal Semak -->
+<div class="modal fade" id="modalUbah" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-md modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="modal-header bg-warning text-white">
+
+                <h5 class="modal-title"><i class="fas fa-exclamation-triangle"></i>  Ubah</h5>
+
+                <button type="button" class="border-0 bg-transparent" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times text-white"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Permohonan ini telahpun disokong. Anda pasti untuk meneruskan operasi ini?</p>
+                <div class="row g-3">
+                    <div class="col-6 mb-2">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn ac-danger btn-block btn-lg ">YA</a>
+                    </div>
+                    <div class="col-6">
+                        <a data-bs-dismiss="modal" aria-label="Close" class=" btn ac-secondary btn-block btn-lg text-white">TIDAK</a>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer" style="padding:0px;">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Semak End -->

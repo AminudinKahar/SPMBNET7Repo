@@ -1,0 +1,48 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Halaman Utama";
+    var user = UserManager.GetUserAsync(User);
+    var namaUser = _context.applicationUsers.FirstOrDefault(x => x.Email == user!.Result.Email);
+    var pekerja = _context.SuPekerja.FirstOrDefault(x => x.Id == namaUser.SuPekerjaId);
+    var jawatan = "Super Admin";
+    if (pekerja != null)
+    {
+        jawatan = pekerja.Jawatan;
+    }
+
+}
+
+@*div Header*@
+<div class="row">
+    <div class="col-8">
+        <h5 class="text-secondary text-uppercase">Dashboard</h5>
+    </div>
+
+</div>
+<hr class="mt-0" />
+<div class="row mb-3">
+    <div class="col-lg-8">
+        <h5 class=" mb-0">Selamat Datang, @namaUser.Nama</h5>
+    </div>
+
+</div>
+
+@*div Header end*@
+
+@*card access application*@
+<div class="card">
+    <div class="card-body ac-info">
+        <h5 class="card-title">Capaian Anda Dinafikan?</h5>
+        <p class="card-text">Sila klik butang ini untuk cetakan borang permohonan capaian</p>
+        <div class="card-img-overlay text-right" style="overflow:hidden; opacity:20%;">
+            <a class="btn-block" target="_blank" asp-action="PrintPermohonanCapaian">
+                <i class="fas fa-print fa-10x"></i>
+            </a>
+        </div>
+    </div>
+</div>
+@*card access application end*@
+
+
+

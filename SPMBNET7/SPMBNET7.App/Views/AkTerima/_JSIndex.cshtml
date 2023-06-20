@@ -1,0 +1,80 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        var table = $('.table').DataTable({
+            "paging": false,
+            rowReorder: true,
+            columnDefs: [
+                { orderable: true, className: 'reorder', targets: 1 },
+                { orderable: true, className: 'reorder', targets: 2 },
+                { orderable: true, className: 'reorder', targets: 3 },
+                { orderable: true, className: 'reorder', targets: 6 },
+                { orderable: false, targets: '_all' }
+            ],
+            "order": [[2, "desc"]],
+            "scrollY": "50vh",
+            "scrollX": true,
+            "scrollCollapse": true,
+            "paging": false,
+            dom: 'lrt'
+        });
+
+        table.on('order.dt search.dt', function () {
+            table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
+
+        var scol = $('#searchColumn').val();
+
+        $("#myInputString").hide();
+        $("#myInputDate1").hide();
+        $("#myInputDate2").hide();
+
+        if (scol === "Tarikh") {
+            $("#myInputString").hide();
+            $("#myInputDate1").show();
+            $("#myInputDate2").show();
+        }
+        if (scol === "Nama" || scol === "NoRujukan") {
+            $("#myInputString").show();
+            $("#myInputDate1").hide();
+            $("#myInputDate2").hide();
+        }
+
+        $("#searchColumn").change(function () {
+            $("#myInput").val("");
+            $("#inputTarikh1").val("");
+            $("#inputTarikh2").val("");
+
+            if (this.value === "Tarikh") {
+                $("#myInputString").hide();
+                $("#myInputDate1").show();
+                $("#myInputDate2").show();
+            }
+            if (this.value === "Nama" || this.value === "NoRujukan") {
+                $("#myInputString").show();
+                $("#myInputDate1").hide();
+                $("#myInputDate2").hide();
+            }
+        });
+
+        $('input[type=radio][name=jenis]').on('change', function () {
+            switch ($(this).val()) {
+                case 'CreateAm':
+                    $('#btnTambah').removeAttr('href');
+                    $('#btnTambah').attr('href', "/AkTerima/CreateByJenis?jenis=CreateAm");
+                    break;
+                case 'CreatePekerja':
+                    $('#btnTambah').removeAttr('href');
+                    /**/
+                    $('#btnTambah').attr('href', "/AkTerima/CreateByJenis?jenis=CreatePekerja");
+                    /**/
+                    break;
+                case 'CreatePanjar':
+                    $('#btnTambah').removeAttr('href');
+                    $('#btnTambah').attr('href', "/AkTerima/CreateByJenis?jenis=CreatePanjar");
+                    break;
+            }
+        });
+    });
+</script>

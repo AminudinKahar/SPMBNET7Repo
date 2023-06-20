@@ -1,0 +1,78 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._01_Jadual.JBahagian
+
+@{
+    ViewData["Title"] = "Bahagian - Tambah";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<partial name="_JSCreate" />
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-8">
+                <h5 class="text-uppercase text-success mb-0">@ViewData["Title"]</h5>
+                <span class="ac-ref"><a asp-action="Index" class="text-secondary">Indeks</a> / Tambah</span>
+            </div>
+            <div class="col-4 ">
+                <a asp-action="Index" class="text-secondary float-end"><i class="fas fa-times fa-2x"></i></a>
+            </div>
+
+        </div>
+        <hr class="mt-2" />
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="JPTJId" class="control-label"></label>
+                <select class="form-control form-control-sm text-uppercase" asp-for="JPTJId" id="ddlPTJ">
+                    @foreach (var s in ViewBag.JPtj)
+                    {
+                        <option value="@s.Id">@s.Perihal </option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kod" class="control-label"></label>
+                <input asp-for="Kod" class="form-control form-control-sm" value="@ViewBag.NoRujukan" readonly id="txtNoRujukan" />
+                <span asp-validation-for="Kod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Perihal" class="control-label"></label>
+                <input asp-for="Perihal" class="form-control form-control-sm text-uppercase" />
+                <span asp-validation-for="Perihal" class="text-danger"></span>
+            </div>
+
+            <div hidden>
+                <div class="form-group">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <input asp-for="UserId" class="form-control form-control-sm" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TarMasuk" class="control-label"></label>
+                    <input asp-for="TarMasuk" class="form-control form-control-sm" value="@DateTime.Now.ToString("s")" />
+                    <span asp-validation-for="TarMasuk" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserIdKemaskini" class="control-label"></label>
+                    <input asp-for="UserIdKemaskini" class="form-control form-control-sm" />
+                    <span asp-validation-for="UserIdKemaskini" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TarKemaskini" class="control-label"></label>
+                    <input asp-for="TarKemaskini" class="form-control form-control-sm" value="@DateTime.Now.ToString("s")" />
+                    <span asp-validation-for="TarKemaskini" class="text-danger"></span>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Simpan" class="btn btn-primary btn-sm" />
+                <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

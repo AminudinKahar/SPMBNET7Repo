@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Amin Idwal\source\publish\MSNK_Sumber</_PublishTargetUrl>
+    <History>True|2023-05-26T08:07:22.8431081Z;True|2023-05-26T15:51:48.1649758+08:00;True|2023-05-26T12:38:40.4986483+08:00;True|2023-05-26T12:34:41.6455893+08:00;True|2023-05-26T12:30:26.8094257+08:00;True|2023-05-26T10:51:39.9293766+08:00;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Connection">
+      <Value>Server=DESKTOP-9L7R1E8\LOCALHOST%3bDatabase=MSNK%3bTrusted_Connection=True%3bTrustServerCertificate=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,112 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._03_Sumber.SuAtlet
+
+@{
+    ViewData["Title"] = "Atlet - Hapus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDeletePartial.cshtml" />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row g-3">
+                    <div class="form-group col-md-4">
+                        <label asp-for="NoKp" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.NoKp)" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="Nama" class="control-label"></label>
+                        <input class="form-control form-control-sm text-uppercase" value="@Model.Nama" readonly />
+                    </div>
+                </div>
+                <div class="row g-3 ">
+                    <div class="form-group col-md">
+                        <label asp-for="Jawatan" class="control-label"></label>
+                        <input value="@Html.DisplayFor(model => model.Jawatan)" class="form-control form-control-sm text-uppercase" readonly />
+                    </div>
+                </div>
+                <div class="row g-3 ">
+                    <div class="form-group col-md">
+                        <label asp-for="Alamat1" class="control-label"></label>
+                        <input class="form-control form-control-sm text-uppercase" value="@Html.DisplayFor(model => model.Alamat1)" readonly />
+                    </div>
+                </div>
+                <div class="row g-3 ">
+                    <div class="form-group col-md">
+                        <input class="form-control form-control-sm text-uppercase" value="@Html.DisplayFor(model => model.Alamat2)" readonly />
+                    </div>
+                </div>
+                <div class="row g-3 ">
+                    <div class="form-group col-md">
+                        <input class="form-control form-control-sm text-uppercase" value="@Html.DisplayFor(model => model.Alamat3)" readonly />
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="form-group col-md ">
+                        <label asp-for="Poskod" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.Poskod)" readonly />
+                    </div>
+                    <div class="form-group col-md ">
+                        <label asp-for="Bandar" class="control-label"></label>
+                        <input class="form-control form-control-sm text-uppercase" value="@Html.DisplayFor(model => model.Bandar)" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="JNegeri" class="control-label"></label>
+                        <input class="form-control form-control-sm text-uppercase" value="@Model.JNegeri?.Perihal" readonly />
+                    </div>
+                </div>
+                <div class="row g-3 sorok">
+                    <div class="form-group col-md">
+                        <label asp-for="JAgama" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Model.JAgama?.Perihal" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="JBangsa" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Model.JBangsa?.Perihal" readonly />
+                    </div>
+                </div>
+                <div class="row g-3 sorok">
+                    <div class="form-group col-md">
+                        <label asp-for="Telefon" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.Telefon)" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="Emel" class="control-label"></label>
+                        <p>@Html.DisplayFor(model => model.Emel)</p>
+                    </div>
+                </div>
+                <div class="row g-3 sorok">
+                    <div class="form-group col-md">
+                        <label asp-for="TarikhAktif" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.TarikhAktif)" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="TarikhBerhenti" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.TarikhBerhenti)" readonly />
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="form-group col-md ">
+                        <label asp-for="JCaraBayar" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Model.JCaraBayar?.Perihal" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="NoAkaunBank" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.NoAkaunBank)" readonly />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="form-group">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input name="syscode" value="SPPB" hidden />
+                <input type="submit" value="Hapus" class="btn ac-danger btn-sm" />
+                <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+            </form>
+
+        </div>
+    </div>
+</div>
