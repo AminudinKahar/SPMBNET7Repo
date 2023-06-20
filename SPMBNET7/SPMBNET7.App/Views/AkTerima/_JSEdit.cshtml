@@ -662,7 +662,7 @@
         var sum = 0;
         $('#tbodyUrusniaga tr').each(function () {
             var amaun = $(this).find(".amaunUrusniaga").html();
-            sum += parseFloat(amaun);
+            sum += parseFloat(amaun.replace(/,/g, ''));
         });
         $('#jumlahUrusniaga').val(sum.toFixed(2));
 

@@ -91,10 +91,12 @@ namespace SPMBNET7.Infrastructure.Carts._02_Akaun.Sessions
             string noKP,
             string noAkaun,
             int? jBankId,
+            JBank jBank,
             decimal amaun,
             string noCekAtauEFT,
             DateTime? tarCekAtauEFT,
-            int? jCaraBayarId)
+            int? jCaraBayarId,
+            JCaraBayar jCaraBayar)
         {
             base.AddItemGanda(
                 akPVId,
@@ -107,10 +109,12 @@ namespace SPMBNET7.Infrastructure.Carts._02_Akaun.Sessions
                 noKP,
                 noAkaun,
                 jBankId,
+                jBank,
                 amaun,
                 noCekAtauEFT,
                 tarCekAtauEFT,
-                jCaraBayarId);
+                jCaraBayarId,
+                jCaraBayar);
 
             Session?.SetJson("CartPV", this);
         }

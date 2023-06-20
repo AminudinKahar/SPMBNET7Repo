@@ -48,9 +48,10 @@ namespace SPMBNET7.CoreBusiness.Models.Modules._02_Akaun
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Jumlah { get; set; }
         [DisplayName("No KP")]
-        public string NoKP { get; set; } = string.Empty;
+        public string? NoKP { get; set; }
         [Required(ErrorMessage = "Nama diperlukan")]
         public string Nama { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Alamat diperlukan")]
         public string Alamat1 { get; set; } = string.Empty;
         public string? Alamat2 { get; set; }
         public string? Alamat3 { get; set; }
@@ -67,6 +68,7 @@ namespace SPMBNET7.CoreBusiness.Models.Modules._02_Akaun
         public DateTime? TarCekAtauEFT { get; set; }
         [MaxLength(400)]
         [DefaultValue("")]
+        [Required(ErrorMessage = "Perihal diperlukan")]
         public string Perihal { get; set; } = string.Empty;
         [DisplayName("No Rekup")]
         public string? NoRekup { get; set; }

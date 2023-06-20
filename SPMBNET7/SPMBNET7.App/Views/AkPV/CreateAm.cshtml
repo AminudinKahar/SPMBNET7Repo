@@ -11,7 +11,7 @@
         <partial name="~/Pages/Partials/Common/_TitleCreatePartial.cshtml" />
         
         <form asp-action="CreateByJenis" class="needs-validation" novalidate>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <input name="syscode" value="SPPB" hidden />
             @*base form*@
             <div class="row g-3">
