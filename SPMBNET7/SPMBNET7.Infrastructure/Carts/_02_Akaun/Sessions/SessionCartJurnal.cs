@@ -27,18 +27,26 @@ namespace SPMBNET7.Infrastructure.Carts._02_Akaun.Sessions
             int AkJurnalId,
             int Indeks,
             int JBahagianDebitId,
+            JBahagian? jBahagianDebit,
             int AkCartaDebitId,
+            AkCarta? akCartaDebit,
             int JBahagianKreditId,
+            JBahagian? jBahagianKredit,
             int AkCartaKreditId,
+            AkCarta? akCartaKredit,
             decimal Amaun
            )
         {
             base.AddItem1(AkJurnalId,
                           Indeks,
                           JBahagianDebitId,
+                          jBahagianDebit,
                           AkCartaDebitId,
+                          akCartaDebit,
                           JBahagianKreditId,
+                          jBahagianKredit,
                           AkCartaKreditId,
+                          akCartaKredit,
                           Amaun);
             Session?.SetJson("CartJurnal", this);
         }

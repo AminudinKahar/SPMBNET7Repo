@@ -1,0 +1,275 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.AkJurnal
+
+@{
+    ViewData["Title"] = "Baucer Jurnal - Tambah";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_JSCreate" />
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleCreatePartial.cshtml" />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input name="syscode" value="SPPB" hidden />
+            <div class="row g-3">
+                <div class="form-group col-md">
+                    <label asp-for="NoJurnal" class="control-label"></label>
+                    <input asp-for="NoJurnal" class="form-control form-control-sm" value="@ViewBag.NoRujukan" readonly id="txtNoJurnal" />
+                    <span asp-validation-for="NoJurnal" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md">
+                    <label asp-for="JKWId" class="control-label"></label>
+                    <span class="text-danger control-label">*</span>
+                    <select asp-for="JKWId" class="form-control form-control-sm" id="ddlKW">
+                        @foreach (var s in ViewBag.JKw)
+                        {
+                            <option value="@s.Id">@s.Kod - @s.Perihal </option>
+                        }
+                    </select>
+                    <span asp-validation-for="JKWId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md">
+                    <label asp-for="Tarikh" class="control-label"></label>
+                    <span class="text-danger control-label">*</span>
+                    <input asp-for="Tarikh" class="form-control form-control-sm" value="@DateTime.Now.ToString("yyyy-MM-dd")" type="date" id="txtTarikh" />
+                    <span asp-validation-for="Tarikh" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label asp-for="Catatan1" class="control-label">Catatan</label>
+                <textarea class="form-control form-control-sm text-uppercase" maxlength="400" rows="4" asp-for="Catatan1" required></textarea>
+                <span asp-validation-for="Catatan1" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-3">
+                <label asp-for="AkTunaiRuncitId" class="control-label"></label><span> (Jika ada)</span>
+                <select class="form-control form-control-sm select2" asp-for="AkTunaiRuncitId" required id="ddlTunaiRuncit">
+                    <option value="0" selected>-- Pilih Kaunter Panjar --</option>
+                    @foreach (var s in ViewBag.AkTunaiRuncit)
+                    {
+
+                        <option value="@s.Id">@s.KaunterPanjar (@s.AkCarta.Kod - @s.AkCarta.Perihal )</option>
+                    }
+                </select>
+            </div>
+            <div class="card mb-2">
+                <div class="card-body ps-3 pe-3 pt-2">
+
+                    <label class="control-label">Maklumat Tambahan : </label>
+
+                    <div class="custom-control custom-radio">
+                        @Html.CheckBoxFor(m => m.IsAKB)
+                        <label class="control-label">Jurnal ini melibatkan Akaun Belum Bayar (ABB)</label>
+                    </div>
+                </div>
+            </div>
+
+            @*table Objek*@
+            <div class="card box-shadow mb-3">
+                <div class="card-header">
+                    <h6>Objek</h6>
+                </div>
+                <div class="card-body">
+                    <table id="tblObjek" class="table table-sm nowrap" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:5%">Indeks</th>
+                                <th style="width:20%">Bhg. Debit</th>
+                                <th style="width:20%">Kod Debit</th>
+                                <th style="width:20%">Bhg. Kredit</th>
+                                <th style="width:20%">Kod Kredit</th>
+                                <th style="width:10%">Amaun RM</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyObjek">
+                            @if (ViewBag.akJurnal1 != null)
+                            {
+                                @foreach (var item in ViewBag.AkJurnal1)
+                                {
+                                    <tr id="@item.Id">
+                                        <td id="akCartaDebitId" hidden>@item.AkCartaDebitId</td>
+                                        <td>@(item.Indeks.ToString().Length<2?"0"+ item.Indeks.ToString(): item.Indeks.ToString())</td>
+                                        <td id="akCartaKreditId" hidden>@item.AkCartaKreditId</td>
+                                        <td id="bahagianDebitId" hidden>@item.JBahagianDebitId</td>
+                                        <td id="bahagianKreditId" hidden>@item.JBahagianKreditId</td>
+                                        <td class="text-uppercase">@item.JBahagianDebit?.Kod - @item.JBahagianDebit?.Perihal</td>
+                                        <td class="text-uppercase">@item.AkCartaDebit.Kod - @item.AkCartaDebit.Perihal</td>
+                                        <td class="text-uppercase">@item.JBahagianKredit?.Kod - @item.JBahagianKredit?.Perihal</td>
+                                        <td class="text-uppercase">@item.AkCartaKredit.Kod - @item.AkCartaKredit.Perihal</td>
+                                        <td class="editable-txt text-end" id="td1Amaun">@item.Amaun</td>
+                                        <td>
+                                            <button class="btn ac-primary btn-sm"
+                                                    type="button" id="btnUpdate1" data-toggle="modal"
+                                                    data-target="#modalObjek" onclick="Update1(this)">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn ac-danger btn-sm"
+                                                    type="button" id="btnRemove1" onclick="Remove1(this)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td id="akCartaDebitId" hidden></td>
+                                <td><input class="form-control form-control-sm" type="number" id="txtIndeksObjek" step="1" min="0" max="99" value="5" /></td>
+                                <td>
+                                    <select class="form-control form-control-sm select2" id="txtJBahagianDebitId">
+                                        <option value="" selected disabled>-- Sila Pilih Bahagian -- </option>
+                                        @foreach (var s in ViewBag.JBahagian)
+                                        {
+                                            <option value="@s.Id">@s.Kod - @s.Perihal </option>
+                                        }
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm select2" id="txtKodAkaunDebit">
+                                        <option value="" hidden>-- Pilih Kod Akaun --</option>
+                                        @foreach (var s in ViewBag.AkCarta)
+                                        {
+                                            <option class="@s.JKW.Kod" value="@s.Id">@s.Kod - @s.Perihal </option>
+                                        }
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm select2" id="txtJBahagianKreditId">
+                                        <option value="" selected disabled>-- Sila Pilih Bahagian -- </option>
+                                        @foreach (var s in ViewBag.JBahagian)
+                                        {
+                                            <option value="@s.Id">@s.Kod - @s.Perihal </option>
+                                        }
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm select2" id="txtKodAkaunKredit">
+                                        <option value="" hidden>-- Pilih Kod Akaun --</option>
+                                        @foreach (var s in ViewBag.AkCarta)
+                                        {
+                                            <option class="@s.JKW.Kod" value="@s.Id">@s.Kod - @s.Perihal </option>
+                                        }
+                                    </select>
+                                </td>
+                                <td><input class="form-control form-control-sm" type="number" id="txtAmaunObjek" step="0.01" value="0.00" min="0.00"></td>
+                                <td><button class="btn ac-success btn-sm" type="button" id="btnAdd1"><i class="fas fa-plus"></i></button></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <span class="errKodAkaun text-danger" style="display:none">Pastikan Kod Akaun unik.</span>
+                    <span class="errIndeks text-danger" style="display:none">Pastikan Indeks unik.</span>
+                </div>
+                <div class="card-footer">
+                    <div class="row g-3">
+                        <div class="form-group col-md-4 offset-md-4">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-text fw-bold">Jumlah Debit RM</div>
+                                <input asp-for="JumDebit" class="form-control form-control-sm fw-bold text-end" id="JumDebit" value="0.00" readonly />
+                            </div>
+                            <span asp-validation-for="JumDebit" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-text fw-bold">Jumlah Kredit RM</div>
+                                <input asp-for="JumKredit" class="form-control form-control-sm fw-bold text-end" id="JumKredit" value="0.00" readonly />
+                            </div>
+                            <span asp-validation-for="JumKredit" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*table Objek end*@
+
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Simpan" class="btn ac-primary btn-sm" />
+                <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Objek -->
+<div class="modal fade bd-example-modal-lg" id="modalObjek" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Objek</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input id="moId1" hidden />
+                    <div class="form-group">
+                        <label class="col-form-label">Indeks</label>
+                        <input type="number" class="form-control form-control-sm" id="moIndeks" step="1" min="0" max="99">
+                        <span class="errModelIndeks text-danger" style="display:none">Indeks telah digunakan.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Bahagian Debit</label>
+                        <select class="form-control form-control-sm" id="moBahagianDebit" disabled>
+                            @foreach (var s in ViewBag.JBahagian)
+                            {
+                                <option value="@s.Id">@s.Kod - @s.Perihal </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Kod Akaun Debit</label>
+                        <select class="form-control form-control-sm" id="moKodAkaunDebit" disabled>
+                            <option value="" disabled selected>-- Pilih Kod Akaun --</option>
+                            @foreach (var s in ViewBag.AkCarta)
+                            {
+                                <option class="@s.JKW.Kod" value="@s.Id">@s.Kod - @s.Perihal </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Bahagian Kredit</label>
+                        <select class="form-control form-control-sm" id="moBahagianKredit" disabled>
+                            @foreach (var s in ViewBag.JBahagian)
+                            {
+                                <option value="@s.Id">@s.Kod - @s.Perihal </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Kod Akaun Kredit</label>
+                        <select class="form-control form-control-sm" id="moKodAkaunKredit" disabled>
+                            <option value="" disabled selected>-- Pilih Kod Akaun --</option>
+                            @foreach (var s in ViewBag.AkCarta)
+                            {
+                                <option class="@s.JKW.Kod" value="@s.Id">@s.Kod - @s.Perihal </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Amaun RM</label>
+                        <input type="number" class="form-control form-control-sm" id="moAmaun" step="0.01" min="0.00">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="modalUpdate1()">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Objek End -->
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

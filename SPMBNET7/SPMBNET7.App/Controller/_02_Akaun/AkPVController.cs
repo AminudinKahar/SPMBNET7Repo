@@ -1074,12 +1074,12 @@ namespace SPMBNET7.App.Controller._02_Akaun
 
                                             if (sum < akPV2.Amaun)
                                             {
-                                                return Json(new { result = "ERROR" });
+                                                return Json(new { result = "ERROR", message = "Bajet untuk kod akaun ini tidak mencukupi." });
                                             }
                                         }
                                         else
                                         {
-                                            return Json(new { result = "ERROR" });
+                                            return Json(new { result = "ERROR", message = "Bajet untuk kod akaun ini tidak wujud." });
                                         }
                                     }
                                 }
@@ -2564,7 +2564,7 @@ namespace SPMBNET7.App.Controller._02_Akaun
                         akPVView.Telefon = akPV.AkPembekal.Telefon1;
                         akPVView.Emel = akPV.AkPembekal.Emel;
                     }
-                    
+
                     break;
                 //pekerja
                 case KategoriPenerima.Pekerja:
@@ -2580,7 +2580,7 @@ namespace SPMBNET7.App.Controller._02_Akaun
                         akPVView.Telefon = akPV.SuPekerja.TelefonBimbit;
                         akPVView.Emel = akPV.SuPekerja.Emel;
                     }
-                    
+
                     break;
                 //Am
                 default:
@@ -2597,7 +2597,7 @@ namespace SPMBNET7.App.Controller._02_Akaun
                         akPVView.Telefon = akPV.Telefon;
                         akPVView.Emel = akPV.Emel;
                     }
-                    
+
                     break;
             }
 
@@ -2625,7 +2625,7 @@ namespace SPMBNET7.App.Controller._02_Akaun
                     akPVView.JumlahInbois += item.Amaun;
                 }
             }
-            
+
             akPVView.AkPV2 = akPV.AkPV2;
 
             if (akPV.AkPVGanda != null)
@@ -2635,7 +2635,7 @@ namespace SPMBNET7.App.Controller._02_Akaun
                     akPVView.JumlahGanda += item.Amaun;
                 }
             }
-            
+
             akPVView.AkPVGanda = akPV.AkPVGanda;
 
             CartEmpty();

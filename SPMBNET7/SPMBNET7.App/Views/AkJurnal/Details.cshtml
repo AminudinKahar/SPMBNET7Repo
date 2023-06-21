@@ -1,0 +1,190 @@
+﻿@model SPMBNET7.CoreBusiness.Models.Modules._02_Akaun.AkJurnal
+
+@{
+    ViewData["Title"] = "Baucer Jurnal - Papar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card box-shadow">
+    <div class="card-body">
+        <partial name="~/Pages/Partials/Common/_TitleDetailsPartial.cshtml" />
+
+        <div class="row g-3">
+            <div class="col-lg-10">
+                <div class="row g-3">
+                    <div class="form-group col-md">
+                        <label asp-for="NoJurnal" class="control-label"></label>
+                        <input asp-for="NoJurnal" class="form-control form-control-sm" readonly id="txtNoJurnal" />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="JKWId" class="control-label"></label>
+                        <input class="form-control form-control-sm text-uppercase"
+                               value="@Model.JKW?.Kod - @Model.JKW?.Perihal" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="JBahagianId" class="control-label"></label>
+                        <input class="form-control form-control-sm text-uppercase"
+                               value="@Model.JBahagian?.Kod - @Model.JBahagian?.Perihal" readonly />
+                    </div>
+                    <div class="form-group col-md">
+                        <label asp-for="Tarikh" class="control-label"></label>
+                        <input class="form-control form-control-sm" value="@Html.DisplayFor(model => model.Tarikh)" readonly />
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="form-group col-md">
+                        <label class="control-label">Catatan</label>
+                        <textarea class="form-control form-control-sm text-uppercase" rows="4" readonly>@Html.DisplayFor(model => model.Catatan1)</textarea>
+                    </div>
+                </div>
+                @if (Model.FlJenisJurnal == 4 && Model.AkTunaiRuncit != null)
+                {
+                    <div class="row g-3">
+                        <div class="form-group col-md">
+                            <label asp-for="AkTunaiRuncitId" class="control-label"></label>
+                            <input class="form-control form-control-sm" value="@Model.AkTunaiRuncit.KaunterPanjar  ( @Model.AkTunaiRuncit.AkCarta?.Kod - @Model.AkTunaiRuncit.AkCarta?.Perihal )" readonly />
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="card mb-2">
+                        <div class="card-body ps-3 pe-3 pt-2">
+
+                            <label class="control-label">Maklumat Tambahan : </label>
+                            <div class="custom-control custom-radio">
+                                <input type="checkbox" data-val="true" id="IsAKB" asp-for="IsAKB" disabled>
+                                <label class="control-label">Jurnal ini melibatkan Akaun Belum Bayar (ABB)</label>
+                                <input type="hidden" name="IsAKB" value="false" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-2">
+                <div class="card mb-2">
+                    <div class="card-body p-1 ms-3">
+                        <div class="form-group col-sm">
+                            <label asp-for="Cetak" class="control-label"></label>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="Cetak" type="radio" id="Cetak1" name="Cetak" class="custom-control-input" value="0">
+                                <label class="custom-control-label" for="Cetak1">Belum</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="Cetak" type="radio" id="Cetak2" name="Cetak" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Cetak">Sudah</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body p-1 ms-3">
+                        <div class="form-group col-sm">
+                            <label asp-for="Posting" class="control-label"></label>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="Posting" type="radio" id="Posting1" name="Posting" class="custom-control-input" value="0">
+                                <label class="custom-control-label" for="Posting">Belum</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="Posting" type="radio" id="Posting2" name="Posting" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="Posting">Sudah</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card mb-2">
+                    <div class="card-body p-1 ms-3">
+                        <div class="form-group col-sm">
+                            <label asp-for="FlHapus" class="control-label"></label>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlHapus" type="radio" id="FlHapus1" name="FlHapus1" class="custom-control-input" value="0">
+                                <label class="custom-control-label" for="FlHapus">Tidak</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlHapus" type="radio" id="FlHapus1" name="FlHapus" class="custom-control-input" value="1">
+                                <label class="custom-control-label" for="FlHapus">Ya</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card box-shadow mb-3">
+            <div class="card-header">
+                <h6>Objek</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="tblObjek" class="table table-sm" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="width:5%">Indeks</th>
+                                <th style="width:20%">Bhg. Debit</th>
+                                <th style="width:20%">Kod Debit</th>
+                                <th style="width:20%">Bhg. Kredit</th>
+                                <th style="width:20%">Kod Kredit</th>
+                                <th style="width:10%">Amaun RM</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyObjek">
+                            @if (Model.AkJurnal1 != null)
+                            {
+                                foreach (var item in Model.AkJurnal1)
+                                {
+                                    <tr>
+                                        <td id="akCartaDebitId" hidden>@item.AkCartaDebitId</td>
+                                        <td>@(item.Indeks.ToString().Length<2?"0"+ item.Indeks.ToString(): item.Indeks.ToString())</td>
+                                        <td id="akCartaKreditId" hidden>@item.AkCartaKreditId</td>
+                                        <td id="bahagianDebitId" hidden>@item.JBahagianDebitId</td>
+                                        <td class='text-uppercase'>@item.JBahagianDebit?.Kod - @item.JBahagianDebit?.Perihal</td>
+                                        <td class='text-uppercase'>@item.AkCartaDebit?.Kod - @item.AkCartaDebit?.Perihal</td>
+                                        <td class='text-uppercase'>@item.JBahagianKredit?.Kod - @item.JBahagianKredit?.Perihal</td>
+                                        <td class='text-uppercase'>@item.AkCartaKredit?.Kod - @item.AkCartaKredit?.Perihal</td>
+                                        <td class="editable-txt text-end" id="td1Amaun">@item.Amaun</td>
+                                    </tr>
+
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row g-3">
+                    <div class="form-group col-md-4 offset-md-4">
+                        <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-text fw-bold">Jumlah Debit RM</div>
+                            <input class="form-control form-control-sm fw-bold text-end" value="@Html.DisplayFor(model => model.JumDebit)" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-text fw-bold">Jumlah Kredit RM</div>
+                            <input class="form-control form-control-sm fw-bold text-end" value="@Html.DisplayFor(model => model.JumKredit)" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="form-group">
+
+            @if (Model.Posting == 1)
+            {
+            }
+            else
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn ac-primary btn-sm">Ubah</a>
+            }
+            <a asp-action="Index" class="btn ac-secondary btn-sm" style="width:auto">Batal</a>
+        </div>
+    </div>
+</div>

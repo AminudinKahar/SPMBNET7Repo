@@ -1,0 +1,77 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        var scol = $('#searchColumn').val();
+
+        $("#myInputString").hide();
+        $("#myInputDate1").hide();
+        $("#myInputDate2").hide();
+        $("#myInputKw").hide();
+
+        if (scol === "Tarikh") {
+            $("#myInputString").hide();
+            $("#myInputDate1").show();
+            $("#myInputDate2").show();
+            $("#myInputKw").hide();
+        }
+        if (scol === "NoJurnal") {
+            $("#myInputString").show();
+            $("#myInputDate1").hide();
+            $("#myInputDate2").hide();
+            $("#myInputKw").hide();
+        }
+        if (scol === "KW") {
+            $("#myInputString").hide();
+            $("#myInputDate1").hide();
+            $("#myInputDate2").hide();
+            $("#myInputKw").show();
+        }
+
+        $("#searchColumn").change(function () {
+            $("#myInput").val("");
+            $("#inputTarikh1").val("");
+            $("#inputTarikh2").val("");
+            $("#searchKw").val("").trigger('change');
+
+            if (this.value === "Tarikh") {
+                $("#myInputString").hide();
+                $("#myInputDate1").show();
+                $("#myInputDate2").show();
+                $("#myInputKw").hide();
+            }
+            if (this.value === "NoJurnal") {
+                $("#myInputString").show();
+                $("#myInputDate1").hide();
+                $("#myInputDate2").hide();
+                $("#myInputKw").hide();
+            }
+            if (this.value === "KW") {
+                $("#myInputString").hide();
+                $("#myInputDate1").hide();
+                $("#myInputDate2").hide();
+                $("#myInputKw").show();
+            }
+        });
+
+        var table = $('.table').DataTable({
+            "paging": false,
+            rowReorder: true,
+            columnDefs: [
+                { orderable: true, className: 'reorder', targets: 1 },
+                { orderable: true, className: 'reorder', targets: 3 },
+                { orderable: false, targets: '_all' }
+            ],
+            "order": [[1, "asc"]],
+            "scrollY": "50vh",
+            "scrollX": true,
+            "scrollCollapse": true,
+            "paging": false,
+            dom: 'lrt',
+        });
+
+        table.on('order.dt search.dt', function () {
+            table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
+    });
+</script>

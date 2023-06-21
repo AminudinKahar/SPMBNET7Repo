@@ -72,10 +72,10 @@
         @if (Model != null && Model.Count() > 0)
         {
             <div class="table-responsive">
-                <table class="table table-hover table-sm compact" width="100%">
+                <table class="table table-hover compact" width="100%">
                     <caption>Rekod dipamerkan : @Model.Count()</caption>
                     <thead class="table-secondary">
-                        <tr>
+                        <tr >
                             <th width="2%">Bil</th>
                             <th hidden> Id</th>
                             <th width="2%">
@@ -121,7 +121,7 @@
                             }
                             var tableBatal = item.FlBatal == 1 ? "table-secondary" : null;
 
-                            <tr class="@tabletype @tableBatal">
+                            <tr class="@tabletype @tableBatal text-start">
                                 <td>
                                 </td>
                                 <td hidden>@item.Id</td>
@@ -149,7 +149,7 @@
                                 <td>
                                     @item.Tarikh.ToString("dd/MM/yyyy")
                                 </td>
-                                <td class="text-right">
+                                <td class="text-end">
                                     @Convert.ToDecimal(item.Jumlah).ToString("#,##0.00")
                                 </td>
                                 <td class="text-uppercase">
@@ -325,6 +325,7 @@
                 <div class="modal-body">
 
                     <input hidden name="id" class="moId" />
+                    <input name="syscode" value="SPPB" hidden />
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -439,7 +440,7 @@
         <div class="modal-content">
             <div class="modal-header" style="color:#a54ea8;">
                 <h5 class="modal-title">Kelulusan Baucer Pembayaran</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
             <form asp-action="Posting" asp-controller="AkPV" class="needs-validation">
@@ -448,6 +449,7 @@
                 <div class="modal-body">
 
                     <input hidden name="id" class="moId" />
+                    <input name="syscode" value="SPPB" hidden />
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="form-group">

@@ -10,9 +10,13 @@ namespace SPMBNET7.Infrastructure.Carts._02_Akaun
             int AkJurnalId,
             int Indeks,
             int JBahagianDebitId,
+            JBahagian? jBahagianDebit,
             int AkCartaDebitId,
+            AkCarta? akCartaDebit,
             int JBahagianKreditId,
+            JBahagian? jBahagianKredit,
             int AkCartaKreditId,
+            AkCarta? akCartaKredit,
             decimal Amaun
             )
         {
@@ -29,9 +33,13 @@ namespace SPMBNET7.Infrastructure.Carts._02_Akaun
                     AkJurnalId = AkJurnalId,
                     Indeks = Indeks,
                     JBahagianDebitId = JBahagianDebitId,
+                    JBahagianDebit = jBahagianDebit,
                     AkCartaDebitId = AkCartaDebitId,
+                    AkCartaDebit = akCartaDebit,
                     JBahagianKreditId = JBahagianKreditId,
+                    JBahagianKredit = jBahagianKredit,
                     AkCartaKreditId = AkCartaKreditId,
+                    AkCartaKredit = akCartaKredit,
                     Amaun = Amaun
                 });
             }

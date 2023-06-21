@@ -1,0 +1,381 @@
+﻿<script type="text/javascript">
+    var varIndeksLama = 0;
+    //add tbl objek
+    $("body").on("click", "#btnAdd1", function () {
+        //Reference the Name and Country TextBoxes.
+        var txtKodAkaunDebit = $("#txtKodAkaunDebit");
+        var txtJBahagianDebitId = $("#txtJBahagianDebitId");
+        var txtKodAkaunKredit = $("#txtKodAkaunKredit");
+        var txtJBahagianKreditId = $("#txtJBahagianKreditId");
+        GetCarta(txtKodAkaunDebit.val(), txtJBahagianDebitId.val(), txtKodAkaunKredit.val(), txtJBahagianKreditId.val());
+    });
+
+    $(document).ready(function () {
+        getNextIdx();
+        var data = $('#jkwtxt').val().trim().substring(0, 3);
+        RemoveUnrelated(data);
+    });
+
+    function GetCarta(akaunDebitId, bahagianDebitId, akaunKreditId, bahagianKreditId) {
+        var Objek = {
+            AkCartaDebitId: akaunDebitId,
+            JBahagianDebitId: bahagianDebitId,
+            AkCartaKreditId: akaunKreditId,
+            JBahagianKreditId: bahagianKreditId
+        }
+        if (akaunDebitId != null && bahagianDebitId != null && akaunKreditId != null && bahagianKreditId != null) {
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                //url: "/AkJurnal/GetCarta",
+                url: '@Url.Action("GetCarta", "AkJurnal")',
+                data: Objek,
+                dataType: "json",
+                success: function (r) {
+                    //Reference the TextBoxes.
+                    var txtKodAkaunDebit = $("#txtKodAkaunDebit");
+                    var txtJBahagianDebitId = $("#txtJBahagianDebitId");
+                    var txtKodAkaunKredit = $("#txtKodAkaunKredit");
+                    var txtJBahagianKreditId = $("#txtJBahagianKreditId");
+                    var txtKodAkaunDebitText = $("#txtKodAkaunDebit option:selected");
+                    var txtKodAkaunKreditText = $("#txtKodAkaunKredit option:selected");
+                    var txtAmaunObjek = $("#txtAmaunObjek");
+                    var jumDebit = $("#JumDebit");
+                    var jumKredit = $("#JumKredit");
+                    var indeks = $("#txtIndeksObjek");
+
+                    var AkJurnal1 = {
+                        AkCartaDebitId: txtKodAkaunDebit.val(),
+                        JBahagianDebitId: txtJBahagianDebitId.val(),
+                        AkCartaKreditId: txtKodAkaunKredit.val(),
+                        JBahagianKreditId: txtJBahagianKreditId.val(),
+                        Amaun: txtAmaunObjek.val(),
+                        Indeks: indeks.val()
+                    }
+
+                    if (txtKodAkaunDebit.val() != null && txtJBahagianDebitId.val() != null && txtKodAkaunKredit.val() != null && txtJBahagianKreditId.val() != null) {
+                        $.ajax({
+                            type: "POST",
+                            //url: "/AkJurnal/SaveAkJurnal1",
+                            url: '@Url.Action("SaveAkJurnal1", "AkJurnal")',
+                            data: AkJurnal1,
+                            dataType: "json",
+                            success: function (r) {
+                                //Clear the TextBoxes.
+                                txtAmaunObjek.val("0.00");
+                                jumDebit.val(r.record.value.debit);
+                                jumKredit.val(r.record.value.kredit);
+
+                                $(".errKodAkaun").css({ "display": "none" });
+                                $(".errIndeks").css({ "display": "none" });
+
+                                var nextIdx = 0;
+                                var table = $("#tblObjek tbody");
+                                table.find('tr').each(function (i, el) {
+                                    var $tds = $(this).find('td');
+                                    var idx = $tds.eq(1).text();
+                                    var intidx = parseInt(idx);
+                                    nextIdx = nextIdx < intidx ? intidx : nextIdx;
+                                });
+                                indeks.val(round5(nextIdx));
+
+                                $.ajax({
+                                    type: "POST",
+                                    //url: "/AkJurnal/GetAllItemCartAkJurnal1",
+                                    url: '@Url.Action("GetAllItemCartAkJurnal1", "AkJurnal")',
+                                    dataType: "json",
+                                    success: function (r) {
+                                        //refresh updated table objek
+                                        $("table tbody#tbodyObjek").empty();
+                                        var sumdebit = 0;
+                                        var sumkredit = 0;
+                                        var nextIdx = 0;
+                                        if (r.record.length > 0) {
+                                            for (var i = 0; i < r.record.length; i++) {
+                                                var item1 = r.record[i];
+                                                var str =
+                                                    "<tr><td id='akCartaDebitId' hidden>" + item1.akCartaDebitId +
+                                                    "</td><td>" + (((item1.indeks.toString()).length < 2) ? ("0" + (item1.indeks).toString()) : item1.indeks) +
+                                                    "</td><td id='akCartaKredittId' hidden>" + item1.akCartaKreditId +
+                                                    "</td><td id='jBahagianDebitId' hidden>" + item1.jBahagianDebitId +
+                                                    "</td><td id='jBahagianKreditId' hidden>" + item1.jBahagianKreditId +
+                                                    "</td><td class='text-uppercase'>" + item1.jBahagianDebit.kod + ' - ' + item1.jBahagianDebit.perihal +
+                                                    "</td><td class='text-uppercase'>" + item1.akCartaDebit.kod + ' - ' + item1.akCartaDebit.perihal +
+                                                    "</td><td class='text-uppercase'>" + item1.jBahagianKredit.kod + ' - ' + item1.jBahagianKredit.perihal +
+                                                    "</td><td class='text-uppercase'>" + item1.akCartaKredit.kod + ' - ' + item1.akCartaKredit.perihal +
+                                                    "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                                    "</td><td>" +
+                                                    "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-toggle='modal' data-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+                                                    "</td><td>" +
+                                                    "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash' ></i></button>" +
+                                                    "</td><tr>";
+                                                $("table tbody#tbodyObjek").append(str);
+                                                sumdebit += item1.amaun;
+                                                sumkredit += item1.amaun;
+                                                nextIdx = nextIdx < item1.indeks ? item1.indeks : nextIdx;
+                                            }
+                                        }
+                                        jumDebit.val(sumdebit.toFixed(2));
+                                        jumKredit.val(sumkredit.toFixed(2));
+                                        $("#txtIndeksObjek").val(round5(nextIdx));
+                                        $('#modalObjek').modal('hide');
+                                        $(".errModelIndeks").css({ "display": "none" });
+                                    }
+                                });
+                            },
+                            error: function (req, status, error) {
+                                alert(error);
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+    //add tbl objek end
+
+    function Update1(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var akJurnalId = $('#Id').val();
+        var idJurnal1 = row.attr('id');
+        var name = $("TD", row).eq(6).html();
+        var akCartaDebitId = $("TD", row).eq(0).html();
+        var indeks = $("TD", row).eq(1).html();
+        var akCartaKreditId = $("TD", row).eq(2).html();
+        var bahagianDebitId = $("TD", row).eq(3).html();
+        var bahagianKreditId = $("TD", row).eq(4).html();
+
+        var AkJurnal1 = {
+            AkJurnalId: akJurnalId,
+            Id: idJurnal1,
+            AkCartaDebitId: akCartaDebitId,
+            AkCartaKreditId: akCartaKreditId,
+            JBahagianDebitId: bahagianDebitId,
+            JBahagianKreditId: bahagianKreditId,
+            Indeks: indeks
+        }
+        if (name != null) {
+            $.ajax({
+                type: "POST",
+                //url: "/AkJurnal/GetAnItemCartAkJurnal1",
+                url: '@Url.Action("GetAnItemCartAkJurnal1", "AkJurnal")',
+                data: AkJurnal1,
+                dataType: "json",
+                success: function (r) {
+                    $("#moId1").val(r.record.id);
+                    $("#moIndeks").val((r.record.indeks).toString().length < 2 ? "0" + (r.record.indeks).toString() : r.record.indeks);
+                    varIndeksLama = r.record.indeks;
+                    $("#moKodAkaunDebit").val(r.record.akCartaDebitId);
+                    $("#moBahagianDebit").val(r.record.jBahagianDebitId);
+                    $("#moKodAkaunKredit").val(r.record.akCartaKreditId);
+                    $("#moBahagianKredit").val(r.record.jBahagianKreditId);
+                    $("#moAmaun").val(r.record.amaun.toFixed(2));
+                    $("#modalObjek").modal({ backdrop: 'static', keyboard: false });
+                }
+            });
+        }
+    };
+    function modalUpdate1() {
+        var id = $("#moId1").val();
+        var akJurnalId = $("#Id").val();
+        var akCartaDebitId = $("#moKodAkaunDebit").val();
+        var bahagianDebitId = $("#moBahagianDebit").val();
+        var akCartaKreditId = $("#moKodAkaunKredit").val();
+        var bahagianKreditId = $("#moBahagianKredit").val();
+        var indeks = $("#moIndeks").val();
+        var txtCartaDebit = $("#moKodAkaunDebit option:selected").text();
+        var txtCartaKredit = $("#moKodAkaunKredit option:selected").text();
+        var amaun = $("#moAmaun").val();
+        var jumDebit = $("#JumDebit");
+        var jumKredit = $("#JumKredit");
+
+        var AkJurnal1 = {
+            Id: id,
+            AkJurnalId: akJurnalId,
+            AkCartaDebitId: akCartaDebitId,
+            JBahagianDebitId: bahagianDebitId,
+            AkCartaKreditId: akCartaKreditId,
+            JBahagianKreditId: bahagianKreditId,
+            Amaun: amaun,
+            IndeksLama: varIndeksLama,
+            IndeksBaru: indeks
+        }
+
+        $.ajax({
+            type: "POST",
+            //url: "/AkJurnal/SaveCartAkJurnal1",
+            url: '@Url.Action("SaveCartAkJurnal1", "AkJurnal")',
+            data: AkJurnal1,
+            dataType: "json",
+            beforeSend: function () {
+                $('#tblObjek').addClass('d-none');
+                $('#loader').removeClass('d-none');
+            },
+            success: function (r) {
+                //insert notification here
+                $("table tbody#tbodyObjek").empty();
+                $.ajax({
+                    type: "POST",
+                    //url: "/AkJurnal/GetAllItemCartAkJurnal1",
+                    url: '@Url.Action("GetAllItemCartAkJurnal1", "AkJurnal")',
+                    data: AkJurnal1,
+                    dataType: "json",
+                    success: function (r) {
+
+                        //refresh updated table objek
+                        var sumdebit = 0;
+                        var sumkredit = 0;
+                        if (r.record.length > 0) {
+                            for (var i = 0; i < r.record.length; i++) {
+                                var item1 = r.record[i];
+                                var str =
+                                    "<tr><td id='akCartaDebitId' hidden>" + item1.akCartaDebitId +
+                                    "</td><td>" + (((item1.indeks.toString()).length < 2) ? ("0" + (item1.indeks).toString()) : item1.indeks) +
+                                    "</td><td id='akCartaKredittId' hidden>" + item1.akCartaKreditId +
+                                    "</td><td id='jBahagianDebitId' hidden>" + item1.jBahagianDebitId +
+                                    "</td><td id='jBahagianKreditId' hidden>" + item1.jBahagianKreditId +
+                                    "</td><td class='text-uppercase'>" + item1.jBahagianDebit.kod + ' - ' + item1.jBahagianDebit.perihal +
+                                    "</td><td class='text-uppercase'>" + item1.akCartaDebit.kod + ' - ' + item1.akCartaDebit.perihal +
+                                    "</td><td class='text-uppercase'>" + item1.jBahagianKredit.kod + ' - ' + item1.jBahagianKredit.perihal +
+                                    "</td><td class='text-uppercase'>" + item1.akCartaKredit.kod + ' - ' + item1.akCartaKredit.perihal +
+                                    "</td><td class='text-end'>" + (item1.amaun).toFixed(2) +
+                                    "</td><td>" +
+                                    "<button class='btn ac-primary btn-sm' type='button' id='btnUpdate1' data-toggle='modal' data-target='#modalObjek' onclick='Update1(this)'><i class='fa fa-edit' ></i></button>" +
+                                    "</td><td>" +
+                                    "<button class='btn ac-danger btn-sm' type='button' id='btnRemove1' onclick='Remove1(this)'><i class='fas fa-trash' ></i></button>" +
+                                    "</td><tr>";
+                                $("table tbody#tbodyObjek").append(str);
+                                sumdebit += item1.amaun;
+                                sumkredit += item1.amaun;
+                            }
+                        }
+                        jumDebit.val(sumdebit.toFixed(2));
+                        jumKredit.val(sumkredit.toFixed(2));
+                        getNextIdx();
+                        $('#modalObjek').modal('hide');
+                        $(".errModelIndeks").css({ "display": "none" });
+                    }
+                });
+            },
+            complete: function () {
+                $('#tblObjek').removeClass('d-none');
+                $('#loader').addClass('d-none');
+            },
+        });
+    };
+
+
+    //remove tbl objek
+    function Remove1(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var akJurnalId = $('#Id').val();
+        var idJurnal1 = $("#moId").val();
+        var name = $("TD", row).eq(6).html();
+        var jumDebit = $("#JumDebit");
+        var jumKredit = $("#JumKredit");
+        var cartaDebitId = $("TD", row).eq(0).html();
+        var cartaKreditId = $("TD", row).eq(2).html();
+        var bahagianDebitId = $("TD", row).eq(3).html();
+        var bahagianKreditId = $("TD", row).eq(4).html();
+        var indeks = $("TD", row).eq(1).html();
+        var idxStr = indeks.toString().length < 2 ? "0" + indeks.toString() : indeks.toString();
+
+        if (confirm("Hapus kod Akaun : " + name + " pada indeks : " + idxStr + " ?")) {
+            //Get the reference of the Table.
+            var table = $("#tblObjek")[0];
+            var AkJurnal1 = {
+                AkJurnalId: akJurnalId,
+                Id: idJurnal1,
+                AkCartaDebitId: cartaDebitId,
+                AkCartaKreditId: cartaKreditId,
+                JBahagianDebitId: bahagianDebitId,
+                JBahagianKreditId: bahagianKreditId,
+                Indeks: indeks
+            }
+            if (name != null) {
+                $.ajax({
+                    type: "POST",
+                    //url: "/AkJurnal/RemoveAkJurnal1",
+                    url: '@Url.Action("RemoveAkJurnal1", "AkJurnal")',
+                    data: AkJurnal1,
+                    dataType: "json",
+                    success: function (r) {
+                        //Delete the Table row using it's Index.
+                        table.deleteRow(row[0].rowIndex);
+                        jumDebit.val(r.record.value.debit.toFixed(2));
+                        jumKredit.val(r.record.value.kredit.toFixed(2));
+                        getNextIdx();
+                    }
+                });
+            }
+        }
+    };
+    //remove tbl objek end
+
+    function RemoveUnrelated(kwText) {
+        $("#txtKodAkaunDebit > option").each(function () {
+            $(this).prop('disabled', false);
+        });
+        $("#txtKodAkaunKredit > option").each(function () {
+            $(this).prop('disabled', false);
+        });
+        $("#moKodAkaunDebit > option").each(function () {
+            $(this).prop('disabled', false);
+        });
+        $("#moKodAkaunKredit > option").each(function () {
+            $(this).prop('disabled', false);
+        });
+        //txtKodAkaun, moKodAkaun
+        $("#txtKodAkaunDebit > option").each(function () {
+            if (this.className === kwText) {
+                $(this).prop('disabled', false);
+            } else {
+                $(this).prop('disabled', true);
+            }
+        });
+        $("#txtKodAkaunKredit > option").each(function () {
+            if (this.className === kwText) {
+                $(this).prop('disabled', false);
+            } else {
+                $(this).prop('disabled', true);
+            }
+        });
+        $("#moKodAkaunDebit > option").each(function () {
+            if (this.className === kwText) {
+                $(this).prop('disabled', false);
+            } else {
+                $(this).prop('disabled', true);
+            }
+        });
+        $("#moKodAkaunDebit > option").each(function () {
+            if (this.className === kwText) {
+                $(this).prop('disabled', false);
+            } else {
+                $(this).prop('disabled', true);
+            }
+        });
+    };
+
+    function getNextIdx() {
+        var nextIdx = 0;
+        var table = $("#tblObjek tbody");
+        table.find('tr').each(function (i, el) {
+            var $tds = $(this).find('td');
+            var idx = $tds.eq(1).text();
+            var intidx = parseInt(idx);
+            nextIdx = nextIdx < intidx ? intidx : nextIdx;
+        });
+        $("#txtIndeksObjek").val(round5(nextIdx));
+    };
+
+    function round5(x) {
+        if (Math.ceil(x / 5) * 5 === x) {
+            return (Math.ceil(x / 5) * 5) + 5;
+        } else {
+            return Math.ceil(x / 5) * 5;
+        }
+    };
+
+</script>

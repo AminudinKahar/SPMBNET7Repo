@@ -162,37 +162,22 @@
             </div>
             <div class="col-lg-2 pb-3">
                 <div class="card mb-2">
-                    <div class="card-body p-1 ms-3">
-
-                        <div class="form-group col-sm">
-                            <label class="control-label">Jenis Baucer</label>
-                            <div class="custom-control custom-radio">
-                                <input asp-for="FlJenisBaucer" type="radio" id="0" name="FlJenisBaucer" class="custom-control-input" value="0" checked>
-                                <label class="custom-control-label" for="FlJenisBaucer1">Am</label>
+                    <div class="card-body pb-1 pt-1">
+                        <div class="form-group mb-0 mt-1">
+                            <label class="control-label">Jenis ABB</label>
+                        </div>
+                        <div class="row g-3 col-sm ml-2">
+                            <div class="custom-control custom-radio col-md-6 ">
+                                <input class="custom-control-input " type="radio" id="IsAKB0" asp-for="IsAKB" value="false" checked>
+                                <label class="custom-control-label" for="IsAKB0">
+                                    Tidak
+                                </label>
                             </div>
-                            <div class="custom-control custom-radio">
-                                <input asp-for="FlJenisBaucer" type="radio" id="1" name="FlJenisBaucer" class="custom-control-input" value="1">
-                                <label class="custom-control-label" for="FlJenisBaucer2">Inbois</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input asp-for="FlJenisBaucer" type="radio" id="2" name="FlJenisBaucer" class="custom-control-input" value="2">
-                                <label class="custom-control-label" for="FlJenisBaucer3">Gaji</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input asp-for="FlJenisBaucer" type="radio" id="3" name="FlJenisBaucer" class="custom-control-input" value="3">
-                                <label class="custom-control-label" for="FlJenisBaucer3">Pendahuluan</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input asp-for="FlJenisBaucer" type="radio" id="4" name="FlJenisBaucer" class="custom-control-input" value="4">
-                                <label class="custom-control-label" for="FlJenisBaucer3">Rekupan</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input asp-for="FlJenisBaucer" type="radio" id="5" name="FlJenisBaucer" class="custom-control-input" value="5">
-                                <label class="custom-control-label" for="FlJenisBaucer3">Tambah Had Panjar</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input asp-for="FlJenisBaucer" type="radio" id="6" name="FlJenisBaucer" class="custom-control-input" value="6">
-                                <label class="custom-control-label" for="FlJenisBaucer3">Profil Atlet / Jurulatih</label>
+                            <div class="custom-control custom-radio col-md-6 ">
+                                <input class="custom-control-input " type="radio" id="IsAKB1" asp-for="IsAKB" value="true">
+                                <label class="custom-control-label" for="IsAKB1">
+                                    Ya
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -201,18 +186,59 @@
                     <div class="card-body p-1 ms-3">
 
                         <div class="form-group col-sm">
-                            <label class="control-label">Kategori Penerima</label>
+                            <label asp-for="FlJenisBaucer" class="control-label"></label>
                             <div class="custom-control custom-radio">
-                                <input asp-for="FlKategoriPenerima" type="radio" id="FlKategoriPenerima1" name="FlKategoriPenerima" class="custom-control-input" value="0" checked>
+                                <input asp-for="FlJenisBaucer" type="radio" id="0" name="FlJenisBaucer0" class="custom-control-input" value="Am">
+                                <label class="custom-control-label" for="FlJenisBaucer0">Am</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlJenisBaucer" type="radio" id="1" name="FlJenisBaucer1" class="custom-control-input" value="Inbois">
+                                <label class="custom-control-label" for="FlJenisBaucer1">Inbois</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlJenisBaucer" type="radio" id="2" name="FlJenisBaucer2" class="custom-control-input" value="Gaji">
+                                <label class="custom-control-label" for="FlJenisBaucer2">Gaji</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlJenisBaucer" type="radio" id="3" name="FlJenisBaucer3" class="custom-control-input" value="Pendahuluan">
+                                <label class="custom-control-label" for="FlJenisBaucer3">Pendahuluan</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlJenisBaucer" type="radio" id="4" name="FlJenisBaucer4" class="custom-control-input" value="Rekupan">
+                                <label class="custom-control-label" for="FlJenisBaucer4">Rekupan</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlJenisBaucer" type="radio" id="5" name="FlJenisBaucer5" class="custom-control-input" value="TambahHadPanjar">
+                                <label class="custom-control-label" for="FlJenisBaucer5">Tambah Had Panjar</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlJenisBaucer" type="radio" id="6" name="FlJenisBaucer6" class="custom-control-input" value="ProfilAtletJurulatih">
+                                <label class="custom-control-label" for="FlJenisBaucer6">Profil Atlet / Jurulatih</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-2">
+                    <div class="card-body p-1 ms-3">
+
+                        <div class="form-group col-sm">
+                            <label asp-for="FlKategoriPenerima" class="control-label"></label>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlKategoriPenerima" type="radio" id="FlKategoriPenerima1" name="FlKategoriPenerima" class="custom-control-input" value="Am" checked>
                                 <label class="custom-control-label" for="FlKategoriPenerima1">Am</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input asp-for="FlKategoriPenerima" type="radio" id="FlKategoriPenerima2" name="FlKategoriPenerima" class="custom-control-input" value="1">
+                                <input asp-for="FlKategoriPenerima" type="radio" id="FlKategoriPenerima2" name="FlKategoriPenerima" class="custom-control-input" value="Pembekal">
                                 <label class="custom-control-label" for="FlKategoriPenerima2">Pembekal</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input asp-for="FlKategoriPenerima" type="radio" id="FlKategoriPenerima3" name="FlKategoriPenerima" class="custom-control-input" value="2">
+                                <input asp-for="FlKategoriPenerima" type="radio" id="FlKategoriPenerima3" name="FlKategoriPenerima" class="custom-control-input" value="Pekerja">
                                 <label class="custom-control-label" for="FlKategoriPenerima3">Pekerja</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input asp-for="FlKategoriPenerima" type="radio" id="FlKategoriPenerima4" name="FlKategoriPenerima" class="custom-control-input" value="PemegangPanjar">
+                                <label class="custom-control-label" for="FlKategoriPenerima3">Pemegang Panjar</label>
                             </div>
                         </div>
                     </div>
@@ -257,7 +283,7 @@
                                 <label class="custom-control-label" for="FlHapus">Tidak</label>
                             </div>
                             <div class="custom-control custom-radio">
-                                <input asp-for="FlHapus" type="radio" id="FlHapus1" name="FlBatal" class="custom-control-input" value="1">
+                                <input asp-for="FlHapus" type="radio" id="FlHapus1" name="FlHapus" class="custom-control-input" value="1">
                                 <label class="custom-control-label" for="FlHapus">Ya</label>
                             </div>
                         </div>
